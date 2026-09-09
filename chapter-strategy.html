@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>第 1 章　五步策略</title>
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+
+<div class="nav">
+  <div class="nav-inner">
+    <a class="brand" href="index.html">解决问题训练站<small>PROBLEM SOLVING LAB</small></a>
+    <div class="nav-links" id="nav-links"></div>
+    <span class="nav-progress" id="nav-progress">掌握度 0%</span>
+  </div>
+</div>
+
+<div class="wrap">
+
+  <div class="crumb"><a href="index.html">首页</a><span>/</span>第 1 章　五步策略</div>
+  <h1>第 1 章　五步策略<span class="badge">主軸章 · 详填</span></h1>
+  <p class="lead">这一章是全站的主轴。后面七章（认识思维、创造力、分类、知识结构、表达、态度）
+  本质上都是在为这五步提供弹药。<b>这一章不打通，后面练什么都事倍功半。</b></p>
+
+  <div class="toc">
+    <strong>本页目录</strong>
+    <ol>
+      <li><a href="#s1">策略从哪来：三个版本的差异</a></li>
+      <li><a href="#s2">本章目标：应知／应会／理解／迁移</a></li>
+      <li><a href="#s3">五步操作定义表（核心资产）</a></li>
+      <li><a href="#s4">建模示范：专家出声思考</a></li>
+      <li><a href="#s5">练习梯度：同构 → 近迁移 → 远迁移</a></li>
+      <li><a href="#s6">表现量规 Rubric</a></li>
+      <li><a href="#s7">形成性检查工具</a></li>
+      <li><a href="#s8">迁移题库</a></li>
+      <li><a href="#s9">双向细目表与自测</a></li>
+    </ol>
+  </div>
+
+  <h2 id="s1">一、策略从哪来：三个版本的差异</h2>
+  <p>通用解题策略不是某个人的发明，而是百年教学研究的沉淀。弄清版本差异，你才知道<b>每一步为什么存在</b>。</p>
+
+  <div class="table-scroll">
+  <table>
+    <thead><tr><th>版本</th><th>步数</th><th>内容</th><th>差异关键</th></tr></thead>
+    <tbody>
+      <tr>
+        <td><b>早期四步版</b><br><small class="muted">Polya, 1945</small></td><td>4</td>
+        <td>明确问题 → 拟定计划 → 实施 → 回顾</td>
+        <td>开山之作，但从“弄清问题”直接跳到“拟定计划”，<b>中间缺了一块</b></td>
+      </tr>
+      <tr>
+        <td><b>六步版</b><br><small class="muted">McMaster 体系</small></td><td>6</td>
+        <td>增强动机 → 明确问题 → <b>探索思考</b> → 拟定计划 → 实施 → 回顾</td>
+        <td>补上了“探索”，并额外强调动机</td>
+      </tr>
+      <tr>
+        <td><b>本站五步</b></td><td><b>5</b></td>
+        <td><b>明确问题 → 探索思考 → 拟定计划 → 实施执行 → 回顾总结</b></td>
+        <td>保留“探索”；把动机与态度<b>贯穿全程</b>，不单列为一步</td>
+      </tr>
+    </tbody>
+  </table>
+  </div>
+
+  <div class="note warn"><span class="t">本章最重要的一个判断</span>
+  <b>“探索思考”是四步版与后续版本最大的差异点，也是新手最容易跳过、代价最高的一步。</b>
+  跳过它，你会在错误的路上高效地狂奔。</div>
+
+  <h2 id="s2">二、本章目标：应知／应会／理解／迁移</h2>
+
+  <div class="grid g2">
+    <div class="card">
+      <h4>应知（知道“是什么”）</h4>
+      <ul class="tight">
+        <li>说出五步的名称<b>与顺序</b></li>
+        <li>说出每一步的<b>核心任务与产出物</b></li>
+        <li>说出三个版本的差异及原因</li>
+        <li>说出“探索思考”为何不可跳过</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h4>应会（标准情境“做得出”）</h4>
+      <p class="muted">给一道陌生题，你能：</p>
+      <ol class="tight">
+        <li>按五步走完，<b>每步都有书面产出</b></li>
+        <li>探索步列出 <b>≥3 条候选路径</b></li>
+        <li>回顾步给出验证、替代解、推广变体</li>
+        <li>卡住时能<b>定位在第几步并回退</b></li>
+      </ol>
+    </div>
+    <div class="card">
+      <h4>深度理解（知道“为什么”）</h4>
+      <ul class="tight">
+        <li>解释“最佳解取决于资源与准则”，会用<b>逐次近似</b>先粗后精</li>
+        <li>能<b>诊断</b>他人卡在哪一步并设计补偿动作</li>
+        <li>说出策略的<b>边界</b>：知识不足时，策略救不了你</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h4>迁移（唯一真正的掌握标准）</h4>
+      <ul class="tight">
+        <li>在<b>真实工作问题</b>中独立套用并产出可交付成果</li>
+        <li>能<b>出声示范</b>给别人看（教就是最好的学）</li>
+      </ul>
+    </div>
+  </div>
+
+  <h2 id="s3">三、五步操作定义表<span class="muted" style="font-size:14px;font-weight:400">（核心资产：每一步都要有“产出物”）</span></h2>
+
+  <div class="table-scroll">
+  <table>
+    <thead>
+      <tr><th>步骤</th><th>目的</th><th>关键动作</th><th>产出物（可检查证据）</th><th>自检问句</th><th>常见病症</th></tr>
+    </thead>
+    <tbody id="step-table"></tbody>
+  </table>
+  </div>
+
+  <div class="note"><span class="t">怎么判断自己“真的做了”这一步</span>
+  看<b>产出物</b>。没有产出物的步骤等于没做——这是本站所有练习的第一评价标准。</div>
+
+  <h2 id="s4">四、建模示范：专家出声思考</h2>
+  <p>下面用一道公有领域的经典谜题，示范专家在心里到底说了什么。
+  请注意<b>灰色的内心独白</b>——策略的价值全在这些自问自答里。</p>
+
+  <div class="card">
+    <h4>题目：三人三兽渡河</h4>
+    <p>三个人（P）与三只兽（B）在左岸，船最多载 2 个。任何一岸，<b>只要有人在场，人数不得少于兽数</b>，
+    否则兽会伤人。请把所有人与兽送到右岸。</p>
+  </div>
+
+  <h3>第 1 步｜明确问题</h3>
+  <div class="step-card">
+    <p class="muted" style="margin-top:0">「我先重述：起点（3P, 3B, 左），终点（0P, 0B, 右）。船容量 ≤ 2。
+    约束是人 ≥ 兽（<b>人数不为 0 时</b>）。我用（左岸人数, 左岸兽数, 船位）表示状态。
+    ⚠️ 我检查自己有没有偷偷加限制……我原本直觉“尽量往对岸送人”——
+    <b>但题目没说不能划回来。这可能就是关键。</b>」</p>
+    <p style="margin-bottom:0"><b>产出：</b>已知 3P/3B/船容 2/约束；未知：摆渡序列；准则：全部过河且任一步不违反约束。</p>
+  </div>
+
+  <h3>第 2 步｜探索思考（突破口所在）</h3>
+  <div class="step-card">
+    <p class="muted" style="margin-top:0">「我想几条路：<br>
+    ① 直觉贪心：每次尽量送 2 个过去 → 很快发现船回不来（死路）<br>
+    ② 状态空间搜索：把所有合法状态画出来找路径 → 稳但慢<br>
+    ③ 目标导向倒推：从终点反推<br>
+    ④ <b>关键洞察</b>：不只“向对岸送”，<b>允许 1–2 个划回来</b>——题目允许，但我一开始没用！<br>
+    ⑤ 类比：这像状态机转换，非法状态是陷阱。<br>
+    我选 ②＋④。」</p>
+    <p style="margin-bottom:0"><b>产出：</b>4 条候选路径，选定“状态图 + 允许返回”。</p>
+  </div>
+
+  <h3>第 3 步｜拟定计划</h3>
+  <div class="step-card">
+    <p class="muted" style="margin-top:0">「以（左 P, 左 B, 船）为节点，从 (3,3,左) 走到 (0,0,右)，
+    <b>每一步枚举所有合法移动</b>，遇非法状态剪枝。
+    验证方式：走完后<b>逐步回放</b>，检查每一步左右两岸是否都满足 P ≥ B。」</p>
+    <p style="margin-bottom:0"><b>产出：</b>搜索 + 剪枝规则 + 回放验证。</p>
+  </div>
+
+  <h3>第 4 步｜实施执行</h3>
+  <div class="table-scroll">
+  <table>
+    <thead><tr><th>#</th><th>动作</th><th>左岸</th><th>右岸</th><th>校核</th></tr></thead>
+    <tbody>
+      <tr><td>1</td><td>兽兽 →</td><td>3人 1兽</td><td>0人 2兽</td><td>左 3≥1 ✓ 右无人 ✓</td></tr>
+      <tr><td>2</td><td>兽 ←</td><td>3人 2兽</td><td>0人 1兽</td><td>✓</td></tr>
+      <tr><td>3</td><td>兽兽 →</td><td>3人 0兽</td><td>0人 3兽</td><td>✓</td></tr>
+      <tr><td>4</td><td>兽 ←</td><td>3人 1兽</td><td>0人 2兽</td><td>✓</td></tr>
+      <tr><td>5</td><td>人人 →</td><td>1人 1兽</td><td>2人 2兽</td><td>左 1≥1 ✓ 右 2≥2 ✓</td></tr>
+      <tr style="background:#fffbeb"><td><b>6</b></td><td><b>人兽 ←（关键步）</b></td><td>2人 2兽</td><td>1人 1兽</td><td>✓</td></tr>
+      <tr><td>7</td><td>人人 →</td><td>0人 2兽</td><td>3人 1兽</td><td>左无人 ✓ 右 3≥1 ✓</td></tr>
+      <tr><td>8</td><td>兽 ←</td><td>0人 3兽</td><td>3人 0兽</td><td>✓</td></tr>
+      <tr><td>9</td><td>兽兽 →</td><td>0人 1兽</td><td>3人 2兽</td><td>✓</td></tr>
+      <tr><td>10</td><td>兽 ←</td><td>0人 2兽</td><td>3人 1兽</td><td>✓</td></tr>
+      <tr><td>11</td><td>兽兽 →</td><td><b>0人 0兽</b></td><td>3人 3兽</td><td><b>完成 ✓</b></td></tr>
+    </tbody>
+  </table>
+  </div>
+
+  <h3>第 5 步｜回顾总结（高手分水岭）</h3>
+  <div class="step-card">
+    <ul class="tight">
+      <li><b>验证：</b>回放 11 步，每步两岸均满足 P ≥ B（或人数为 0）→ 全部合法 ✓</li>
+      <li><b>更简解：</b>可证 11 步为最少步数，无更短解</li>
+      <li><b>变体推广：</b>4 人 4 兽、船容 2 → 无解；船容 3 → 步数改变；n 人 n 兽 → 可推广</li>
+      <li><b>范例化（笛卡儿式收尾）：</b><br>
+        「<b>凡是“带约束的状态转移问题”（排程、搬运、资源调度），都可以画状态图 + 剪枝 + 允许回退来解。</b>」</li>
+      <li><b>过程反思：</b>我卡在第 6 步，因为“只往前送”的定势。下次遇到搬运／排程题，<b>先问“我偷偷加了什么限制”</b>。</li>
+    </ul>
+  </div>
+
+  <div class="note ok"><span class="t">范式的力量</span>
+  笛卡儿说过：<b>「我所解决的每一个问题，都将成为解其他问题的范例。」</b>
+  回顾总结这一步，就是在制造“范例”。做一次，受益 N 次。</div>
+
+  <h2 id="s5">五、练习梯度：同构 → 近迁移 → 远迁移</h2>
+
+  <h3>A. 同构题（结构相同，换数字）</h3>
+  <ol>
+    <li>求和：<code>1 + 2 + … + 59 = ?</code> 用五步走，重点在探索步的“重新组合”。</li>
+    <li>渡河变体：<b>4 人 4 兽，船容 3</b> → 有解吗？几步？</li>
+  </ol>
+
+  <h3>B. 近迁移题（换领域 / 换形式）</h3>
+  <ol start="3">
+    <li><b>工程场景（本站自创）：</b>某仓库拣货员平均每天走 12 公里，主管要求两周内把行走距离降 20%，
+    但不增加人手、不改造货架。用五步走，并说明你会在第几步决定“先做粗略估算”。<span class="muted">（考“资源与准则”）</span></li>
+    <li><b>学习场景：</b>选一门你一直学不会的技能，用五步拆解“为什么学不会”。</li>
+  </ol>
+
+  <h3>C. 远迁移题（真实工作与生活）</h3>
+  <ol start="5">
+    <li>「我负责的项目总是延期」→ 用五步，产出一页 A4 改进提案。</li>
+    <li>「两份 Offer 怎么选」→ 用五步，写出你的准则与权重。</li>
+    <li>「和同事的一次合作卡住了」→ 用五步，写出问题陈述单与三条候选路径。</li>
+  </ol>
+
+  <div class="note"><span class="t">卡住时的三张提示卡（不给答案，只给钩子）</span>
+  <ul class="tight" style="margin-bottom:0">
+    <li>卡住 → <b>回退到第 2 步</b></li>
+    <li>只想到一条路 → <b>强制再想两条</b></li>
+    <li>想放弃 → 问自己“<b>我偷偷加了什么限制？</b>”</li>
+  </ul></div>
+
+  <div class="btn-row">
+    <a class="btn" href="practice.html">打开五步执行单，现在就做一题</a>
+    <a class="btn ghost" href="quiz.html">直接做掌握度自测</a>
+  </div>
+
+  <h2 id="s6">六、表现量规 Rubric</h2>
+  <div class="table-scroll">
+  <table>
+    <thead><tr><th style="width:90px">等级</th><th style="width:120px">名称</th><th>行为指标</th></tr></thead>
+    <tbody>
+      <tr><td><b>L1</b></td><td>未达</td><td>跳过探索直接算；无回顾；答非所问</td></tr>
+      <tr><td><b>L2</b></td><td>应知</td><td>能<b>背出</b>五步名称与顺序；说得出每步的名字</td></tr>
+      <tr><td><b>L3</b></td><td>应会</td><td>陌生题按五步走完，每步<b>有产出物</b>，得正确解；探索 ≥3 条</td></tr>
+      <tr><td><b>L4</b></td><td>迁移</td><td>在<b>非学科情境</b>套用；能<b>诊断他人卡点</b>；能<b>教他人</b>；说得出策略边界</td></tr>
+    </tbody>
+  </table>
+  </div>
+  <p class="muted"><b>判定规则：L3 是及格线，L4 才是完全掌握。</b></p>
+
+  <h2 id="s7">七、形成性检查工具</h2>
+
+  <h3>7-1 错误归因表<span class="muted" style="font-size:13px;font-weight:400">（把失败精确定位到某一步）</span></h3>
+  <div class="card" id="err-table"></div>
+
+  <h3>7-2 出门票（每单元结束前回答三题）</h3>
+  <ol>
+    <li><b>（应知）</b>写出五步策略的顺序。</li>
+    <li><b>（应会）</b>用五步解 <code>17+18+…+23</code>，只写“明确问题”与“探索思考”两步的产出。</li>
+    <li><b>（元认知）</b>我今天卡在第几步？下次我会怎么改？</li>
+  </ol>
+
+  <h3>7-3 自我解释单（对每一步追问“为什么”）</h3>
+  <p class="muted">「我为什么这样做？」｜「这一步的根据是什么？」｜「如果换条件，这一步还成立吗？」</p>
+
+  <h2 id="s8">八、迁移题库（考理解，不考背诵）</h2>
+
+  <div class="q-card">
+    <div class="q-head"><span class="q-no">Q1</span><span class="q-layer understand">深度理解</span></div>
+    <div class="q-text">四步版与六步版：后者为什么增加“增强动机”与“探索思考”？<b>用你自己一次失败的解题经验举证。</b></div>
+    <p class="muted" style="margin-bottom:0">评分点：① 说清两步的功能；② <b>用自己的经验</b>证明“跳过探索导致选错路”；③ 说得出边界——动机过强反而有害。</p>
+  </div>
+  <div class="q-card">
+    <div class="q-head"><span class="q-no">Q2</span><span class="q-layer understand">深度理解</span></div>
+    <div class="q-text">“有了五步策略就能解决一切问题”——这句话错在哪？</div>
+    <p class="muted" style="margin-bottom:0">评分点：策略是<b>必要非充分</b>；还需要知识背景、经验、态度与资源。</p>
+  </div>
+  <div class="q-card">
+    <div class="q-head"><span class="q-no">Q3</span><span class="q-layer understand">深度理解</span></div>
+    <div class="q-text">你用五步处理仓储拣货问题，得到粗略模型，误差 ±12%，而业务准则是 ±15%。该不该继续精化？</div>
+    <p class="muted" style="margin-bottom:0">评分点：<b>最佳解取决于资源与准则</b>。已达准则即可交付并标注边界；要求提高精度再做逐次近似。</p>
+  </div>
+  <div class="q-card">
+    <div class="q-head"><span class="q-no">Q4</span><span class="q-layer transfer">迁移</span></div>
+    <div class="q-text">用五步分析“部门的周会总是严重超时”，产出：问题陈述单 + 三条候选路径 + 一句范例化总结。</div>
+    <p class="muted" style="margin-bottom:0">评分点：能否脱离学科语境，在真实组织中产出<b>可交付的改进提案</b>。</p>
+  </div>
+
+  <h2 id="s9">九、双向细目表与自测</h2>
+  <p>双向细目表的作用是<b>保证四层都被覆盖、不偏食</b>。注意配分重心：探索与回顾最重——
+  这正是四步版与后续版本的差异所在，也是高手与新手的差距所在。</p>
+
+  <div class="table-scroll">
+  <table>
+    <thead><tr><th>内容</th><th>应知</th><th>应会</th><th>深度理解</th><th>迁移</th><th>配分</th></tr></thead>
+    <tbody>
+      <tr><td>第 1 步 明确问题</td><td>2</td><td>3</td><td>2</td><td>1</td><td><b>8</b></td></tr>
+      <tr style="background:#eff6ff"><td><b>第 2 步 探索思考</b></td><td>2</td><td>4</td><td>3</td><td>2</td><td><b>11</b></td></tr>
+      <tr><td>第 3 步 拟定计划</td><td>2</td><td>3</td><td>2</td><td>1</td><td><b>8</b></td></tr>
+      <tr><td>第 4 步 实施执行</td><td>1</td><td>3</td><td>1</td><td>1</td><td><b>6</b></td></tr>
+      <tr style="background:#eff6ff"><td><b>第 5 步 回顾总结</b></td><td>2</td><td>3</td><td>3</td><td>2</td><td><b>10</b></td></tr>
+      <tr><td>版本比较</td><td>2</td><td>0</td><td>3</td><td>1</td><td><b>6</b></td></tr>
+      <tr><td>边界与态度</td><td>1</td><td>0</td><td>2</td><td>1</td><td><b>4</b></td></tr>
+      <tr style="background:#f1f5f9"><td><b>合计</b></td><td><b>12</b></td><td><b>16</b></td><td><b>16</b></td><td><b>9</b></td><td><b>53</b></td></tr>
+    </tbody>
+  </table>
+  </div>
+
+  <div class="btn-row">
+    <a class="btn" href="quiz.html">进入在线自测（13 题，自动判分）</a>
+    <a class="btn ghost" href="practice.html">先用执行单练一题</a>
+  </div>
+
+  <div class="progress-box">
+    <h4>本章掌握度（点击勾选，自动保存到本机）</h4>
+    <p class="muted" style="margin:2px 0 0">勾选后可在<a href="progress.html">学习进度</a>页查看全站掌握度。</p>
+    <div class="progress-grid" id="pg"></div>
+    <div class="prog-bar"><i id="pgbar"></i></div>
+  </div>
+
+  <div class="pager">
+    <a href="chapter-self.html">
+      <div class="dir">NEXT</div>
+      <div class="tt">第 2 章　认识自己的思维 →</div>
+    </a>
+    <a href="philosophy.html">
+      <div class="dir">PREV</div>
+      <div class="tt">← 理念篇</div>
+    </a>
+  </div>
+
+</div>
+
+<div class="footer" id="site-footer"></div>
+
+<script src="assets/data.js"></script>
+<script src="assets/app.js"></script>
+<script>
+  PSC.init('strategy');
+
+  // 五步操作定义表
+  (function(){
+    let html = '';
+    PSC_STEPS.forEach(s=>{
+      html += '<tr><td><b>第 '+s.no+' 步<br>'+s.name+'</b></td><td>'+s.goal+'</td>'+
+        '<td><ul class="tight"><li>'+s.actions.join('</li><li>')+'</li></ul></td>'+
+        '<td><b>'+s.output+'</b></td><td>'+s.check+'</td><td class="muted">'+s.ills+'</td></tr>';
+    });
+    document.getElementById('step-table').innerHTML = html;
+  })();
+
+  // 错误归因表
+  (function(){
+    let html = '<div class="grid g2">';
+    PSC_ERRORS.forEach(e=>{
+      html += '<label class="checkline"><input type="checkbox"><span><b>'+e.k+'</b><br>'+
+              '<small class="muted">'+e.d+'</small></span></label>';
+    });
+    html += '</div><p class="muted" style="margin-top:12px">用法：每次解完题勾一遍，连续记录 10 次，'+
+            '出现最多的那一格就是你真正的短板。（此表仅在本页勾选练习，不保存）</p>';
+    document.getElementById('err-table').innerHTML = html;
+  })();
+
+  PSC.renderChapterProgress('strategy', 'pg', 'pgbar');
+</script>
+</body>
+</html>

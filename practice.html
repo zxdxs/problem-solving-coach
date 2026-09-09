@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>五步执行单 · 我的练习库</title>
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+
+<div class="nav">
+  <div class="nav-inner">
+    <a class="brand" href="index.html">解决问题训练站<small>PROBLEM SOLVING LAB</small></a>
+    <div class="nav-links" id="nav-links"></div>
+    <span class="nav-progress" id="nav-progress">掌握度 0%</span>
+  </div>
+</div>
+
+<div class="wrap">
+
+  <div class="crumb"><a href="index.html">首页</a><span>/</span>五步执行单</div>
+  <h1>五步执行单 · 我的练习库</h1>
+  <p class="lead">策略只有落在纸上才算数。这一页给你三样东西：
+  <b>① 一份可在线填写的五步执行单</b>；<b>② 自动累积的练习库</b>（你的训练过程全在这里）；
+  <b>③ 一个随手记的训练日志</b>。数据保存在你自己的浏览器里，随时可导出。</p>
+
+  <div class="tabs">
+    <button class="tab on" data-tab="sheet">① 五步执行单</button>
+    <button class="tab" data-tab="lib">② 我的练习库</button>
+    <button class="tab" data-tab="log">③ 训练日志</button>
+  </div>
+
+  <!-- ============ 执行单 ============ -->
+  <section class="panel on" id="tab-sheet">
+    <div class="note"><span class="t">填写规则</span>
+    每一步都要留下<b>产出物</b>，没有产出物的步骤等于没做。
+    如果你从别处（笔记、文档、聊天记录）整理了解题过程，<b>直接粘贴进对应文本框即可</b>。</div>
+    <div id="sheet-form"></div>
+  </section>
+
+  <!-- ============ 练习库 ============ -->
+  <section class="panel" id="tab-lib">
+    <h3 style="margin-top:0">我的练习库　<span class="muted" style="font-size:14px;font-weight:400">共 <b id="lib-count">0</b> 条</span></h3>
+    <p class="muted">每保存一份执行单，就会累积在这里。积累 10 条之后回看，你会清楚看见自己的思考模式变化。</p>
+    <div class="btn-row">
+      <button class="btn ghost" id="btn-lib-md">导出全部为 Markdown</button>
+      <button class="btn ghost" id="btn-lib-json">导出为 JSON（备份用）</button>
+    </div>
+    <div id="lib-list"></div>
+  </section>
+
+  <!-- ============ 训练日志 ============ -->
+  <section class="panel" id="tab-log">
+    <h3 style="margin-top:0">训练日志　<span class="muted" style="font-size:14px;font-weight:400">共 <b id="log-count">0</b> 条</span></h3>
+    <p class="muted">练完随手记一句：今天卡在哪一步、下次怎么改。不用写长，但要写。</p>
+    <label class="f">今天的一条记录</label>
+    <textarea id="log-input" placeholder="例：做渡河题卡在第 6 步，因为只想到往前送。下次遇到搬运／排程类问题，先问自己「我是不是偷偷加了限制」。" style="min-height:110px"></textarea>
+    <div class="btn-row">
+      <button class="btn" id="btn-log-add">记录</button>
+      <button class="btn ghost" id="btn-log-export">导出日志</button>
+    </div>
+    <div id="log-list"></div>
+  </section>
+
+</div>
+
+<div class="footer" id="site-footer"></div>
+
+<script src="assets/data.js"></script>
+<script src="assets/app.js"></script>
+<script src="assets/practice.js"></script>
+<script>PSC.init('practice');</script>
+</body>
+</html>

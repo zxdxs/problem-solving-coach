@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>学习进度 · 掌握度追踪</title>
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+
+<div class="nav">
+  <div class="nav-inner">
+    <a class="brand" href="index.html">解决问题训练站<small>PROBLEM SOLVING LAB</small></a>
+    <div class="nav-links" id="nav-links"></div>
+    <span class="nav-progress" id="nav-progress">掌握度 0%</span>
+  </div>
+</div>
+
+<div class="wrap">
+
+  <div class="crumb"><a href="index.html">首页</a><span>/</span>学习进度</div>
+  <h1>学习进度 · 掌握度追踪</h1>
+  <p class="lead">八章 × 四层，共 <b>32 个掌握点</b>。每读完一页、每通过一次自测，就回来勾一格。
+  <b>看得见的进度，是长期练习唯一的燃料。</b></p>
+
+  <div class="card">
+    <h3 style="margin-top:0">总体掌握度</h3>
+    <div id="prog-overall"></div>
+  </div>
+
+  <h2>分章追踪表</h2>
+  <p class="muted">点击任意方格即可勾选／取消，自动保存。四个层级的含义：
+  <b>应知</b>能复述 → <b>应会</b>做得出 → <b>深度理解</b>能解释诊断 → <b>迁移</b>新情境能用。</p>
+  <div id="prog-table"></div>
+
+  <h2>数据管理</h2>
+  <div class="note warn"><span class="t">重要：数据只存在这台设备的这个浏览器里</span>
+  本站没有后端、没有账号，所以<b>换设备、换浏览器、清理缓存都会丢失数据</b>。
+  想跨设备使用或长期保存，请用下面的<b>导出</b>功能备份，再到另一台设备<b>导入</b>。</div>
+
+  <div class="btn-row">
+    <button class="btn" id="btn-export">导出全部数据（JSON）</button>
+    <button class="btn ghost" id="btn-import">导入数据</button>
+    <button class="btn ghost" id="btn-print">打印追踪表</button>
+    <button class="btn ghost" id="btn-reset" style="color:#b91c1c">清空全部数据</button>
+  </div>
+  <input type="file" id="file-import" accept="application/json,.json" style="display:none">
+
+  <h2>怎么用这张表</h2>
+  <ol>
+    <li><b>别急着勾。</b>勾选的标准是"我有证据"，不是"我觉得我懂了"。证据可以是：一份执行单、一次自测成绩、一次真实的成功应用。</li>
+    <li><b>四层不均衡是正常的。</b>多数人"应知"远高于"迁移"。如果你的表是这样，说明练得还不够真。</li>
+    <li><b>迁移层是最难也最值钱的。</b>只有它能证明你把方法变成了自己的本能。</li>
+    <li><b>每周回来看一次。</b>重点不是勾了多少，而是哪一格卡住最久——那就是你下一周的练习主题。</li>
+  </ol>
+
+  <div class="pager">
+    <a href="quiz.html">
+      <div class="dir">NEXT</div>
+      <div class="tt">去做掌握度自测 →</div>
+    </a>
+    <a href="practice.html">
+      <div class="dir">BACK</div>
+      <div class="tt">← 回到五步执行单</div>
+    </a>
+  </div>
+
+</div>
+
+<div class="footer" id="site-footer"></div>
+
+<script src="assets/data.js"></script>
+<script src="assets/app.js"></script>
+<script src="assets/progress.js"></script>
+<script>PSC.init('progress');</script>
+</body>
+</html>

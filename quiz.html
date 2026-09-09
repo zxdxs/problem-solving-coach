@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>掌握度自测 · 五步策略</title>
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+
+<div class="nav">
+  <div class="nav-inner">
+    <a class="brand" href="index.html">解决问题训练站<small>PROBLEM SOLVING LAB</small></a>
+    <div class="nav-links" id="nav-links"></div>
+    <span class="nav-progress" id="nav-progress">掌握度 0%</span>
+  </div>
+</div>
+
+<div class="wrap narrow">
+
+  <div class="crumb"><a href="index.html">首页</a><span>/</span>掌握度自测</div>
+  <h1>掌握度自测 · 五步策略</h1>
+  <p class="lead">13 道题，覆盖<b>应知／应会／深度理解／迁移</b>四层。
+  提交后自动判分，给出 <b>L1–L4</b> 等级与补强建议，并记录你的成绩曲线。</p>
+
+  <div class="note"><span class="t">先说清楚规则</span>
+  <ul class="tight" style="margin-bottom:0">
+    <li>这不是考试，是<b>体检</b>。分数低说明找到了该补的地方，是好事。</li>
+    <li>最后两题是<b>自评量规</b>，请诚实作答——它在测“你实际能不能做到”，不是在测谦虚。</li>
+    <li>判定线：<b>L3 应会</b>是及格线，<b>L4 迁移</b>才算完全掌握。</li>
+  </ul></div>
+
+  <div id="quiz-box"></div>
+  <div id="quiz-result"></div>
+
+  <h2>成绩记录</h2>
+  <div id="quiz-history"></div>
+
+  <div class="pager">
+    <a href="practice.html">
+      <div class="dir">PRACTICE</div>
+      <div class="tt">去练一题 →</div>
+    </a>
+    <a href="chapter-strategy.html">
+      <div class="dir">REVIEW</div>
+      <div class="tt">← 回第 1 章复习</div>
+    </a>
+  </div>
+
+</div>
+
+<div class="footer" id="site-footer"></div>
+
+<script src="assets/data.js"></script>
+<script src="assets/app.js"></script>
+<script src="assets/quiz.js"></script>
+<script>PSC.init('quiz');</script>
+</body>
+</html>

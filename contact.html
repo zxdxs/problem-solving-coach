@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>联系与共建 · 分享这一站</title>
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+
+<div class="nav">
+  <div class="nav-inner">
+    <a class="brand" href="index.html">解决问题训练站<small>PROBLEM SOLVING LAB</small></a>
+    <div class="nav-links" id="nav-links"></div>
+    <span class="nav-progress" id="nav-progress">掌握度 0%</span>
+  </div>
+</div>
+
+<div class="wrap narrow">
+
+  <div class="crumb"><a href="index.html">首页</a><span>/</span>联系与共建</div>
+  <h1>联系与共建</h1>
+  <p class="lead">本站是纯静态的，没有账号、没有评论区。但分享、联系、共同维护这三件事，
+  我们换了一种更轻的方式来实现——<b>把钩子留在页面上，把数据交还给你自己。</b></p>
+
+  <div class="toc">
+    <strong>这一页做什么</strong>
+    <ol>
+      <li><a href="#s1">分享：把这一站或你的练习成果发出去</a></li>
+      <li><a href="#s2">联系：给维护者写信（自动带上你的进度）</a></li>
+      <li><a href="#s3">共建：三种参与方式，从挑错到写章节</a></li>
+      <li><a href="#s4">为什么不做评论区</a></li>
+    </ol>
+  </div>
+
+  <!-- ============ 分享 ============ -->
+  <h2 id="s1">一、分享</h2>
+
+  <div class="card">
+    <h4 style="margin-top:0">① 分享这一站</h4>
+    <p class="muted">把网址复制走，贴到任何地方。对方打开就能用，不用注册、不用装东西。</p>
+    <div class="btn-row">
+      <button class="btn" id="btn-copy-url">复制本站网址</button>
+      <button class="btn ghost" id="btn-copy-short">复制短版推荐语</button>
+      <button class="btn ghost" id="btn-copy-long">复制长版推荐语</button>
+    </div>
+    <label class="f">预览：短版推荐语</label>
+    <textarea id="ta-short" readonly style="min-height:120px"></textarea>
+    <label class="f">预览：长版推荐语</label>
+    <textarea id="ta-long" readonly style="min-height:170px"></textarea>
+  </div>
+
+  <div class="card">
+    <h4 style="margin-top:0">② 分享我的练习成果</h4>
+    <p class="muted">把你练了多少、掌握到什么程度，生成一段可直接粘贴的文字。
+    <b>数据来自你自己浏览器里的记录，不上传任何服务器。</b></p>
+    <div id="stat-brief" class="note ok" style="margin:10px 0"></div>
+    <div class="btn-row">
+      <button class="btn" id="btn-gen-brief">生成我的成果文案</button>
+      <button class="btn ghost" id="btn-copy-brief">复制成果文案</button>
+    </div>
+    <textarea id="ta-brief" placeholder="点上面的按钮生成" style="min-height:150px"></textarea>
+  </div>
+
+  <!-- ============ 联系 ============ -->
+  <h2 id="s2">二、联系维护者</h2>
+  <p>因为没有后端，联系走<b>邮件</b>和 <b>GitHub Issue</b>。两种方式都会<b>自动带上你当前的练习数据</b>——
+  这样你不用解释自己练到哪一步，我这边也能给出更有针对性的回复。</p>
+
+  <div id="contact-box"></div>
+
+  <div class="note"><span class="t">邮件里会自动附上这些信息</span>
+  你的总体掌握度、已完成章节、练习库条数、最近一次自测等级，以及你使用的设备与浏览器。
+  <b>除此之外不会收集任何东西</b>——因为这些内容是你自己发出去的，不是网站偷偷上传的。</div>
+
+  <!-- ============ 共建 ============ -->
+  <h2 id="s3">三、共同维护</h2>
+  <p>这个站点最需要的不是赞美，是这三件事。门槛从低到高：</p>
+
+  <div class="grid g3">
+    <div class="card">
+      <h4>① 挑错与建议</h4>
+      <p class="muted">发现错别字、讲得不清楚、题目有歧义、某句话让你卡住了——
+      直接开个 Issue 或写信。<b>最低门槛，也是最有用的贡献。</b></p>
+    </div>
+    <div class="card">
+      <h4>② 补充题目</h4>
+      <p class="muted">自己出一道好题（尤其是真实工作／生活场景题），连同答案和解析一起发过来。
+      <b>站内所有自创场景题都是这么来的。</b></p>
+    </div>
+    <div class="card">
+      <h4>③ 写章节 / 做翻译</h4>
+      <p class="muted">把骨架章节扩成详填版，或翻译成其他语言。
+      需要先通读<a href="references.html">方法源流与版权说明</a>，保持内容原创。</p>
+    </div>
+  </div>
+
+  <h3>改哪里：一张对照表</h3>
+  <div class="table-scroll">
+  <table>
+    <thead><tr><th>你想改什么</th><th>改哪个文件</th><th>难度</th></tr></thead>
+    <tbody>
+      <tr><td>加／改一道自测题</td><td><code>assets/data.js</code> → <code>PSC_QUIZ</code></td><td>低</td></tr>
+      <tr><td>调整五步的操作定义</td><td><code>assets/data.js</code> → <code>PSC_STEPS</code></td><td>低</td></tr>
+      <tr><td>改联系方式（本页）</td><td><code>assets/data.js</code> → <code>PSC_SITE</code></td><td>低</td></tr>
+      <tr><td>增删章节、改章节简介</td><td><code>assets/data.js</code> → <code>PSC_CHAPTERS</code></td><td>中</td></tr>
+      <tr><td>写章节正文</td><td><code>chapter-*.html</code></td><td>中</td></tr>
+      <tr><td>改配色、字号、打印样式</td><td><code>assets/style.css</code></td><td>中</td></tr>
+    </tbody>
+  </table>
+  </div>
+  <p class="muted"><code>data.js</code> 是全站的数据中枢：改一处，首页、导航、自测、进度表会同步更新。</p>
+
+  <h3>协作流程</h3>
+  <ol>
+    <li>Fork 仓库到你自己名下</li>
+    <li>改你要改的文件（建议先从小处开始，比如加一道题）</li>
+    <li>提交 Pull Request，说明改了什么、为什么</li>
+    <li>合并后即发布——静态站没有复杂的构建步骤</li>
+  </ol>
+
+  <div class="note warn"><span class="t">共建前请先读这一段</span>
+  本站所有讲解文字、表格、量规、练习与工具模板均为原创撰写。
+  贡献内容请<b>自行撰写，不要从任何出版物复制段落</b>；例题请使用公有领域经典问题或自己设计的场景题。
+  详见<a href="references.html">版权说明</a>。</div>
+
+  <!-- ============ 为什么不做评论区 ============ -->
+  <h2 id="s4">四、为什么不做评论区</h2>
+  <p>这不只是技术取舍，也和内容有关：</p>
+  <ul>
+    <li><b>技术层面：</b>评论区需要服务器和数据库，一加上就不再是零成本、零维护的静态站了。</li>
+    <li><b>体验层面：</b>静态站的评论区（Disqus、Gitalk 之类）要么加载慢、要么满是广告，
+    反而会毁掉这个站最值钱的东西——<b>专注</b>。</li>
+    <li><b>内容层面：</b>这个站教的是"想清楚再动手"。评论区最不缺的就是没想清楚就发出去的意见。
+    <b>用邮件和 Issue 代替，反馈质量会高一个量级。</b></li>
+  </ul>
+  <p>如果日后真的需要多人互动（比如学习小组、作业互评），
+  前面算过的升级路径是接 Supabase——免费额度内含 5 万月活用户，页面结构不用改，
+  但那是以后的事。<b>先让内容被人看到，再谈账号。</b></p>
+
+  <div class="pager">
+    <a href="references.html">
+      <div class="dir">NEXT</div>
+      <div class="tt">延伸阅读与版权说明 →</div>
+    </a>
+    <a href="index.html">
+      <div class="dir">BACK</div>
+      <div class="tt">← 返回首页</div>
+    </a>
+  </div>
+
+</div>
+
+<div class="footer" id="site-footer"></div>
+
+<script src="assets/data.js"></script>
+<script src="assets/app.js"></script>
+<script>
+  PSC.init('contact');
+
+  (function(){
+    var SITE = PSC_SITE || {};
+    var url = location.href.split('#')[0].replace(/contact\.html$/, '') || location.href;
+    var urlClean = url.replace(/\/$/, '');
+
+    // ---------- 推荐语 ----------
+    var short = '发现一个挺扎实的中文解题训练站：把「解决问题」拆成 5 步，'
+      + '每一步都要求留下产出物，还配了执行单、自测和进度追踪。\n'
+      + '最打动我的是它把标准定在「迁移」——练过的题会做不算会。\n'
+      + '纯静态、不用注册、数据存在自己浏览器里。\n' + urlClean;
+
+    var long = '推荐一个中文的解题能力训练站。它和一般方法论文章最大的不同是：'
+      + '不追求「读完」，而是追求「练成」。\n\n'
+      + '几个我觉得值得说的设计：\n'
+      + '1. 目标写成可验收的动作，而不是「我学会了」这种感觉。\n'
+      + '2. 五步策略每一步都必须留下产出物（问题陈述单、候选路径清单、执行计划……），没有产出物等于没做。\n'
+      + '3. 四层掌握度：应知 → 应会 → 深度理解 → 迁移。L3 才算及格，L4 迁移才算完全掌握。\n'
+      + '4. 自带五步执行单、练习库、13 题自测（自动判分）、8 章进度追踪。\n'
+      + '5. 纯静态，无账号，数据存本地，可以导出备份。\n\n'
+      + '网址：' + urlClean + '\n\n'
+      + '适合：经常要做决策、做方案、解难题的人，也适合带团队时用来统一思考语言。';
+
+    document.getElementById('ta-short').value = short;
+    document.getElementById('ta-long').value = long;
+
+    document.getElementById('btn-copy-url').onclick = function(){
+      PSC.copyText(urlClean);
+    };
+    document.getElementById('btn-copy-short').onclick = function(){
+      PSC.copyText(short);
+    };
+    document.getElementById('btn-copy-long').onclick = function(){
+      PSC.copyText(long);
+    };
+
+    // ---------- 统计数据 ----------
+    function collect(){
+      var p = PSC.getProgress();
+      var sheets = PSC.read(PSC.KEY_SHEETS, []);
+      var logs = PSC.read(PSC.KEY_LOGS, []);
+      var quiz = PSC.read(PSC.KEY_QUIZ, []);
+      var total = PSC_CHAPTERS.length * PSC_LAYERS.length;
+      var done = 0, chapterDoneCount = 0;
+      PSC_CHAPTERS.forEach(function(ch){
+        var c = p.chapters[ch.id] || {};
+        var n = PSC_LAYERS.filter(function(l){ return c[l.key]; }).length;
+        done += n;
+        if(n === PSC_LAYERS.length) chapterDoneCount++;
+      });
+      var pct = total ? Math.round(done * 100 / total) : 0;
+      var last = quiz[0];
+      return {
+        pct: pct, done: done, total: total,
+        chapterDone: chapterDoneCount, chapterTotal: PSC_CHAPTERS.length,
+        sheets: sheets.length, logs: logs.length,
+        lastQuiz: last ? (last.level + ' ' + last.name + '，' + last.pct + ' 分') : '（还没做过）'
+      };
+    }
+
+    // ---------- 成果文案 ----------
+    var brief = '';
+    document.getElementById('btn-gen-brief').onclick = function(){
+      var s = collect();
+      brief = '我在「解决问题训练站」的进度：\n'
+        + '· 掌握度 ' + s.pct + '%（' + s.done + '/' + s.total + ' 个掌握点）\n'
+        + '· 完成章节 ' + s.chapterDone + '/' + s.chapterTotal + '\n'
+        + '· 五步执行单 ' + s.sheets + ' 份\n'
+        + '· 最近自测 ' + s.lastQuiz + '\n\n'
+        + '这个站把标准定在「迁移」：练过的题会做不算会，'
+        + '能在没练过的新情境里做出来才算。\n'
+        + urlClean;
+      document.getElementById('ta-brief').value = brief;
+      PSC.toast('已生成，可复制或自行修改', 'good');
+    };
+    document.getElementById('btn-copy-brief').onclick = function(){
+      if(!brief){ PSC.toast('请先点「生成我的成果文案」', 'bad'); return; }
+      PSC.copyText(brief);
+    };
+
+    // 刷新统计
+    function refreshStat(){
+      var s = collect();
+      document.getElementById('stat-brief').innerHTML =
+        '当前进度：掌握度 <b>' + s.pct + '%</b>（' + s.done + '/' + s.total + ' 掌握点）　|　'
+        + '完成章节 <b>' + s.chapterDone + '/' + s.chapterTotal + '</b>　|　'
+        + '执行单 <b>' + s.sheets + '</b> 份　|　'
+        + '最近自测 <b>' + s.lastQuiz + '</b>';
+    }
+    refreshStat();
+
+    // ---------- 联系方式 ----------
+    function buildContact(){
+      var s = collect();
+      var box = document.getElementById('contact-box');
+      var html = '';
+
+      var bodyLines = [
+        '（以下信息由网站自动附上，可自行删改）',
+        '',
+        '【我的进度】',
+        '· 掌握度：' + s.pct + '%（' + s.done + '/' + s.total + ' 个掌握点）',
+        '· 完成章节：' + s.chapterDone + '/' + s.chapterTotal,
+        '· 五步执行单：' + s.sheets + ' 份',
+        '· 训练日志：' + s.logs + ' 条',
+        '· 最近自测：' + s.lastQuiz,
+        '',
+        '【我想说的话】',
+        '',
+        '',
+        '',
+        '---',
+        '设备：' + navigator.platform,
+        '浏览器：' + (navigator.userAgent || '').slice(0, 120),
+        '页面：' + urlClean
+      ].join('\n');
+
+      if(SITE.email && SITE.email.indexOf('example.com') < 0){
+        var mailto = ('mailto:' + SITE.email
+          + '?subject=' + encodeURIComponent('【解决问题训练站】反馈与建议')
+          + '&body=' + encodeURIComponent(bodyLines)).replace(/&/g, '&amp;');
+        html += '<div class="card"><h4 style="margin-top:0">① 写信给维护者</h4>'
+          + '<p class="muted">点下面的按钮会打开你的邮件客户端，正文已经填好模板，'
+          + '并自动附上你当前的练习数据。</p>'
+          + '<p><a class="btn" href="' + mailto + '">写信：' + PSC.esc(SITE.email) + '</a></p></div>';
+      } else {
+        html += '<div class="note warn"><span class="t">邮箱尚未配置</span>'
+          + '本页联系方式由 <code>assets/data.js</code> 里的 <code>PSC_SITE</code> 控制。'
+          + '把 <code>email</code> 改成你自己的邮箱即可启用这个入口（当前是占位值 <code>you@example.com</code>）。</div>';
+      }
+
+      if(SITE.github && SITE.github.indexOf('your-name') < 0){
+        var issueBody = [
+          '## 我想反馈什么',
+          '',
+          '',
+          '## 我的进度（自动生成）',
+          '- 掌握度：' + s.pct + '%（' + s.done + '/' + s.total + '）',
+          '- 完成章节：' + s.chapterDone + '/' + s.chapterTotal,
+          '- 执行单：' + s.sheets + ' 份',
+          '- 最近自测：' + s.lastQuiz,
+          '',
+          '## 环境',
+          '- 页面：' + urlClean,
+          '- 浏览器：' + (navigator.userAgent || '').slice(0, 120)
+        ].join('\n');
+        var gh = SITE.github.replace(/\/$/, '').replace(/&/g, '&amp;');
+        html += '<div class="card"><h4 style="margin-top:0">② 在 GitHub 上开 Issue</h4>'
+          + '<p class="muted">适合提 bug、建议新功能、补充题目。公开讨论，别人也能看到并补充。</p>'
+          + '<div class="btn-row">'
+          + '<a class="btn" target="_blank" rel="noopener" href="' + gh + '/issues/new?title='
+          + encodeURIComponent('【反馈】') + '&body=' + encodeURIComponent(issueBody) + '">提一个 Issue</a>'
+          + '<a class="btn ghost" target="_blank" rel="noopener" href="' + gh + '">浏览仓库</a>'
+          + '</div></div>';
+      } else {
+        html += '<div class="note warn"><span class="t">GitHub 仓库尚未配置</span>'
+          + '把 <code>assets/data.js</code> 里 <code>PSC_SITE.github</code> '
+          + '改成你的仓库地址即可启用协作入口。</div>';
+      }
+
+      if(SITE.community){
+        html += '<div class="card"><h4 style="margin-top:0">③ 社群</h4>'
+          + '<p>' + PSC.esc(SITE.community) + '</p></div>';
+      }
+
+      box.innerHTML = html;
+    }
+    buildContact();
+  })();
+</script>
+</body>
+</html>
