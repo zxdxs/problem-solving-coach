@@ -317,6 +317,30 @@ legend{font-weight:800; font-size:15px; padding:0 8px; color:var(--brand);}
 .bar-mini{display:inline-block; width:88px; height:8px; background:#e2e8f0; border-radius:999px; overflow:hidden; vertical-align:middle;}
 .bar-mini > i{display:block; height:100%; background:linear-gradient(90deg,#3b82f6,#1e40af);}
 
+/* 贡献者卡片 */
+.contrib-card{border:1px solid var(--line); border-radius:var(--radius); padding:16px 18px;
+  margin:14px 0; background:#fff; box-shadow:var(--shadow); transition:.16s;}
+.contrib-card:hover{border-color:var(--line-2);}
+.c-head{display:flex; align-items:center; gap:12px; flex-wrap:wrap;}
+.c-avatar{width:42px; height:42px; flex:0 0 auto; border-radius:50%; background:linear-gradient(135deg,#1e40af,#3b82f6);
+  color:#fff; font-weight:800; font-size:18px; display:inline-flex; align-items:center; justify-content:center;}
+.c-id{flex:1 1 180px; min-width:0;}
+.c-name{font-weight:700; font-size:16px;}
+.c-meta{font-size:12.5px; color:var(--ink-3);}
+.c-badges{display:flex; gap:6px; flex-wrap:wrap; margin-left:auto;}
+.cbadge{display:inline-block; font-size:11.5px; font-weight:700; padding:2px 9px;
+  border-radius:999px; border:1px solid transparent; white-space:nowrap;}
+.c-items{margin:10px 0 0; padding-left:22px; font-size:14.5px;}
+.c-items li{margin:4px 0;}
+.legend-item{display:flex; align-items:center; gap:10px; margin:9px 0; font-size:14px; flex-wrap:wrap;}
+.legend-item .cbadge{flex:0 0 auto; min-width:56px; text-align:center;}
+
+/* 二维码 */
+.qr-box{margin-top:14px; text-align:center;}
+.qr-box img{width:200px; max-width:70%; height:auto; border:1px solid var(--line);
+  border-radius:10px; padding:6px; background:#fff;}
+@media(max-width:520px){ .qr-box img{width:170px;} }
+
 /* ---------- 打印 ---------- */
 @media print{
   .nav,.btn-row,.pager,.toc,.no-print{display:none !important;}

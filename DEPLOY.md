@@ -1,5 +1,8 @@
 # 今晚 30 分钟上线清单
 
+> ✅ **本站已上线：https://zxdxs.github.io/problem-solving-coach/**
+> 仓库：https://github.com/zxdxs/problem-solving-coach
+
 > 核心判断：**上线不需要手机号、不需要微信、不需要域名、不需要备案。**
 > 这四样都是"以后优化"的事，不是"今晚阻塞"的事。
 

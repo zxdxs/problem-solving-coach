@@ -5,6 +5,12 @@
 
 ---
 
+## 〇、在线地址
+
+**https://zxdxs.github.io/problem-solving-coach/**
+
+---
+
 ## 一、怎么打开
 
 ### 方式 A：直接双击（最简单）
@@ -116,7 +122,7 @@ problem-solving-coach/
 const PSC_SITE = {
   name:'解决问题训练站',
   email:'you@example.com',                    // ← 改成你的邮箱；留空则不显示邮件入口
-  github:'https://github.com/your-name/...',   // ← 改成你的仓库；留空则不显示协作入口
+  github:'https://github.com/zxdxs/problem-solving-coach',   // ← 改成你的仓库；留空则不显示协作入口
   community:'',                                // ← 社群/公众号说明，可留空
   maintainer:'（请在此填写你的署名）'
 };
