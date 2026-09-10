@@ -12,14 +12,63 @@
 const PSC_SITE = {
   name:'解决问题训练站',
   // 邮箱：留空则不显示邮件入口
-  email:'you@example.com',
+  email:'196960613@qq.com',
   // GitHub 仓库：留空则不显示 GitHub 协作入口
-  github:'https://github.com/your-name/problem-solving-coach',
-  // 微信群 / 公众号 / 其他，自由填写一句话说明，留空则不显示
-  community:'',
+  github:'https://github.com/zxdxs/problem-solving-coach',
+  // 微信二维码图片路径（图片放在 assets/ 下），留空则不显示二维码
+  qrcode:'assets/wechat-qr.jpg',
+  // 社群说明文字，留空则不显示
+  community:'扫码加微信「课孙翁」，备注「解题」即可。也欢迎直接发邮件。',
   // 维护者署名，显示在联系页
-  maintainer:'（请在此填写你的署名）'
+  maintainer:'课孙翁'
 };
+
+/* ============================================================
+   贡献者表彰
+   —— 每有一位朋友贡献，就在这个数组里加一条，全站自动显示
+   ============================================================ */
+const PSC_CONTRIBUTOR_TYPES = [
+  {key:'founder', name:'发起',   color:'#b45309', desc:'创建本站与核心体系'},
+  {key:'bug',     name:'挑错',   color:'#b91c1c', desc:'指出错字、表述不清、逻辑漏洞'},
+  {key:'quiz',    name:'出题',   color:'#1d4ed8', desc:'贡献自测题或真实场景练习题'},
+  {key:'write',   name:'写章节', color:'#047857', desc:'撰写或扩写章节正文'},
+  {key:'design',  name:'设计',   color:'#6d28d9', desc:'改进排版、样式、交互体验'},
+  {key:'idea',    name:'建议',   color:'#0f766e', desc:'提出被采纳的功能或内容建议'},
+  {key:'translate', name:'翻译', color:'#be185d', desc:'翻译为其他语言'},
+  {key:'other',   name:'其他',   color:'#475569', desc:'其他形式的帮助'}
+];
+
+/* 贡献者名单：按首次贡献时间由早到晚排列
+   name : 显示的名字（可用昵称，尊重隐私）
+   types: 贡献类型，可填多个，取值见上表 key
+   items: 具体贡献列表，一句一条
+   date : 首次贡献时间，格式 2026-09
+   link : 可选，个人主页 / GitHub，留空则不显示
+*/
+const PSC_CONTRIBUTORS = [
+  {
+    name:'课孙翁',
+    types:['founder'],
+    items:[
+      '创建本站，设计八章体系与四层掌握度标准',
+      '提出「应知／应会／深度理解／迁移」四层目标与检查、测验双验证体系',
+      '撰写五步策略章、五步执行单、掌握度自测等全部工具'
+    ],
+    date:'2026-09',
+    link:''
+  }
+  // ↓↓↓ 有新的贡献者时，照下面这个格式加一条即可 ↓↓↓
+  // ,{
+  //   name:'张三',
+  //   types:['quiz','bug'],
+  //   items:[
+  //     '补充「仓储拣货效率」真实场景题及解析',
+  //     '指出第 3 章两处表述不清'
+  //   ],
+  //   date:'2026-10',
+  //   link:'https://github.com/zhangsan'
+  // }
+];
 
 /* 导航分组 */
 const PSC_NAV = [

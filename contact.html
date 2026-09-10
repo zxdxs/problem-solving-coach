@@ -76,6 +76,9 @@
   <!-- ============ 共建 ============ -->
   <h2 id="s3">三、共同维护</h2>
   <p>这个站点最需要的不是赞美，是这三件事。门槛从低到高：</p>
+  <div class="note ok"><span class="t">你的名字会被记住</span>
+  凡是贡献被采纳，你的名字（可用昵称）与具体贡献，
+  都会出现在<a href="contributors.html"><b>贡献者名单</b></a>里，长期保留。</div>
 
   <div class="grid g3">
     <div class="card">
@@ -86,12 +89,12 @@
     <div class="card">
       <h4>② 补充题目</h4>
       <p class="muted">自己出一道好题（尤其是真实工作／生活场景题），连同答案和解析一起发过来。
-      <b>站内所有自创场景题都是这么来的。</b></p>
+      <b>站内的场景题都是这么来的。</b></p>
     </div>
     <div class="card">
       <h4>③ 写章节 / 做翻译</h4>
       <p class="muted">把骨架章节扩成详填版，或翻译成其他语言。
-      需要先通读<a href="references.html">方法源流与版权说明</a>，保持内容原创。</p>
+      可先读<a href="references.html">延伸阅读</a>，了解这套方法的来龙去脉。</p>
     </div>
   </div>
 
@@ -120,9 +123,8 @@
   </ol>
 
   <div class="note warn"><span class="t">共建前请先读这一段</span>
-  本站所有讲解文字、表格、量规、练习与工具模板均为原创撰写。
-  贡献内容请<b>自行撰写，不要从任何出版物复制段落</b>；例题请使用公有领域经典问题或自己设计的场景题。
-  详见<a href="references.html">版权说明</a>。</div>
+  贡献内容请<b>自己写</b>。例题优先选用经典问题，或用你自己的真实工作场景来设计。
+  更详细的说明见<a href="references.html">延伸阅读</a>。</div>
 
   <!-- ============ 为什么不做评论区 ============ -->
   <h2 id="s4">四、为什么不做评论区</h2>
@@ -134,14 +136,13 @@
     <li><b>内容层面：</b>这个站教的是"想清楚再动手"。评论区最不缺的就是没想清楚就发出去的意见。
     <b>用邮件和 Issue 代替，反馈质量会高一个量级。</b></li>
   </ul>
-  <p>如果日后真的需要多人互动（比如学习小组、作业互评），
-  前面算过的升级路径是接 Supabase——免费额度内含 5 万月活用户，页面结构不用改，
-  但那是以后的事。<b>先让内容被人看到，再谈账号。</b></p>
+  <p>如果日后真的需要多人互动（比如学习小组、作业互评），再考虑加账号系统。
+  但那是以后的事——<b>先让内容被人看到。</b></p>
 
   <div class="pager">
     <a href="references.html">
       <div class="dir">NEXT</div>
-      <div class="tt">延伸阅读与版权说明 →</div>
+      <div class="tt">延伸阅读 →</div>
     </a>
     <a href="index.html">
       <div class="dir">BACK</div>
@@ -317,9 +318,18 @@
           + '改成你的仓库地址即可启用协作入口。</div>';
       }
 
-      if(SITE.community){
-        html += '<div class="card"><h4 style="margin-top:0">③ 社群</h4>'
-          + '<p>' + PSC.esc(SITE.community) + '</p></div>';
+      if(SITE.community || SITE.qrcode){
+        html += '<div class="card"><h4 style="margin-top:0">③ 微信与我联系</h4>';
+        if(SITE.community){
+          html += '<p>' + PSC.esc(SITE.community) + '</p>';
+        }
+        if(SITE.qrcode){
+          html += '<div class="qr-box"><img src="' + PSC.esc(SITE.qrcode)
+                + '" alt="微信二维码" loading="lazy">'
+                + '<div class="muted" style="font-size:13px;margin-top:8px">'
+                + '扫一扫，添加「' + PSC.esc(SITE.maintainer || '维护者') + '」为好友</div></div>';
+        }
+        html += '</div>';
       }
 
       box.innerHTML = html;

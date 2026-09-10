@@ -95,6 +95,7 @@
     });
     html += '<a class="navlink" href="references.html" data-id="references">延伸阅读</a>';
     html += '<a class="navlink" href="contact.html" data-id="contact">联系与共建</a>';
+    html += '<a class="navlink" href="contributors.html" data-id="contributors">贡献者</a>';
     nav.innerHTML = html;
   }
 
