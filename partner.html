@@ -35,8 +35,9 @@
 
     <div class="card" style="border-left:4px solid var(--brand)">
       <h4 style="margin-top:0">① 找搭子<span class="muted" style="font-weight:400"> —— 我一个人练不动</span></h4>
-      <p class="muted">在下面的<b>陪练墙</b>留一行，等人和你组对；或者直接去
-      <b>GitHub 发一条招募帖</b>（有现成模板，点一下就填好了）。</p>
+      <p class="muted">在下面的<b>陪练墙</b>留一行，等人和你组对。<br>
+      留名最省事的办法是<b>发一封邮件</b>——下面有按钮，主题和格式都填好了；
+      想公开讨论的，也可以去 GitHub 发招募帖。</p>
       <ol class="tight" style="margin-bottom:12px">
         <li>一人讲、一人听，<b>角色必须互换</b></li>
         <li>倾听者只说那七句话，<b>绝不给答案</b></li>
@@ -147,23 +148,102 @@
 
   <div class="note warn"><span class="t">留名之前，请先读这三条</span>
   <b>一、只留昵称与一个联系方式。</b>真名、手机、住址、工作单位都不要写。<br>
-  <b>二、第一次交流只在公开场合。</b>在 GitHub issue 里聊就好，别急着加私人微信。<br>
+  <b>二、第一次交流只在公开场合。</b>先用邮件或在 GitHub issue 里聊，别急着加私人微信。<br>
   <b>三、任何让你付钱、投资、点陌生链接的「陪练」，一律当骗子。</b></div>
 
   <div class="card" style="border-left:4px solid var(--brand-2)">
     <h4 style="margin-top:0">怎么把名字放上来</h4>
-    <p class="muted">本站没有后端，留名靠 GitHub Issue（公开、可撤回）。
-    <b>四个模板都准备好了，点进去填表就行：</b></p>
-    <div class="btn-row" style="margin-top:12px">
-      <a class="btn" href="https://github.com/zxdxs/problem-solving-coach/issues/new?template=01-find-partner.yml">我要找陪练</a>
-      <a class="btn ghost" href="https://github.com/zxdxs/problem-solving-coach/issues/new?template=02-be-coach.yml">报名当辅导员</a>
-      <a class="btn ghost" href="https://github.com/zxdxs/problem-solving-coach/issues/new?template=03-duel.yml">发一道约架题</a>
-      <a class="btn ghost" href="https://github.com/zxdxs/problem-solving-coach/issues/new?template=04-submit-sheet.yml">提交执行单</a>
-    </div>
-    <p class="muted" style="margin-bottom:0;margin-top:12px">
-    不会用 GitHub 也行——发邮件到<a href="contact.html">联系页</a>，
-    说明你想找陪练／当辅导员，维护者会替你贴上来。</p>
+    <p class="muted">本站没有后端，也不要求注册。<b>有三条路，挑你最方便的：</b></p>
+
+    <div class="note ok" style="margin:12px 0"><span class="t">最省事：发封邮件</span>
+    点下面的按钮，会自动打开你的邮件软件，<b>主题和格式都填好了</b>，你只要补上自己的内容。
+    维护者收到后手工贴到墙上——<b>网站依然不存任何数据</b>。</p>
+
+    <div id="mail-actions"></div>
+
+    <p class="muted" style="margin-top:14px;margin-bottom:6px"><b>不想用邮件？那就复制。</b>
+    点「复制」把模板带走，粘到微信、QQ、任何地方都行。</p>
+
+    <div class="note" style="margin-bottom:14px"><span class="t">第三条路：公开交流（可选）</span>
+    想让其他人也看到、一起讨论，就去 <b>GitHub Issue</b> 发一条（需要 GitHub 账号，
+    不会用也没关系，走上面两条就行）：
+    <div class="btn-row" style="margin-top:10px">
+      <a class="btn ghost" href="https://github.com/zxdxs/problem-solving-coach/issues/new?template=01-find-partner.yml">找陪练 · 公开帖</a>
+      <a class="btn ghost" href="https://github.com/zxdxs/problem-solving-coach/issues/new?template=02-be-coach.yml">辅导员 · 公开帖</a>
+      <a class="btn ghost" href="https://github.com/zxdxs/problem-solving-coach/issues/new?template=03-duel.yml">约架 · 公开帖</a>
+      <a class="btn ghost" href="https://github.com/zxdxs/problem-solving-coach/issues/new?template=04-submit-sheet.yml">执行单 · 公开帖</a>
+    </div></div>
+
+    <p class="muted" style="margin-bottom:0">
+    <b>发过来的信息只用于贴墙，不外传、不做任何商业用途。</b>
+    你也可以随时发邮件要求把自己的名字撤下来。</p>
   </div>
+
+  <script>
+  /* 陪练墙报名：邮件一键生成 + 模板复制。邮箱取自 PSC_SITE.email，全站一处生效 */
+  (function(){
+    var mail = (window.PSC_SITE && PSC_SITE.email) ? PSC_SITE.email : '';
+    var box = document.getElementById('mail-actions');
+    if(!box) return;
+    if(!mail){ box.innerHTML = '<p class="muted">（邮箱暂未配置，请到联系页用其他方式。）</p>'; return; }
+
+    var ITEMS = [
+      { key:'find',  title:'我要找陪练',        sub:'一个人练不动，想找个人组对',
+        subject:'【找陪练】',
+        body:'昵称（或你想显示在墙上的名字）：\n线上还是同城：\n想练的方向（工作决策／家庭沟通／学习辅导／其他）：\n可约时段：\n\n—— 为安全起见，只留昵称和一个联系方式就好，别写真名、手机、住址。' },
+      { key:'coach', title:'我要当辅导员',      sub:'忍得住不给答案的人，我们一直缺',
+        subject:'【报名辅导员】',
+        body:'昵称：\n我已做过的准备：\n  □ 做过六维风格量表前测\n  □ 完整填过 5 张以上五步执行单\n  □ 承诺只说倾听者那七句话，绝不给答案\n可带人数／可约时段：' },
+      { key:'duel',  title:'我要约架 · 出一道题', sub:'出一道没有标准答案的题',
+        subject:'【约架出题】',
+        body:'题目：\n\n为什么它适合约（请过三问）：\n  1. 有唯一正确答案吗？（有 → 不约）\n  2. 答案是数字、公式、术语吗？（是 → 不约）\n  3. 换个行业的人也会做吗？（不会 → 不约）\n\n我自己卡在第几步：' },
+      { key:'sheet', title:'提交执行单 · 守擂',  sub:'公开你的五步走法，让别人照见自己',
+        subject:'【守擂 · 提交执行单】',
+        body:'题目：\n我卡在第几步：\n\n我的五步执行单：\n  1. 明确问题：\n  2. 探索思考：\n  3. 拟定计划：\n  4. 实施执行：\n  5. 回顾总结：' }
+    ];
+
+    var html = '';
+    ITEMS.forEach(function(it, i){
+      var href = 'mailto:' + mail
+               + '?subject=' + encodeURIComponent(it.subject)
+               + '&body='    + encodeURIComponent(it.body);
+      html += '<div class="card" style="margin-bottom:10px;background:var(--brand-soft)">'
+            +   '<div style="display:flex;flex-wrap:wrap;align-items:baseline;gap:8px">'
+            +     '<b style="font-size:16px">' + it.title + '</b>'
+            +     '<span class="muted" style="font-size:13px">' + it.sub + '</span>'
+            +   '</div>'
+            +   '<div class="btn-row" style="margin-top:10px">'
+            +     '<a class="btn' + (i===0?'':' ghost') + '" href="' + href + '">✉ 一键发邮件</a>'
+            +     '<button class="btn ghost" type="button" data-copy="' + i + '">复制模板</button>'
+            +   '</div>'
+            + '</div>';
+    });
+    box.innerHTML = html;
+
+    box.addEventListener('click', function(e){
+      var b = e.target.closest ? e.target.closest('button[data-copy]') : null;
+      if(!b) return;
+      var it = ITEMS[+b.getAttribute('data-copy')];
+      var text = '收件人：' + mail + '\n主题：' + it.subject + '\n\n' + it.body;
+      var done = function(){
+        var old = b.textContent;
+        b.textContent = '已复制 ✓';
+        setTimeout(function(){ b.textContent = old; }, 1600);
+      };
+      if(navigator.clipboard && navigator.clipboard.writeText){
+        navigator.clipboard.writeText(text).then(done, function(){ fallbackCopy(text, done); });
+      } else { fallbackCopy(text, done); }
+    });
+
+    function fallbackCopy(text, cb){
+      var ta = document.createElement('textarea');
+      ta.value = text; ta.style.position='fixed'; ta.style.opacity='0';
+      document.body.appendChild(ta); ta.select();
+      try{ document.execCommand('copy'); cb(); }catch(err){ alert('复制失败，请手动选中下面的文字:\n\n'+text); }
+      document.body.removeChild(ta);
+    }
+  })();
+  </script>
 
   <div class="note ok"><span class="t">最后一句</span>
   这个站教的是「把解决问题变成可以验收的事」。<br>
