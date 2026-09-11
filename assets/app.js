@@ -122,9 +122,14 @@
     if(!el) return;
     el.innerHTML =
       '<div class="wrap" style="padding-top:0;padding-bottom:26px;">'+
-      '<div>解决问题训练站 · 原创教学设计工程　|　所有练习数据保存在你自己的浏览器中，不会上传</div>'+
-      '<div style="margin-top:4px;">通用解题策略是百年来的公共智慧积累；站内例题取自流传已久的经典问题与真实工作场景。'+
-      '学术源流与方法出处见<a href="references.html">延伸阅读</a>。</div></div>';
+      '<div>解决问题训练站　|　所有练习数据保存在你自己的浏览器中，不会上传</div>'+
+      '<div style="margin-top:4px;">本站五步策略与训练体系，'+
+      '本于 <b>江丕权、李越、戴国强</b> 编著《解决问题的策略与技能》（科学普及出版社，1992）。'+
+      '原书的方法与例题归三位编著者及出版者所有；本站所做，是把它整理成可练习、可验收的形式，'+
+      '并补上原书未能承载的反馈与陪练。<br>'+
+      '通用解题策略是百年来的公共智慧积累（Polya 1945、Woods 等）；'+
+      '站内例题取自流传已久的经典问题与真实工作场景。'+
+      '完整学术源流与方法出处见<a href="references.html">延伸阅读</a>。</div></div>';
   }
 
   function init(activeId){

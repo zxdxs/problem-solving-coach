@@ -7,7 +7,7 @@
 
 ## 〇、在线地址
 
-**https://zxdxs.github.io/problem-solving-coach/**
+**https://solve-lab.com/**
 
 ---
 
