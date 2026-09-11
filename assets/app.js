@@ -81,6 +81,8 @@
     const nav = document.getElementById('nav-links');
     if(!nav) return;
     let html = '<a class="navlink" href="index.html" data-id="index">首页</a>';
+    html += '<a class="navlink" href="plan.html" data-id="plan">30 天计划</a>';
+    html += '<a class="navlink" href="partner.html" data-id="partner">找陪练</a>';
     PSC_NAV.forEach(g=>{
       html += '<div class="nav-item"><a class="navlink" href="javascript:void(0)">'+g.group+'</a><div class="dropdown">';
       g.items.forEach(it=>{
@@ -121,7 +123,7 @@
     el.innerHTML =
       '<div class="wrap" style="padding-top:0;padding-bottom:26px;">'+
       '<div>解决问题训练站 · 原创教学设计工程　|　所有练习数据保存在你自己的浏览器中，不会上传</div>'+
-      '<div style="margin-top:4px;">解题策略属思想与方法范畴，不受著作权保护；站内例题取自公有领域经典问题或本站自创场景。'+
+      '<div style="margin-top:4px;">通用解题策略是百年来的公共智慧积累；站内例题取自流传已久的经典问题与真实工作场景。'+
       '学术源流与方法出处见<a href="references.html">延伸阅读</a>。</div></div>';
   }
 
