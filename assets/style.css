@@ -321,6 +321,13 @@ legend{font-weight:800; font-size:15px; padding:0 8px; color:var(--brand);}
 .contrib-card{border:1px solid var(--line); border-radius:var(--radius); padding:16px 18px;
   margin:14px 0; background:#fff; box-shadow:var(--shadow); transition:.16s;}
 .contrib-card:hover{border-color:var(--line-2);}
+/* 本源：原书作者与出版者，恒定置顶 */
+.contrib-card.origin{border-color:#f3d19e; background:linear-gradient(180deg,#fffaf0,#fff);
+  box-shadow:0 1px 3px rgba(146,64,14,.10);}
+.contrib-card.origin .c-avatar{background:linear-gradient(135deg,#92400e,#b45309);}
+.contrib-card.origin .c-name{color:#7c2d12;}
+.origin-note{font-size:13px; color:#92400e; background:#fff7ed; border:1px solid #f3d19e;
+  border-radius:8px; padding:8px 12px; margin:0 0 12px;}
 .c-head{display:flex; align-items:center; gap:12px; flex-wrap:wrap;}
 .c-avatar{width:42px; height:42px; flex:0 0 auto; border-radius:50%; background:linear-gradient(135deg,#1e40af,#3b82f6);
   color:#fff; font-weight:800; font-size:18px; display:inline-flex; align-items:center; justify-content:center;}

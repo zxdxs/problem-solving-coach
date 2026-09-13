@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>题库 · 按训练点索引 · 解决问题训练站</title>
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+
+<div class="nav">
+  <div class="nav-inner">
+    <a class="brand" href="index.html">解决问题训练站<small>PROBLEM SOLVING LAB</small></a>
+    <div class="nav-links" id="nav-links"></div>
+    <span class="nav-progress" id="nav-progress">掌握度 0%</span>
+  </div>
+</div>
+
+<div class="wrap">
+
+  <div class="crumb"><a href="index.html">首页</a><span>/</span>题库</div>
+  <h1>题库 · 按训练点索引</h1>
+  <p class="lead">这里的题<b>全部出自原书</b>——它们一直藏在每章最后几页，我们只是捡出来、换掉过时的壳、重新排了一遍。</p>
+
+  <p class="muted">题目本于江丕权、李越、戴国强《解决问题的策略与技能》（1990 年完稿，1992 年出版）各章末尾的练习与例题。
+  <b>「按训练点索引」这一层是本站补的</b>：原书把练习挂在每章后面，而它的图 2-12 自己说明——同一个技能会跨阶段反复出现，
+  所以按技能索引比按章索引更合它的本意。</p>
+
+  <div class="note"><span class="t">为什么这些题值得做</span>
+  我们找了很久「零门槛、但有真训练强度」的练习形式，答案一直在书里。
+  比如<b>四根火柴拼「田」</b>：不需要任何知识，做出来的人自己就知道「我刚才被什么困住了」——
+  这正是创造力一章要治的东西，这里用四根火柴就说清了。</div>
+
+  <h2 id="rules">四条入库规矩</h2>
+  <div class="grid g3">
+    <div class="card"><h4 style="margin-top:0">① 讲练咬合</h4>
+      <p class="muted" style="margin-bottom:0">原书第六节刚批评过「准备不充分、请多提宝贵意见」这类结束语，
+      练习里立刻出一道改写题。<b>讲完一条规则，立刻出一道针对性的题</b>——我们现有练习缺的正是这种咬合。</p></div>
+    <div class="card"><h4 style="margin-top:0">② 练习不绑章节</h4>
+      <p class="muted" style="margin-bottom:0">第一章的练习里就有交流题。图 2-12 证明技能横穿步骤，
+      所以按<b>训练点</b>索引比按章索引更合适。</p></div>
+    <div class="card"><h4 style="margin-top:0">③ 给两种成品让你挑</h4>
+      <p class="muted" style="margin-bottom:0">封面两种安排、提要两种结构、目录两种表示——
+      原书喜欢先给两个版本让你挑，规则后出场。比「先讲规则再做题」门槛低得多，<b>因为人天生会挑</b>。</p></div>
+    <div class="card"><h4 style="margin-top:0">④ 同型题不连续超过三道</h4>
+      <p class="muted" style="margin-bottom:0">陆钦斯量水实验：先做五道同型题的那组，<b>83%</b> 一路沿用老办法。
+      十题我们逐题验过，只有第 8 题老办法彻底失效（76−28−6=42，而 D=25），原书正文写的「甚至有人在第 8 题上卡壳」就卡在这里——
+      不是随机位置。<b>可简但可行的题负责检验，彻底失效的题负责暴露</b>，两段缺一不可。</p></div>
+  </div>
+
+  <h2 id="t19" style="margin-top:34px">表 1-9 · 当场试一次　<span class="muted" style="font-size:14px;font-weight:400">全书唯一一处让读者亲自试的地方</span></h2>
+  <p class="muted">原书讲完「经过整理分类并提供关键线索后，回忆正确率约<b>高三倍</b>」，紧接着邀请读者自己试一次。
+  词表全文到手后，我们把它做成了本站第一个真正的互动练习——<b>同一批词，先随机记一遍，再归类记一遍，比一比。</b>
+  它不需要任何知识，也不靠我们转述：效果你自己看得见。</p>
+
+  <div class="card" id="t19-card">
+    <div style="display:flex;gap:10px;flex-wrap:wrap;align-items:center;margin-bottom:12px">
+      <span class="muted" style="font-size:13px">选一种排列：</span>
+      <button type="button" class="btn-t19" data-mode="r" style="padding:7px 14px;border:1px solid #2E5C8A;border-radius:6px;background:#fff;color:#2E5C8A;font-size:14px;cursor:pointer">A　随机排列（23 词）</button>
+      <button type="button" class="btn-t19" data-mode="g" style="padding:7px 14px;border:1px solid #2E5C8A;border-radius:6px;background:#fff;color:#2E5C8A;font-size:14px;cursor:pointer">B　归类 + 类别线索</button>
+    </div>
+    <div id="t19-stage"><p class="muted" style="margin:0">点上面任意一个按钮开始。词表显示 <b>30 秒</b>后自动隐藏（30 秒是本站设定，原书未指定时间），然后请写下你记得的词。</p></div>
+    <div id="t19-result"></div>
+    <div id="t19-compare" class="muted" style="margin-top:12px;font-size:13.5px"></div>
+  </div>
+
+  <div class="note warn" style="margin-top:14px"><span class="t">一处诚实的说明</span>
+  原表两列并不完全对等：随机列 23 词，分类列多出一个「书」，且「医生」重出了一次。
+  为了让两次可比，本站按<b>同一批 23 词</b>重排（分类列去掉「书」与重复的「医生」），并在此注明——
+  若照录原表，你一比就会发现两列不是同一批词。</div>
+
+  <h2 id="list" style="margin-top:34px">题目　<span class="muted" style="font-size:14px;font-weight:400">已做 <b id="done-count">0</b> / <b id="all-count">0</b></span></h2>
+  <p class="muted">点题号左边的方框可以标记「做过」，记在你自己的浏览器里。
+  <b>标了「题面待核」的，我们只列主题</b>——原书细节还没以纸质本核对完，宁可少写，不替它编。</p>
+  <div id="drill-list"></div>
+
+  <div class="note warn" style="margin-top:26px"><span class="t">使用时的两个提醒</span>
+  一、估算题里有些用了 1990 年代的数据（如世界人口 5×10⁹），<b>做之前先换成今天的数</b>。<br>
+  二、原书还有约二十道高门槛题（流体、化工、热力学），壳太重，本站<b>只剥方法不搬壳</b>，
+  所以没有收进这个页面——那部分我们另做「方法卡」。</div>
+
+</div>
+
+<div class="footer" id="site-footer"></div>
+
+<script src="assets/data.js"></script>
+<script src="assets/app.js"></script>
+<script>
+PSC.init('drills');
+
+(function(){
+  const KEY = 'psc_drills_done';
+  let done = {};
+  try { done = JSON.parse(localStorage.getItem(KEY) || '{}'); } catch(e){ done = {}; }
+  function save(){ try{ localStorage.setItem(KEY, JSON.stringify(done)); }catch(e){} }
+
+  function count(){
+    const all = PSC_DRILLS.length;
+    const n = Object.keys(done).filter(k=>done[k]).length;
+    const a = document.getElementById('done-count'), b = document.getElementById('all-count');
+    if(a) a.textContent = n;
+    if(b) b.textContent = all;
+  }
+
+  let html = '';
+  PSC_DRILL_GROUPS.forEach(g=>{
+    const items = PSC_DRILLS.filter(d=>d.g===g);
+    if(!items.length) return;
+    html += '<h3 style="margin-top:26px">'+g+'　<span class="muted" style="font-size:14px;font-weight:400">'+items.length+' 题</span></h3>';
+    items.forEach((d,i)=>{
+      const idx = PSC_DRILLS.indexOf(d);
+      const id = 'd'+idx;
+      const chk = done[id] ? ' checked' : '';
+      html += '<div class="step-card">'+
+        '<h4><label class="checkline" style="display:inline-flex"><input type="checkbox" class="d-chk" data-id="'+id+'"'+chk+'>'+
+        '<span>'+(idx+1)+'.　'+PSC.esc(d.q)+'</span></label></h4>';
+      if(d.h) html += '<p class="muted" style="margin:6px 0 0">'+PSC.esc(d.h)+'</p>';
+      html += '<p class="muted" style="margin:8px 0 0;font-size:13px">出处：'+PSC.esc(d.s)+
+              '　·　门槛：'+PSC.esc(d.lv)+
+              (d.todo ? '　·　<span style="color:#b45309">题面待核</span>' : '')+'</p>';
+      html += '</div>';
+    });
+  });
+
+  document.getElementById('drill-list').innerHTML = html;
+  count();
+
+  document.querySelectorAll('.d-chk').forEach(cb=>{
+    cb.addEventListener('change', ()=>{
+      done[cb.getAttribute('data-id')] = cb.checked;
+      save(); count();
+    });
+  });
+})();
+
+/* 表 1-9 当场自验：随机排列 vs 归类 + 线索 */
+(function(){
+  const R = ['排球','椅子','猴子','铁锅','工人','墨水','床单','虎','纸','学生','杯子','猩猩','教师','蜻蜓','羽毛球','枕头','涂改液','农民','篮球','医生','蜘蛛','筷子','笔'];
+  const G = [
+    {g:'职业',     w:['工人','农民','教师','学生','医生']},
+    {g:'动物',     w:['猴子','虎','猩猩','蜻蜓','蜘蛛']},
+    {g:'学习用品', w:['纸','笔','墨水','涂改液']},
+    {g:'生活用品', w:['枕头','床单','椅子','铁锅','筷子','杯子']},
+    {g:'体育用品', w:['篮球','排球','羽毛球']}
+  ];
+  const ALL = R.slice();
+  const stage   = document.getElementById('t19-stage');
+  const result  = document.getElementById('t19-result');
+  const compare = document.getElementById('t19-compare');
+  if(!stage) return;
+
+  const KEY = 'psc_t19';
+  let rec = {}; try { rec = JSON.parse(localStorage.getItem(KEY) || '{}'); } catch(e){ rec = {}; }
+  function save(){ try{ localStorage.setItem(KEY, JSON.stringify(rec)); }catch(e){} }
+  function esc(s){ const d = document.createElement('div'); d.textContent = s; return d.innerHTML; }
+
+  let timer = null, mode = null;
+
+  function showWords(m){
+    mode = m;
+    let html = '';
+    if(m === 'r'){
+      html = '<p class="muted" style="margin:0 0 8px">A · 随机排列　剩余 <b id="t19-sec">30</b> 秒</p>' +
+             '<div style="font-size:17px;line-height:2.1">' + R.map(esc).join('　') + '</div>';
+    } else {
+      html = '<p class="muted" style="margin:0 0 8px">B · 归类 + 类别线索　剩余 <b id="t19-sec">30</b> 秒</p>';
+      G.forEach(o=>{
+        html += '<div style="margin-bottom:6px"><span style="font-size:13px;color:#888">' + esc(o.g) + '</span><br>' +
+                '<span style="font-size:17px;line-height:2">' + o.w.map(esc).join('　') + '</span></div>';
+      });
+    }
+    stage.innerHTML = html;
+    result.innerHTML = '';
+    let s = 30;
+    timer = setInterval(function(){
+      s--;
+      const el = document.getElementById('t19-sec');
+      if(el) el.textContent = s;
+      if(s <= 0){ clearInterval(timer); askInput(); }
+    }, 1000);
+  }
+
+  function askInput(){
+    stage.innerHTML = '<p class="muted" style="margin:0 0 8px">时间到。写下你记得的词（空格或逗号分隔都行）：</p>' +
+      '<textarea id="t19-in" rows="3" style="width:100%;padding:8px;border:1px solid #ccc;border-radius:6px;font-size:15px"></textarea>' +
+      '<div style="margin-top:8px"><button type="button" id="t19-chk" style="padding:7px 16px;border:1px solid #2E5C8A;border-radius:6px;background:#2E5C8A;color:#fff;font-size:14px;cursor:pointer">核对</button></div>';
+    document.getElementById('t19-chk').onclick = check;
+  }
+
+  function check(){
+    const raw  = (document.getElementById('t19-in').value || '').trim();
+    const told = raw.split(/[\s,，、;；]+/).filter(Boolean);
+    const hit  = ALL.filter(w=>told.indexOf(w) >= 0);
+    const wrong= told.filter(w=>ALL.indexOf(w) < 0);
+    const miss = ALL.filter(w=>hit.indexOf(w) < 0);
+    const rate = Math.round(hit.length / ALL.length * 100);
+    rec[mode] = { n: hit.length, rate: rate }; save();
+
+    let h = '<p style="margin:0 0 6px">记住 <b>' + hit.length + '</b> / ' + ALL.length +
+            '　·　正确率 <b>' + rate + '%</b></p>';
+    if(wrong.length) h += '<p class="muted" style="margin:0 0 4px">不在这批词里的：' + wrong.map(esc).join('、') + '</p>';
+    h += '<p class="muted" style="margin:0">漏掉的：' + (miss.length ? miss.map(esc).join('　') : '（一个没漏）') + '</p>';
+    result.innerHTML = h;
+    renderCompare();
+  }
+
+  function renderCompare(){
+    const a = rec.r, b = rec.g;
+    if(a && b){
+      const d = b.n - a.n;
+      compare.innerHTML = '两次都做过了：随机 <b>' + a.n + '</b> 个（' + a.rate + '%）　→　归类 <b>' + b.n +
+        '</b> 个（' + b.rate + '%）　·　相差 <b>' + (d >= 0 ? '+' : '') + d + '</b> 个。' +
+        '原书的结论是后者回忆正确率约<b>高三倍</b>——你自己的数是多少，就是多少，不必凑。';
+    } else if(a || b){
+      compare.innerHTML = '已记录：' + (a ? '随机 ' + a.n + ' 个（' + a.rate + '%）' : '') +
+        (b ? '归类 ' + b.n + ' 个（' + b.rate + '%）' : '') + '。换另一种排列再做一次，就能比。';
+    } else {
+      compare.innerHTML = '';
+    }
+  }
+
+  document.querySelectorAll('.btn-t19').forEach(btn=>{
+    btn.addEventListener('click', function(){
+      if(timer) clearInterval(timer);
+      showWords(btn.getAttribute('data-mode'));
+    });
+  });
+  renderCompare();
+})();
+</script>
+</body>
+</html>

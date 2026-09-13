@@ -88,6 +88,7 @@
       g.items.forEach(it=>{
         const href = it.id==='philosophy' ? 'philosophy.html'
                    : it.id==='practice'  ? 'practice.html'
+                   : it.id==='drills'    ? 'drills.html'
                    : it.id==='quiz'      ? 'quiz.html'
                    : it.id==='progress'  ? 'progress.html'
                    : 'chapter-'+it.id+'.html';

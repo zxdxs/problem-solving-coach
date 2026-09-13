@@ -27,7 +27,19 @@
     }
 
     let html = '';
-    list.forEach((c, idx)=>{
+    // 本源（原书作者与出版者）恒定置顶，其余保持原有顺序
+    const ordered = list.slice().sort(function(a,b){
+      const as = (a.types||[]).indexOf('source') >= 0 ? 0 : 1;
+      const bs = (b.types||[]).indexOf('source') >= 0 ? 0 : 1;
+      return as - bs;
+    });
+    ordered.forEach((c, idx)=>{
+      const isOrigin = (c.types||[]).indexOf('source') >= 0;
+      if(isOrigin && idx === 0){
+        html += '<p class="origin-note">没有下面这两位，就没有这个网站。'
+              + '本站所用方法与例题，全部出自江丕权、李越、戴国强编著'
+              + '《解决问题的策略与技能》（科学普及出版社，1992）。</p>';
+      }
       const badges = (c.types||[]).map(k=>{
         const t = typeInfo(k);
         return '<span class="cbadge" style="background:'+t.color+'1a;color:'+t.color+';border-color:'+t.color+'55">'
@@ -40,9 +52,9 @@
         ? ' <a href="'+esc(c.link)+'" target="_blank" rel="noopener" style="font-size:13px">主页 ↗</a>'
         : '';
 
-      html += '<div class="contrib-card">'+
+      html += '<div class="contrib-card'+(isOrigin?' origin':'')+'">'+
         '<div class="c-head">'+
-          '<span class="c-avatar">'+esc((c.name||'?').trim().charAt(0))+'</span>'+
+          '<span class="c-avatar">'+esc(isOrigin?'源':(c.name||'?').trim().charAt(0))+'</span>'+
           '<div class="c-id">'+
             '<div class="c-name">'+esc(c.name)+link+'</div>'+
             '<div class="c-meta">'+esc(c.date||'')+'　·　'+(c.items||[]).length+' 项贡献</div>'+
