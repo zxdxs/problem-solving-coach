@@ -7,7 +7,7 @@
 
 ## 〇、在线地址
 
-**https://solve-lab.com/**
+**https://solve-lab.cn/**
 
 ---
 
