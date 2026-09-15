@@ -360,4 +360,57 @@ legend{font-weight:800; font-size:15px; padding:0 8px; color:var(--brand);}
   a{color:#000; text-decoration:none;}
   .result-card{background:#fff; color:#000; border:2px solid #000;}
   .result-card h3{color:#000;}
+
+  /* 防御性：打印时取消横向滚动容器。
+     实测站上现有表格在打印页宽（约 816px）下均不溢出，故此条当前是空操作；
+     保留是为了将来若加入更宽的表，不会出现"右半边被裁掉却没人发现"。
+     注意：刻意不在这里缩小表字号——经实测无溢出，缩小只会降低可读性。 */
+  .table-scroll{overflow:visible !important;}
 }
+
+/* ── 题目诊断折叠区（子任务 1.4-B1）────────────────────────────────
+   drills.html 每道题下方的「卡住了？展开诊断」。
+   数据来自 PSC_DRILLS[].diagnosis（子任务 1.2 产出，1.2.5 拆分 error-002 后为最新）。 */
+details.dx{margin:8px 0 0}
+details.dx>summary{cursor:pointer;font-size:13.5px;font-weight:600;color:var(--brand);
+  list-style:none;display:inline-block;padding:2px 0}
+details.dx>summary::-webkit-details-marker{display:none}
+details.dx>summary::before{content:'▸ ';font-weight:400}
+details.dx[open]>summary::before{content:'▾ '}
+details.dx>summary:hover{text-decoration:underline}
+details.dx .dx-body{margin-top:8px;padding:11px 14px;background:#f8fafc;
+  border-left:3px solid var(--line-2);border-radius:0 7px 7px 0;font-size:13.5px;color:var(--ink-2)}
+details.dx .dx-body p{margin:5px 0}
+details.dx .dx-body b{color:var(--ink)}
+details.dx .dx-body .dx-k{display:inline-block;min-width:5.5em;color:var(--ink-3);font-weight:400}
+ol.dx-ol{margin:3px 0 9px;padding-left:22px}
+ol.dx-ol li{margin:2px 0}
+.dx-tag{display:inline-block;background:var(--line);color:var(--ink-2);
+  border-radius:5px;padding:1px 7px;font-size:12.5px;margin:2px 5px 2px 0}
+
+/* ── 五步反馈机制分块（子任务 1.4-B1）── */
+.fb-blk{margin:11px 0 0;padding-top:10px;border-top:1px dashed var(--line)}
+.fb-blk>b{display:block;color:var(--ink);margin-bottom:4px}
+.fb-blk table{font-size:13.5px;margin:6px 0 0}
+.fb-blk table th{font-size:13px}
+a.dx-tag{text-decoration:none}
+a.dx-tag:hover{background:var(--brand);color:#fff}
+
+/* ===== 0.2-B1 首页第一屏：角色入口 ＋ 公共热身 ===== */
+.first-screen{margin:18px 0 6px;}
+.role-grid{display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); gap:14px; margin-top:16px;}
+.role-card{display:block; background:var(--card,#fff); border:1px solid var(--line-2,#dbe3ef);
+  border-radius:12px; padding:16px 16px 14px; text-decoration:none; color:inherit;
+  border-top:4px solid var(--brand,#2E5C8A); transition:transform .15s, border-color .15s, box-shadow .15s;}
+.role-card:hover{transform:translateY(-2px); border-color:var(--brand-2,#4a7fb5);
+  box-shadow:0 6px 18px rgba(46,92,138,.10); color:inherit;}
+.role-card h3{margin:0 0 6px; font-size:17px; line-height:1.3;}
+.role-card p{margin:0; font-size:13.5px; color:var(--ink-3,#5b6b80); line-height:1.6;}
+.warmup-entry{display:flex; align-items:center; justify-content:space-between; gap:14px; flex-wrap:wrap;
+  margin-top:16px; padding:14px 16px; border:1px dashed var(--line-2,#dbe3ef); border-radius:12px;
+  background:var(--brand-soft,#f4f7fc);}
+.warmup-entry h3{margin:0 0 4px; font-size:15.5px;}
+.warmup-entry p{margin:0; font-size:13px; color:var(--ink-3,#5b6b80);}
+.warmup-act{display:flex; align-items:center; gap:10px; flex-wrap:wrap;}
+@media (max-width:900px){ .role-grid{grid-template-columns:repeat(2,minmax(0,1fr));} }
+@media (max-width:560px){ .role-grid{grid-template-columns:1fr;} }

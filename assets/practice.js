@@ -23,12 +23,12 @@
     const box = document.getElementById('sheet-form');
     if(!box) return;
     let html = '';
-    html += '<label class="f">题目 / 我要解决的问题<span style="color:#b91c1c"> *</span></label>'+
-            '<input type="text" id="f-title" placeholder="例：部门的周会总是严重超时">';
+    html += '<label class="f">我要解决的事<span style="color:#b91c1c"> *</span></label>'+
+            '<input type="text" id="f-title" placeholder="可以是一道题、一次故障、一个需求、一节课、一次辅导——用一句话写下来">';
     html += '<div style="display:flex;gap:12px;flex-wrap:wrap">'+
             '<div style="flex:1 1 160px"><label class="f">领域标签</label>'+
-            '<select id="f-domain"><option>工作决策</option><option>项目排期</option><option>学习备考</option>'+
-            '<option>人际沟通</option><option>数理题</option><option>工程问题</option><option>生活琐事</option><option>其他</option></select></div>'+
+            '<select id="f-domain"><option value="">请选择</option><option>工作决策</option><option>项目排期</option><option>学习备考</option>'+
+            '<option>人际沟通</option><option>数理题</option><option>工程问题</option><option>生活琐事</option><option>辅导孩子</option><option>教学备课</option><option>其他</option></select></div>'+
             '<div style="flex:1 1 160px"><label class="f">投入时间（分钟）</label>'+
             '<input type="number" id="f-minutes" min="0" placeholder="如 25"></div></div>';
 
@@ -45,7 +45,7 @@
     html += '<fieldset><legend>错误归因（完成后勾选，可多选）</legend>';
     PSC_ERRORS.forEach((e,i)=>{
       html += '<label class="checkline"><input type="checkbox" class="f-err" value="'+PSC.esc(e.k)+'">'+
-              '<span><b>'+e.k+'</b>　<span class="muted">'+e.d+'</span></span></label>';
+              '<span><b>'+e.k+'</b>　<span class="muted">'+e.d.join(' / ')+'</span></span></label>';
     });
     html += '</fieldset>';
 
@@ -113,7 +113,7 @@
 
   function saveSheet(){
     const s = currentSheetData();
-    if(!s.title.trim()){ PSC.toast('请先填写”题目 / 我要解决的问题“','bad'); return; }
+    if(!s.title.trim()){ PSC.toast('请先填写”我要解决的事“','bad'); return; }
     const list = PSC.read(PSC.KEY_SHEETS, []);
     const i = list.findIndex(x=>x.id===s.id);
     if(i>=0) list[i]=s; else list.unshift(s);

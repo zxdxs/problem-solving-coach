@@ -3,8 +3,28 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>第 4 章　问题分类</title>
+<title>第 4 章　问题分类 · 解决问题训练站</title>
 <link rel="stylesheet" href="assets/style.css">
+
+<!-- ===== SEO / 分享元数据（0.2-F2A）===== -->
+<meta name="description" content="分类不是整理癖，而是决策的前置动作：先判断这是哪一类问题，才能决定投入多少资源、用什么策略、什么时候可以停。含九条分类技巧、三种常见分错法与结构矩阵，可直接对着练。">
+<link rel="canonical" href="https://solve-lab.cn/chapter-classify.html">
+<link rel="icon" href="/favicon.ico" sizes="32x32">
+<link rel="apple-touch-icon" href="assets/og/apple-touch-icon.png">
+<!-- Open Graph -->
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="解决问题训练站">
+<meta property="og:title" content="第 4 章　问题分类 · 解决问题训练站">
+<meta property="og:description" content="分类不是整理癖，而是决策的前置动作：先判断这是哪一类问题，才能决定投入多少资源、用什么策略、什么时候可以停。含九条分类技巧、三种常见分错法与结构矩阵，可直接对着练。">
+<meta property="og:url" content="https://solve-lab.cn/chapter-classify.html">
+<meta property="og:image" content="https://solve-lab.cn/assets/og/og-chapter.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<!-- Twitter / X -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="第 4 章　问题分类 · 解决问题训练站">
+<meta name="twitter:description" content="分类不是整理癖，而是决策的前置动作：先判断这是哪一类问题，才能决定投入多少资源、用什么策略、什么时候可以停。含九条分类技巧、三种常见分错法与结构矩阵，可直接对着练。">
+<meta name="twitter:image" content="https://solve-lab.cn/assets/og/og-chapter.jpg">
 </head>
 <body>
 
@@ -19,12 +39,13 @@
 <div class="wrap">
 
   <div class="crumb"><a href="index.html">首页</a><span>/</span>第 4 章　问题分类</div>
-  <h1>第 4 章　问题分类<span class="badge todo">骨架版</span></h1>
+  <h1>第 4 章　问题分类</h1>
+  <p class="muted" style="font-size:13.5px;margin-top:-4px">章号对照：本页是<b>本站第 4 章</b>，对应<b>原书第四章</b>（编号一致）。站内所有"第 X 章""表 X-X"一律指原书编号——完整对照见<a href="philosophy.html#s5b">理念篇·五之二</a>。</p>
   <p class="lead">分类不是整理癖，而是<b>决策的前置动作</b>：先判断这是哪一类问题，才能决定投入多少资源、用什么策略、什么时候可以停。</p>
 
-  <div class="note"><span class="t">本页状态</span>
-  这是<b>骨架版</b>：目标、核心要点、练习与检查点已经就位，可直接开练。
-  后续会补充建模示范、完整量规与题库。骨架版的练法：先看目标 → 做练习 → 用出门票自检 → 勾选掌握度。</div>
+  <div class="note ok"><span class="t">本页状态</span>
+  本页要点<b>均出自原书分类一章</b>，含准则、九条操作技巧、三种常见分错法、结构矩阵、CRE 与力场图。
+  本站补充的是生活化例题与判错题，<b>原书结论一律照录并标出处</b>。</div>
 
   <div class="toc">
     <strong>本页目录</strong>
@@ -34,6 +55,11 @@
       <li><a href="#s3">对照表</a></li>
       <li><a href="#s3b">分类之前，先定目的</a></li>
       <li><a href="#s3c">分类的九条操作技巧</a></li>
+      <li><a href="#s3d">三种最常见的分错法</a></li>
+      <li><a href="#s3e">结构矩阵：一张 T/F 表</a></li>
+      <li><a href="#s3f">CRE：从依赖最少的环节下手</a></li>
+      <li><a href="#s3g">力场图：把两股力量摆在一起</a></li>
+      <li><a href="#s3h">方框是动作，圆圈是状态</a></li>
       <li><a href="#s4">练习任务</a></li>
       <li><a href="#s5">出门票自检</a></li>
     </ol>
@@ -56,6 +82,10 @@
   </div>
 
   <h2 id="s3">三、对照表</h2>
+  <div class="note"><span class="t">［本站归纳］来源说明</span>
+  本表<b>不是原书的某一张表</b>，是本站对本章内容的归纳整理，
+  用来给读者一张可对照的快查表。<b>引用时不可写作「原书认为」。</b>
+  原书对应内容见本章各处的【原书】标注与表号引用。</div>
   <div class="table-scroll">
   <table>
     <thead><tr><th>类型</th><th>特征</th><th>策略重心</th><th>资源投入</th></tr></thead>
@@ -83,17 +113,33 @@
   <p>原著有一张表，讲同一件事：<b>你手上的信息以什么形式提供，往往就决定了该用什么方式分类。</b></p>
 
   <div class="table-scroll">
-  <table>
-    <thead><tr><th style="width:38%">信息的提供方式</th><th style="width:62%">分类的根据</th></tr></thead>
+  <table id="tab-4-1">
+    <caption style="caption-side:bottom;text-align:left;font-size:13px;color:#64748b;padding-top:6px">
+      <b>表 4-1　分类的根据常取决于信息的提供</b>（据原书表 4-1 重绘，原书印刷页 149）
+    </caption>
+    <thead><tr><th style="width:34%">信息的提供</th><th style="width:66%">分类的根据</th></tr></thead>
     <tbody>
-      <tr><td>公正的对比</td><td>① 逐条、或二者择一地逐对进行　② 提出一个部分或问题，与其他类似的部分相比较</td></tr>
-      <tr><td>指令或指导</td><td>时序</td></tr>
-      <tr><td>方法或步骤</td><td>工序</td></tr>
-      <tr><td>加工或处理过程</td><td>逻辑顺序</td></tr>
-      <tr><td>功能分析</td><td>（按功能划分）</td></tr>
+      <tr><td><b>公正的比较</b></td><td>① 逐条、或二者择一地逐对进行　② 提出一个部分或问题，与其他类似的部分相比较</td></tr>
+      <tr><td><b>指令或指导</b></td><td>① 时序　② 工序</td></tr>
+      <tr><td><b>方法或步骤</b></td><td>工序</td></tr>
+      <tr><td><b>加工或处理过程</b></td><td>逻辑顺序</td></tr>
+      <tr><td><b>功能分析</b></td><td>（按功能划分）［待核］</td></tr>
+      <tr style="background:var(--brand-soft)"><td><b>仪器或设备的描述</b></td><td>① 空间顺序　② 逻辑顺序</td></tr>
+      <tr style="background:var(--brand-soft)"><td><b>组织或计划的描述</b></td><td>① 逻辑顺序　② 组织或处理顺序</td></tr>
     </tbody>
   </table>
   </div>
+
+  <div class="note warn"><span class="t">★ 本站此前只列了 5 行，原书是 7 行</span>
+  补上的是最后两行——而<b>这两行恰恰是最有用的两行</b>：<br>
+  <b>「仪器或设备的描述」→ 空间顺序</b>（一台设备，按位置分）<br>
+  <b>「组织或计划的描述」→ 组织或处理顺序</b>（一份计划，按先后来分）<br>
+  <span class="muted">前面五行给的是抽象材料（比较、指令、步骤、过程、功能），
+  最后两行才落到<b>具体的实物和文书</b>上——<b>而日常工作中要分类的，多半正是这两类。</b>［本站判定］</span></div>
+
+  <div class="note"><span class="t">［待核］一处对齐</span>
+  原表右栏带 ①② 编号，<b>读图未能把每一条编号可靠地锁到左栏的某一行</b>（多处格子字迹粘连）。<br>
+  <span class="muted">本站采用的对齐与原书 OCR 的版式一致；<b>「功能分析」一格未见右栏内容，标［待核］、不臆补。</b></span></div>
 
   <div class="note warn"><span class="t">这一条的用处</span>
   它回答了一个常见困惑：<b>"我到底该按什么分类？"</b>
@@ -146,6 +192,295 @@
   <div class="note"><span class="t">为什么这条要紧</span>
   争论之所以无解，往往是因为<b>双方把"意见"当成了"事实"在争</b>。
   先把事实剥出来，很多争论会自己消失——因为剩下的分歧，其实只有一点点。</div>
+
+
+  <h2 id="s3d">三之四、三种最常见的分错法</h2>
+  <p>分类的规矩听起来抽象，可犯的错却是固定的几种。原著给了三组最小教材——
+  <b>每组两三个词，一看就懂，而且人人都犯过。</b></p>
+
+  <div class="table-scroll">
+  <table>
+    <thead><tr><th style="width:16%">错在哪</th><th style="width:42%">例子</th><th style="width:42%">怎么改</th></tr></thead>
+    <tbody>
+      <tr><td><b>并列错误</b></td><td>「食物／稻米／饮料」——稻米是食物的一种，不能与主类并列</td><td>改为「食物、饮料」，即固体／液体两层</td></tr>
+      <tr><td><b>从属关系错误</b></td><td>「水果／苹果／桔子／胡萝卜」——胡萝卜不是水果</td><td>胡萝卜应置于与水果同层的「蔬菜」之下</td></tr>
+      <tr><td><b>越级划分</b></td><td>「自然界 → 动物／植物／矿物」——跳过了中间层</td><td>先分有机界／无机界，再往下分</td></tr>
+    </tbody>
+  </table>
+  </div>
+
+  <div class="note warn"><span class="t">为什么这三组值得单独练</span>
+  它们小到不需要任何学科背景，却正好对应三条准则：并列（准则 7）、从属（准则 8）、逐级（准则 4）。
+  <b>判断别人分错，比自己分对容易得多</b>——所以入门练习该从"挑错"开始，不是从"分类"开始。</div>
+
+  <h3>一个每个人都犯过的实例</h3>
+  <p>原著例二是一份工作计划提纲。初稿把<b>「泵／鼓风机」</b>（整机）和
+  <b>「机座／转子／进气排气」</b>（部件）混排在同一层。</p>
+
+  <div class="table-scroll">
+  <table>
+    <thead><tr><th style="width:50%">混排（错）</th><th style="width:50%">改后（对）</th></tr></thead>
+    <tbody>
+      <tr><td>泵、鼓风机、机座、转子、进气排气……全部并列</td><td>第一层：<b>用于流体的泵</b>／<b>气体鼓风机</b>；第二层：<b>对低压</b>／<b>对高压</b></td></tr>
+    </tbody>
+  </table>
+  </div>
+
+  <p class="muted">写方案、理清单、做目录时，这个错几乎天天在犯：<b>整体和它的零件被摆在了同一级。</b>
+  检查一下你手头任何一份提纲——如果某一项能吃掉另外几项，那几项就该降一级。</p>
+
+  <h2 id="s3e">三之五、结构矩阵：一张 T/F 表能查出的东西</h2>
+
+  <p class="muted">原书先给<b>最简单的一格</b>：一个方程，五个量。规矩只有一条——
+  <b>未知量列在首位</b>，已知量排在后面；方程牵涉哪个量，就在哪一列打勾。</p>
+
+  <div class="table-scroll">
+  <table id="tab-4-3" style="max-width:560px">
+    <caption style="caption-side:bottom;text-align:left;font-size:13px;color:#64748b;padding-top:6px">
+      <b>表 4-3　结构矩阵</b>（据原书表 4-3 重绘，原书印刷页 153 页首）。原书式(4-1) 为
+      <b>c<sub>p</sub> = a + bT + cT²</b>；√ 表示该方程牵涉该量。
+    </caption>
+    <thead>
+      <tr><th rowspan="2" style="width:22%">式</th><th>未知量</th><th colspan="4">已知量</th></tr>
+      <tr><th>c<sub>p</sub></th><th>a</th><th>b</th><th>c</th><th>T</th></tr>
+    </thead>
+    <tbody>
+      <tr><td><b>式(4-1)</b></td><td>√</td><td>√</td><td>√</td><td>√</td><td>√</td></tr>
+    </tbody>
+  </table>
+  </div>
+
+  <div class="note ok"><span class="t">同一个东西，原书还画了一遍</span>
+  这就是<b>图 4-5「算法」</b>——原书把它叫作 <b>Polya 图</b>：左边四个圈是<b>输入或已知</b>（a、b、c、T），
+  中间方框写着<b>式(4-1)</b>，右边箭头指向<b>输出</b> c<sub>p</sub>。<br>
+  <span class="muted">★ 表和图看的是同一件事：<b>表回答"谁跟谁有关"，图回答"先算什么后算什么"。</b>
+  表多半是给自己看的草稿，图是拿给别人看的。</span></div>
+
+  <p class="muted">一个方程看不出名堂。原书立刻把它扩到<b>七个方程</b>（例四）——这才是矩阵真正开始干活的地方：</p>
+
+  <div class="table-scroll">
+  <table id="tab-4-4" style="max-width:560px">
+    <caption style="caption-side:bottom;text-align:left;font-size:13px;color:#64748b;padding-top:6px">
+      <b>表 4-4　结构矩阵</b>（据原书表 4-4 重绘，原书印刷页 153–154）。√ 表示该方程牵涉该变量。
+    </caption>
+    <thead><tr><th style="width:20%">式</th><th>a</th><th>b</th><th>c</th><th>d</th><th>e</th><th>f</th><th>g</th></tr></thead>
+    <tbody>
+      <tr><td><b>1</b></td><td>√</td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+      <tr><td><b>2</b></td><td>√</td><td>√</td><td></td><td></td><td></td><td></td><td></td></tr>
+      <tr><td><b>3</b></td><td>√</td><td>√</td><td>√</td><td></td><td></td><td></td><td></td></tr>
+      <tr><td><b>4</b></td><td>√</td><td></td><td>√</td><td>√</td><td></td><td></td><td></td></tr>
+      <tr><td><b>5</b></td><td></td><td>√</td><td>√</td><td>√</td><td>√</td><td>√</td><td></td></tr>
+      <tr><td><b>6</b></td><td>√</td><td></td><td>√</td><td></td><td>√</td><td></td><td></td></tr>
+      <tr><td><b>7</b></td><td></td><td></td><td></td><td></td><td></td><td>√</td><td>√</td></tr>
+    </tbody>
+  </table>
+  </div>
+
+  <div class="note ok"><span class="t">怎么用它（这就是 CRE 的全部动作）</span>
+  <b>找一行只有一个勾的</b>——式 1 只有 a，式 7 只有 f、g。<b>从那几个量下手，解出来，划掉它出现的所有列，再看下一行。</b><br>
+  <span class="muted">★ 换个角度看这张表：<b>它同时告诉你「哪些量是缠在一起的」</b>——式 5 牵涉 5 个量，它必然是最后才算得出的那个。</span></div>
+
+  <div class="note"><span class="t">原书编号顺序</span>
+  原书第四章这几张表是连着的：<b>表 4-3</b> 是上面那张单方程矩阵（印刷页 153 页首），
+  <b>表 4-4</b> 是此刻这张例四的七方程矩阵，<b>表 4-5</b> 是下一节例五改过条件后重排的矩阵（印刷页 156）。<br>
+  <span class="muted">［本站判定］三张表对应三个递进的例子，编号本身没有错乱。</span></div>
+
+
+  <div class="table-scroll">
+  <table id="tab-4-12" style="max-width:640px">
+    <caption style="caption-side:bottom;text-align:left;font-size:13px;color:#64748b;padding-top:6px">
+      <b>图 4-12　结构矩阵</b>（据原书图 4-12 重绘，原书印刷页 158）。√ 表示该方程牵涉该变量。
+    </caption>
+    <thead>
+      <tr><th style="width:22%">式</th><th>A</th><th>Q</th><th>⟨V⟩</th><th>L</th></tr>
+    </thead>
+    <tbody>
+      <tr><td><b>1</b>　⟨V⟩ = Q/A</td><td>√</td><td>√</td><td>√</td><td></td></tr>
+      <tr><td><b>2</b>　Q = exp(…)</td><td>√</td><td>√</td><td></td><td>√</td></tr>
+    </tbody>
+  </table>
+  </div>
+
+  <figure class="psc-fig" id="fig-4-13" style="margin:20px 0 8px">
+  <svg viewBox="0 0 820 260" width="100%" role="img" aria-label="图 4-13 流程图" style="max-width:820px;display:block;margin:0 auto;font-family:inherit">
+    <defs><marker id="a8" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#1e40af"/></marker></defs>
+    <text x="60" y="66" font-size="13" fill="#64748b">已知</text>
+    <circle cx="130" cy="60" r="36" fill="#f8fafc" stroke="#94a3b8" stroke-width="2"/>
+    <text x="130" y="66" text-anchor="middle" font-size="15" font-weight="700" fill="#1a2233">⟨V⟩</text>
+    <circle cx="130" cy="180" r="36" fill="#f8fafc" stroke="#94a3b8" stroke-width="2"/>
+    <text x="130" y="186" text-anchor="middle" font-size="15" font-weight="700" fill="#1a2233">L</text>
+
+    <rect x="300" y="36" width="150" height="52" rx="10" fill="#eff6ff" stroke="#1e40af" stroke-width="2"/>
+    <text x="375" y="68" text-anchor="middle" font-size="15" font-weight="700" fill="#1e40af">式 1</text>
+    <rect x="300" y="156" width="150" height="52" rx="10" fill="#eff6ff" stroke="#1e40af" stroke-width="2"/>
+    <text x="375" y="188" text-anchor="middle" font-size="15" font-weight="700" fill="#1e40af">式 2</text>
+
+    <rect x="590" y="96" width="160" height="52" rx="10" fill="#ecfdf5" stroke="#047857" stroke-width="2"/>
+    <text x="670" y="128" text-anchor="middle" font-size="15" font-weight="700" fill="#047857">解出 A</text>
+
+    <g stroke="#1e40af" stroke-width="2" marker-end="url(#a8)" fill="none">
+      <path d="M166 60 L296 60"/>
+      <path d="M166 180 L296 180"/>
+      <path d="M375 88 L375 152"/>
+      <path d="M450 174 L586 130"/>
+    </g>
+    <text x="234" y="52" text-anchor="middle" font-size="12" fill="#94a3b8">给定</text>
+    <text x="234" y="172" text-anchor="middle" font-size="12" fill="#94a3b8">给定</text>
+    <text x="386" y="126" font-size="12" fill="#94a3b8">顺序解</text>
+    <text x="520" y="140" font-size="12" fill="#94a3b8">得出结果</text>
+
+    <text x="410" y="240" text-anchor="middle" font-size="13" fill="#64748b">两式都牵涉 A 与 Q 两个未知量，<tspan font-weight="700">不能一步解出</tspan>——所以要按顺序联立。原书说：「因为所有的行包含两列，所以需要解联立方程。」</text>
+  </svg>
+  <figcaption class="muted" style="text-align:center;font-size:14px;margin-top:6px">
+    <b>图 4-13　流程图</b>（据原书图 4-13 重绘，原书印刷页 158）。★ 方框与圆圈的<tspan font-weight="700">内容</tspan>经两个模型一致确认；<tspan font-weight="700">箭头的具体走向</tspan>仅取两者一致的骨架，细节［待核］。
+  </figcaption>
+  </figure>
+
+  <p>原著表 4-2 是一张极小的表：横着是几个字母（c、d、w），竖着是四个属性——
+  <b>字母表前部／英文使用频率在前 30／全为直线笔划／表示距离或高度</b>——每格填 T 或 F。</p>
+
+  <div class="note"><span class="t">它真正的用处，在下一章才显出来</span>
+  第二章例一里，解题者把这张表一填，<b>发现多出一个新变量 a</b>——
+  一个本不该由他引进的量。于是改道：功可以从势能变化得到，<b>避开力 F</b>。<br><br>
+  所以结构矩阵不是"把已知量列出来看看"，而是——
+  <b>查出自己新引进了哪个不该引进的量。</b></div>
+
+  <p class="muted">本站建议的用法：遇到多变量的事，先画一张「元素 × 属性」的空格表，
+  填完看一眼<b>有没有哪一列是多出来的</b>。原书表 4-2 的填法请以纸质本核对，本站不代填。</p>
+
+  <h2 id="s3f">三之六、CRE：从依赖最少的环节下手</h2>
+  <p>原著用方程组演示的一条通用做法，剥掉数学外衣后是三句话：</p>
+
+  <div class="table-scroll">
+  <table>
+    <thead><tr><th style="width:22%">步骤</th><th style="width:78%">做什么</th></tr></thead>
+    <tbody>
+      <tr><td>① 找入口</td><td>先找<b>只有一个未知量与之相关</b>的那一行——依赖最少的环节，先解它</td></tr>
+      <tr><td>② 消掉、重复</td><td>解出一个就消掉一个，再找新的入口。这个顺序的<b>逆过程，就是完整求解顺序</b></td></tr>
+      <tr><td>③ 卡住时改用试错</td><td>遇到循环依赖（互相都等着对方）就解不开了。此时：<b>猜一个值 → 算出 → 修正 → 直到自洽</b></td></tr>
+    </tbody>
+  </table>
+  </div>
+
+  <div class="note ok"><span class="t">这是同一个思想的第三次出现</span>
+  「从依赖最少的环节下手」，与第五章「<b>用熟悉的东西代替它</b>」、
+  第四章「先找<b>限制最大</b>的那一列」是同一件事。<br><br>
+  同一件事，原著在三章各讲一次、各换一套说法——
+  <b>这种反复出现的东西，才是真正的策略之策略。</b></div>
+
+  <h2 id="s3g">三之七、力场图：把两股力量摆在一起</h2>
+  <p>有些事推不动，不是因为不想做，是因为<b>两侧都有力量</b>。
+  原著的力场图（图 4-14）分析的正是——<b>「读一本书以改进解决的技能」</b>，也就是我们此刻正在做的事。</p>
+
+  <div class="table-scroll">
+  <table>
+    <thead><tr><th style="width:50%">一侧</th><th style="width:50%">另一侧</th></tr></thead>
+    <tbody>
+      <tr><td>好电视节目、天气好、找不到书、朋友借走</td><td>电视机坏了、天气不好、有书单、朋友说好</td></tr>
+    </tbody>
+  </table>
+  </div>
+
+  <div style="margin:24px 0 6px"><p class="muted" style="margin-bottom:2px">原书这张力场图长这样——<b>竖线是「现在的情境」，左右两侧是成对的力</b>：</p></div>
+<figure class="psc-fig" id="fig-4-14" style="margin:22px 0 8px">
+<svg viewBox="0 0 900 460" width="100%" role="img" aria-label="力场分析：读一本书以改进解决问题的技能" style="max-width:900px;display:block;margin:0 auto;font-family:inherit">
+  <defs>
+    <marker id="a6" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#b45309"/>
+    </marker>
+    <marker id="a7" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#1e40af"/>
+    </marker>
+  </defs>
+
+  <text x="450" y="26" text-anchor="middle" font-size="15" font-weight="700" fill="#1a2233">对象：读一本书以改进解决问题的技能</text>
+
+  <!-- 左列标题 -->
+  <text x="196" y="56" text-anchor="middle" font-size="13.5" font-weight="700" fill="#b45309">阻碍改变的因素（推向现状）</text>
+  <text x="704" y="56" text-anchor="middle" font-size="13.5" font-weight="700" fill="#1e40af">推动改变的因素（推向目标）</text>
+
+  <!-- 中间竖线 -->
+  <line x1="450" y1="70" x2="450" y2="400" stroke="#1a2233" stroke-width="2.5"/>
+  <text x="450" y="424" text-anchor="middle" font-size="13.5" font-weight="700" fill="#1a2233">现在的情境</text>
+
+  <!-- 左列短语 -->
+  <g font-size="14" text-anchor="end" fill="#1a2233">
+    <text x="424" y="100" font-weight="700" fill="#b45309">真正读书</text>
+    <text x="424" y="140">有好的电视节目</text>
+    <text x="424" y="180">外面天气很好</text>
+    <text x="424" y="220">找不到书</text>
+    <text x="424" y="260">很难想到书放在那里</text>
+    <text x="424" y="300">你读的关于这个主题的书</text>
+    <text x="424" y="320">会令人生厌</text>
+    <text x="424" y="360">朋友借走</text>
+  </g>
+  <!-- 指向左的箭头（左列的力，把情境推向现状） -->
+  <g stroke="#b45309" stroke-width="1.6" marker-end="url(#a6)">
+    <line x1="430" y1="134" x2="470" y2="134"/>
+    <line x1="430" y1="174" x2="470" y2="174"/>
+    <line x1="430" y1="214" x2="470" y2="214"/>
+    <line x1="430" y1="254" x2="470" y2="254"/>
+    <line x1="430" y1="308" x2="470" y2="308"/>
+    <line x1="430" y1="354" x2="470" y2="354"/>
+  </g>
+
+  <!-- 右列短语 -->
+  <g font-size="14" fill="#1a2233">
+    <text x="476" y="100" font-weight="700" fill="#1e40af">不读书</text>
+    <text x="476" y="140">电视机坏了</text>
+    <text x="476" y="180">外面天气不好</text>
+    <text x="476" y="220">有书单</text>
+    <text x="476" y="300">朋友告知这本书好</text>
+    <text x="476" y="360">周末还在</text>
+  </g>
+  <!-- 指向左的箭头（右列的力，把情境推向目标） -->
+  <g stroke="#1e40af" stroke-width="1.6" marker-end="url(#a7)">
+    <line x1="470" y1="134" x2="430" y2="134"/>
+    <line x1="470" y1="174" x2="430" y2="174"/>
+    <line x1="470" y1="214" x2="430" y2="214"/>
+    <line x1="470" y1="308" x2="430" y2="308"/>
+    <line x1="470" y1="354" x2="430" y2="354"/>
+  </g>
+
+  <!-- 说明 -->
+  <rect x="612" y="120" width="276" height="230" rx="10" fill="#fffbeb" stroke="#b45309" stroke-width="1.5"/>
+  <text x="628" y="146" font-size="13.5" font-weight="700" fill="#b45309">原书对这张图的说明</text>
+  <text x="628" y="174" font-size="12.5" fill="#1a2233">「垂线表示<b>现在的情境</b>，右边的</text>
+  <text x="628" y="194" font-size="12.5" fill="#1a2233">箭头代表所有的因素和力将使</text>
+  <text x="628" y="214" font-size="12.5" fill="#1a2233">现在情境<b>向左边移动</b>；左边的</text>
+  <text x="628" y="234" font-size="12.5" fill="#1a2233">箭头或者<b>阻碍反向力</b>，或者将</text>
+  <text x="628" y="254" font-size="12.5" fill="#1a2233">情境<b>移向右边</b>。当试着改变</text>
+  <text x="628" y="274" font-size="12.5" fill="#1a2233">一个情境时，这个方法是<b>方便</b></text>
+  <text x="628" y="294" font-size="12.5" fill="#1a2233">的。」</text>
+  <text x="628" y="326" font-size="12.5" fill="#047857" font-weight="700">★ 用法：要推动改变，</text>
+  <text x="628" y="344" font-size="12.5" fill="#047857">削弱左边，比加强右边更省力。</text>
+</svg>
+<figcaption class="muted" style="text-align:center;font-size:14px;margin-top:6px">
+  <b>图 4-14　力场分析</b>（据原书图 4-14 重绘，原书印刷页 159）
+</figcaption>
+</figure>
+
+
+  <p class="muted">本站按图意把八项分列两侧；<b>原书此处的方向表述自相矛盾，故不引其方向，只取分列。</b>
+  用的时候不必纠结哪边是正是负——<b>有用的动作是：把你自己的两股力量都写下来，看清哪一边更长。</b></p>
+
+  <h2 id="s3h">三之八、方框是动作，圆圈是状态</h2>
+  <p>原著例八「拿起铅笔」讲一件极小的区别，但它决定了图该怎么画：</p>
+
+  <div class="table-scroll">
+  <table>
+    <thead><tr><th style="width:24%">图元</th><th style="width:38%">表示什么</th><th style="width:38%">强调什么</th></tr></thead>
+    <tbody>
+      <tr><td><b>方框</b>（节点）</td><td>操作——在节点上操作</td><td>强调「<b>拿起</b>」这个动作</td></tr>
+      <tr><td><b>圆圈</b>（线）</td><td>状态——在线上操作</td><td>强调铅笔的<b>两个状态</b>（在地上／在手里）</td></tr>
+    </tbody>
+  </table>
+  </div>
+
+  <div class="note"><span class="t">这一条怎么用在执行单上</span>
+  <b>状态是节点——你现在在哪；线才是动作——你要做什么。</b><br><br>
+  所以五步执行单该记录的是<b>线上的活动</b>，不是节点本身。
+  写「我在第二步」没用，写「我试了三种估法」才有用。</div>
 
   <h2 id="s4">四、练习任务</h2>
     <div class="card"><h4>练习 1：给本周的问题分类</h4><p class="muted" style="margin-bottom:0">列出本周遇到的 10 个问题，先用自己的标准分类，再换一个标准重新分一次，比较哪种分类更能指导行动。</p></div>
