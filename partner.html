@@ -3,8 +3,28 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>找陪练 · 一个人练不动的时候</title>
+<title>找陪练 · 一个人练不动的时候 · 解决问题训练站</title>
 <link rel="stylesheet" href="assets/style.css">
+
+<!-- ===== SEO / 分享元数据（0.2-F2A）===== -->
+<meta name="description" content="原著里「了解自己」的第一种方法，就叫寻找伙伴。这一页给四种玩法：找搭子、当辅导员、互相出题、守擂，并附倾听者七句话与陪练分寸两条标尺，以及怎么把自己的名字放上陪练墙。">
+<link rel="canonical" href="https://solve-lab.cn/partner.html">
+<link rel="icon" href="/favicon.ico" sizes="32x32">
+<link rel="apple-touch-icon" href="assets/og/apple-touch-icon.png">
+<!-- Open Graph -->
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="解决问题训练站">
+<meta property="og:title" content="找陪练 · 一个人练不动的时候 · 解决问题训练站">
+<meta property="og:description" content="原著里「了解自己」的第一种方法，就叫寻找伙伴。这一页给四种玩法：找搭子、当辅导员、互相出题、守擂，并附倾听者七句话与陪练分寸两条标尺，以及怎么把自己的名字放上陪练墙。">
+<meta property="og:url" content="https://solve-lab.cn/partner.html">
+<meta property="og:image" content="https://solve-lab.cn/assets/og/og-tools.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<!-- Twitter / X -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="找陪练 · 一个人练不动的时候 · 解决问题训练站">
+<meta name="twitter:description" content="原著里「了解自己」的第一种方法，就叫寻找伙伴。这一页给四种玩法：找搭子、当辅导员、互相出题、守擂，并附倾听者七句话与陪练分寸两条标尺，以及怎么把自己的名字放上陪练墙。">
+<meta name="twitter:image" content="https://solve-lab.cn/assets/og/og-tools.jpg">
 </head>
 <body>
 
@@ -145,6 +165,10 @@
   <p class="muted">愿意组对的人，名字会留在这里。用昵称就行，
   <b>别写真名、手机号、住址</b>。</p>
   <div id="partner-list"></div>
+  <div class="note warn" style="margin:12px 0"><span class="t">墙上现在只有站长一人</span>
+  你发来报名后，一般 <b>1–2 天</b>内会把你的名字放上来。<br>
+  报名方式：往下看「怎么把名字放上来」，点那里的<b>「一键发邮件」</b>按钮（主题和格式已填好）；
+  不想用邮件的，点「复制模板」带走，粘到任何地方都行。</div>
 
   <div class="note warn"><span class="t">留名之前，请先读这三条</span>
   <b>一、只留昵称与一个联系方式。</b>真名、手机、住址、工作单位都不要写。<br>
@@ -220,6 +244,46 @@
   <p style="margin-bottom:0">两条线画出的正是陪练的两种典型失败：
   <b>要么不管</b>（太被动、支援过多变成哄），<b>要么管太多</b>（不断阻止、太有威胁变成审问）。</p>
 
+  <div class="card" id="t15-card" style="margin-top:18px">
+    <style>
+      #t15-card .t15-opt{display:inline-block;padding:7px 14px;margin:0 8px 8px 0;border:1px solid #2E5C8A;border-radius:6px;background:#fff;color:#2E5C8A;font-size:14px;cursor:pointer}
+      #t15-card .t15-opt.on{background:#2E5C8A;color:#fff}
+      #t15-card .t15-opt.warn.on{background:#C0392B;border-color:#C0392B;color:#fff}
+      #t15-card .t15-row{margin-bottom:16px}
+      #t15-card .t15-hd{font-weight:600;font-size:14.5px;margin-bottom:3px}
+      #t15-card .t15-ends{display:flex;justify-content:space-between;gap:12px;font-size:12.5px;color:#888;margin-bottom:3px}
+      #t15-card .t15-ends span{flex:1}
+      #t15-card .t15-ends span+span{text-align:right}
+      #t15-card input[type=range]{width:100%;margin:0}
+      #t15-card .t15-num{font-weight:400;font-size:13px;color:#2E5C8A;margin-left:8px}
+      #t15-card .t15-unset{font-weight:400;font-size:13px;color:#aaa;margin-left:8px}
+      #t15-card textarea{width:100%;min-height:96px;font-size:13.5px;line-height:1.7;padding:10px;border:1px solid #ddd;border-radius:6px;font-family:inherit}
+    </style>
+
+    <p class="muted" style="margin-top:0">这三块合起来就是原书表 1-5。
+    <b>由解题的人填</b>，填完直接交给陪练的人——这就是那句「用反映作为指导」的实际操作。
+    记录只保存在你自己的浏览器里。</p>
+
+    <div class="t15-row">
+      <div class="t15-hd">① 我愿倾听者是<span class="t15-unset">（单选）</span></div>
+      <div id="t15-role"></div>
+    </div>
+
+    <div class="t15-row">
+      <div class="t15-hd">② 倾听者强调<span class="t15-unset">（可多选）</span></div>
+      <div id="t15-act"></div>
+      <div id="t15-act-warn"></div>
+    </div>
+
+    <div id="t15-scales"></div>
+
+    <div class="btn-row" style="margin-top:14px">
+      <button class="btn" id="t15-gen">生成给陪练的话</button>
+      <button class="btn ghost" id="t15-clear">清空</button>
+    </div>
+    <div id="t15-out" style="margin-top:14px"></div>
+  </div>
+
   <h4>三、五条依据，都出自原书</h4>
   <div class="table-scroll">
   <table>
@@ -242,7 +306,7 @@
   另有一处制度细节：原书两处独立规定小组 <b>5~7 人、设负责人、且负责人无权判定主题或思想是否正确</b>，可轮流担任。<span class="muted">（第三章、第六章）</span></p>
 
   <h4>四、找线索四步：比「你再想想」管用</h4>
-  <p class="muted">原书写「再认发生困难时便需要寻找线索」——那本身就是一套通用的提示技法，
+  <p class="muted">原书写「再认……是比回忆较为容易和简单的一种恢复经验的形式」（p47）；另可引 p48「……也能积极地搜索线索」——那本身就是一套通用的提示技法，
   <b>不针对某一道题，任何卡壳都能用。</b></p>
   <ol>
     <li>找<b>事物各部分</b>之间的联系</li>
@@ -344,5 +408,135 @@
 <script src="assets/app.js"></script>
 <script src="assets/partner.js"></script>
 <script>PSC.init('partner');</script>
+
+<!-- 表 1-5 对倾听者的反映：角色 + 强调 + 两条标尺 -->
+<script>
+(function(){
+  var ROLES = ['沉默的','教练员','引导者','中立者'];
+  var ACTS  = [
+    {t:'倾听',        w:false},
+    {t:'帮我表达',    w:false},
+    {t:'帮我解决问题',w:false},
+    {t:'为我解决问题',w:true}
+  ];
+  var SCALES = [
+    {k:'inter', n:'相互作用的方式', l:'太被动，很难感到他的存在', r:'主动不断阻止，我很难说话'},
+    {k:'threat',n:'威胁感',         l:'太有威胁',                 r:'过多支援'}
+  ];
+  var KEY = 'psc_t15';
+  var card = document.getElementById('t15-card');
+  if(!card) return;
+
+  var rec = {}; try { rec = JSON.parse(localStorage.getItem(KEY) || '{}'); } catch(e){ rec = {}; }
+  rec.role   = rec.role   || null;
+  rec.acts   = rec.acts   || [];
+  rec.inter  = (typeof rec.inter  === 'number') ? rec.inter  : null;
+  rec.threat = (typeof rec.threat === 'number') ? rec.threat : null;
+  function save(){ try{ localStorage.setItem(KEY, JSON.stringify(rec)); }catch(e){} }
+  function esc(s){ var d = document.createElement('div'); d.textContent = s; return d.innerHTML; }
+
+  var elRole  = document.getElementById('t15-role');
+  var elAct   = document.getElementById('t15-act');
+  var elWarn  = document.getElementById('t15-act-warn');
+  var elScale = document.getElementById('t15-scales');
+  var elOut   = document.getElementById('t15-out');
+
+  function renderRole(){
+    elRole.innerHTML = ROLES.map(function(r){
+      return '<span class="t15-opt' + (rec.role === r ? ' on' : '') + '" data-role="' + esc(r) + '">' + esc(r) + '</span>';
+    }).join('');
+    elRole.querySelectorAll('.t15-opt').forEach(function(b){
+      b.addEventListener('click', function(){
+        rec.role = (rec.role === b.dataset.role) ? null : b.dataset.role;
+        save(); renderRole();
+      });
+    });
+  }
+
+  function renderAct(){
+    elAct.innerHTML = ACTS.map(function(a){
+      return '<span class="t15-opt' + (a.w ? ' warn' : '') + (rec.acts.indexOf(a.t) >= 0 ? ' on' : '') +
+             '" data-act="' + esc(a.t) + '">' + esc(a.t) + '</span>';
+    }).join('');
+    elAct.querySelectorAll('.t15-opt').forEach(function(b){
+      b.addEventListener('click', function(){
+        var i = rec.acts.indexOf(b.dataset.act);
+        if(i >= 0) rec.acts.splice(i, 1); else rec.acts.push(b.dataset.act);
+        save(); renderAct(); renderWarn();
+      });
+    });
+    renderWarn();
+  }
+
+  function renderWarn(){
+    if(rec.acts.indexOf('为我解决问题') >= 0){
+      elWarn.innerHTML = '<div class="note warn" style="margin-top:10px"><span class="t">这项是越界，不是选项</span>' +
+        '「<b>帮我</b>解决问题」是陪他走，「<b>为我</b>解决问题」是替他走——一字之差，是原书分得最细的一处。' +
+        '原书正文明确规定：倾听者须<b>抵制试图自己解决该问题的诱惑</b>，且<b>不得给你任何暗示</b>。' +
+        '若你勾了这一项，说明上一次陪练中对方越界了——把它写进给陪练的话里，让他知道。</div>';
+    } else { elWarn.innerHTML = ''; }
+  }
+
+  function renderScale(){
+    elScale.innerHTML = SCALES.map(function(s){
+      var v = rec[s.k];
+      return '<div class="t15-row">' +
+        '<div class="t15-hd">' + esc(s.n) +
+          (v === null ? '<span class="t15-unset">未评 —— 拖一下滑块</span>'
+                      : '<span class="t15-num">' + v + ' / 12</span>') + '</div>' +
+        '<div class="t15-ends"><span>' + esc(s.l) + '</span><span>' + esc(s.r) + '</span></div>' +
+        '<input type="range" min="0" max="12" step="1" value="' + (v === null ? 6 : v) + '" data-k="' + s.k + '">' +
+      '</div>';
+    }).join('');
+    elScale.querySelectorAll('input[type=range]').forEach(function(el){
+      el.addEventListener('input', function(){
+        rec[el.dataset.k] = +el.value; save();
+        var hd = el.parentNode.querySelector('.t15-hd');
+        var tag = hd.querySelector('.t15-unset, .t15-num');
+        if(tag){ tag.className = 't15-num'; tag.textContent = el.value + ' / 12'; }
+      });
+    });
+  }
+
+  function judge(k, v){
+    if(v === null) return '';
+    if(k === 'inter'){
+      if(v <= 4)  return '你几乎没给我回应，我有点像在自言自语——下次多给我一点反应。';
+      if(v >= 8)  return '你打断我太多了，我很难把话说完——下次让我先说完。';
+      return '分寸合适，保持。';
+    }
+    if(v <= 4)  return '你给我压力太大，我不敢把没想清楚的说出来。';
+    if(v >= 8)  return '你太照顾我了，反而让我没法自己走——可以硬一点。';
+    return '分寸合适，保持。';
+  }
+
+  document.getElementById('t15-gen').addEventListener('click', function(){
+    var lines = [];
+    lines.push('【陪练反馈 · 原书表 1-5】');
+    lines.push('1. 我希望你是：' + (rec.role || '（未选）'));
+    lines.push('2. 请你重点：' + (rec.acts.length ? rec.acts.join('、') : '（未选）'));
+    SCALES.forEach(function(s){
+      var v = rec[s.k];
+      lines.push('3. ' + s.n + '：' + (v === null ? '（未评）' : v + '/12 —— ' + judge(s.k, v)));
+    });
+    if(rec.acts.indexOf('为我解决问题') >= 0){
+      lines.push('');
+      lines.push('（注意：「为我解决问题」是越界。原书要求倾听者抵制自己解决的诱惑，且不得给暗示。）');
+    }
+    var txt = lines.join('\n');
+    elOut.innerHTML = '<textarea id="t15-txt" readonly>' + esc(txt) + '</textarea>' +
+      '<p class="muted" style="font-size:13px;margin:8px 0 0">复制这段文字发给陪练的人，下次开始前先对一遍。</p>';
+    var ta = document.getElementById('t15-txt');
+    ta.focus(); ta.select();
+  });
+
+  document.getElementById('t15-clear').addEventListener('click', function(){
+    rec = {role:null, acts:[], inter:null, threat:null};
+    save(); renderRole(); renderAct(); renderScale(); elOut.innerHTML = '';
+  });
+
+  renderRole(); renderAct(); renderScale();
+})();
+</script>
 </body>
 </html>

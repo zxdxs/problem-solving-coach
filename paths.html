@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>训练路径 · 4 条骨架路径 · 解决问题训练站</title>
+<meta name="description" content="4 条骨架路径（P1–P4）：公共热身 + 入门/应知/应会/迁移四阶段，挂题可点开，卡点标注原书页码。">
+<link rel="stylesheet" href="assets/style.css">
+
+<!-- ===== SEO / 分享元数据（0.2-F2A）===== -->
+<link rel="canonical" href="https://solve-lab.cn/paths.html">
+<link rel="icon" href="/favicon.ico" sizes="32x32">
+<link rel="apple-touch-icon" href="assets/og/apple-touch-icon.png">
+<!-- Open Graph -->
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="解决问题训练站">
+<meta property="og:title" content="训练路径 · 4 条骨架路径 · 解决问题训练站">
+<meta property="og:description" content="4 条骨架路径（P1–P4）：公共热身 + 入门/应知/应会/迁移四阶段，挂题可点开，卡点标注原书页码。">
+<meta property="og:url" content="https://solve-lab.cn/paths.html">
+<meta property="og:image" content="https://solve-lab.cn/assets/og/og-paths.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<!-- Twitter / X -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="训练路径 · 4 条骨架路径 · 解决问题训练站">
+<meta name="twitter:description" content="4 条骨架路径（P1–P4）：公共热身 + 入门/应知/应会/迁移四阶段，挂题可点开，卡点标注原书页码。">
+<meta name="twitter:image" content="https://solve-lab.cn/assets/og/og-paths.jpg">
+</head>
+<body>
+
+<div class="nav">
+  <div class="nav-inner">
+    <a class="brand" href="index.html">解决问题训练站<small>PROBLEM SOLVING LAB</small></a>
+    <div class="nav-links" id="nav-links"></div>
+    <span class="nav-progress" id="nav-progress">掌握度 0%</span>
+  </div>
+</div>
+
+<div class="wrap">
+
+  <div class="crumb"><a href="index.html">首页</a><span>/</span>训练路径</div>
+
+  <div class="hero" style="padding:26px 0 18px">
+    <h1 style="font-size:30px">4 条骨架路径 · 从入门到迁移</h1>
+    <p>同一个五步执行单，按<b>题簇</b>分成 4 条骨架路径；每条路径走四阶段：
+    <b>入门 → 应知 → 应会 → 迁移</b>。同簇人群共用骨架，入口只换角色名、场景预设问题与引导语。</p>
+  </div>
+
+  <div class="warmup-entry">
+    <div>
+      <h3>先破个定式 <span class="badge hot">公共热身</span></h3>
+      <p>5 分钟热个身，破除你的第一层思维定势 —— 4 条路径共用这一步，放在所有路径之前。</p>
+    </div>
+    <div class="warmup-act">
+      <a class="btn ghost" href="drills.html#drill-break-001">开始热身（题库 · 打破定式）</a>
+      <span class="muted" style="font-size:12.5px">4 道题，一次做一道</span>
+    </div>
+  </div>
+
+  <div id="path-list"></div>
+
+  <div class="note">
+    <span class="t">怎么用这一页</span>
+    先在上面的<b>角色入口</b>里选一个身份（<a href="index.html#roles">回首页选</a>），再回到这里看这条路径的四阶段。
+    挂题都可以点开——每道题跳到题库里的对应题目（含诊断与补强）。
+  </div>
+
+</div>
+
+<div class="footer" id="site-footer"></div>
+
+<script src="assets/data.js"></script>
+<script src="assets/app.js"></script>
+<script>
+  PSC.init('paths');
+  (function(){
+    var E = PSC.esc;
+    var STAGES = [
+      {key:'intro',    no:'阶段 1', name:'入门',  sub:'走完五步，不求对'},
+      {key:'know',     no:'阶段 2', name:'应知',  sub:'能复述每步的产出物'},
+      {key:'do',       no:'阶段 3', name:'应会',  sub:'标准情境能做出'},
+      {key:'transfer', no:'阶段 4', name:'迁移',  sub:'新情境自动运用'}
+    ];
+
+    /* 题目 id → 题目摘要 */
+    var DRILL = {};
+    (typeof PSC_DRILLS!=='undefined'?PSC_DRILLS:[]).forEach(function(d){ DRILL[d.id]=d; });
+    /* 错误 id → 表现 */
+    var ERR = {};
+    (typeof PSC_ERROR_DETAIL!=='undefined'?PSC_ERROR_DETAIL:[]).forEach(function(e){ ERR[e.id]=e; });
+    /* 错误 id → {strength, page}：先取练习包（有强度），再用角色核心卡点补 page */
+    var META = {};
+    (typeof PSC_PACKS!=='undefined'?PSC_PACKS:[]).forEach(function(p){
+      (p.errors||[]).forEach(function(e){ if(e && e.id){ META[e.id]=META[e.id]||{}; META[e.id].strength=e.strength||META[e.id].strength; } });
+    });
+    (typeof PSC_ROLES!=='undefined'?PSC_ROLES:[]).forEach(function(r){
+      (r.key_errors||[]).forEach(function(e){
+        META[e.id]=META[e.id]||{};
+        if(e.strength) META[e.id].strength=e.strength;
+        if(e.page) META[e.id].page=e.page;
+        META[e.id].role = META[e.id].role || r.name;
+      });
+    });
+    /* pack 索引：path+stage → pack */
+    var PACK = {};
+    (typeof PSC_PACKS!=='undefined'?PSC_PACKS:[]).forEach(function(p){ PACK[p.path+'-'+p.stage]=p; });
+    /* 任务索引 */
+    var TASK = {};
+    (typeof PSC_TASKS!=='undefined'?PSC_TASKS:[]).forEach(function(t){ TASK[t.id]=t; });
+    /* 角色索引 */
+    var ROLE = {};
+    (typeof PSC_ROLES!=='undefined'?PSC_ROLES:[]).forEach(function(r){ ROLE[r.id]=r; });
+
+    function strengthBadge(s){
+      if(!s) return '';
+      if(s==='推导') return ' <span class="badge todo">本站推解</span>';
+      return ' <span class="badge">'+E(s)+'</span>';
+    }
+    function pageBadge(id){
+      var m = META[id]||{};
+      return m.page ? ' <span class="badge hot">原书 '+E(m.page)+'</span>'
+                    : ' <span class="badge todo">样本来自公开讨论</span>';
+    }
+    function drillRow(id){
+      var d = DRILL[id]||{};
+      var q = (d.q||'').replace(/\s+/g,' ');
+      if(q.length>46) q = q.slice(0,46)+'…';
+      return '<li><a href="drills.html#'+E(id)+'">'+E(id)+'</a>'+
+             (q ? '　<span class="muted">'+E(q)+'</span>' : '')+
+             (d.lv ? '　<span class="badge todo">'+E(d.lv)+'</span>' : '')+'</li>';
+    }
+    function errRow(id){
+      var e = ERR[id]||{};
+      var txt = (e['表现']||'').replace(/\s+/g,' ');
+      return '<li><b>'+E(id)+'</b>'+strengthBadge((META[id]||{}).strength)+pageBadge(id)+
+             (txt ? '<br><span class="muted">'+E(txt)+'</span>' : '')+'</li>';
+    }
+
+    var host = document.getElementById('path-list');
+    if(typeof PSC_PATHS==='undefined' || !PSC_PATHS.length){
+      host.innerHTML = '<div class="card"><p class="muted" style="margin:0">（数据未装：PSC_PATHS 读不到）</p></div>';
+      return;
+    }
+
+    var html = '';
+    PSC_PATHS.forEach(function(p){
+      var entryNames = (p.entries||[]).map(function(s){
+        var r = ROLE[s]||{};
+        return '<a href="role.html?slug='+E(s)+'">'+E(r.name||s)+'</a>';
+      }).join('、');
+      html += '<section class="path-sec" id="path-'+E(p.id)+'" style="margin-top:26px">';
+      html += '<h2 style="margin-bottom:6px">路径 '+E(p.id)+' · '+E((p.audience||[]).join('＋'))+'</h2>';
+      html += '<p class="muted" style="margin:0 0 10px">题簇 <b>'+E(p.cluster)+'</b>（'+p.drills_total+' 题）　｜　'+
+              '入口变体：'+entryNames+'（'+(p.entries||[]).length+' 个）'+
+              ((p.entries||[]).length>1 ? '　—　<b>'+((p.audience||[]).length)+' 类人群共用这一条骨架</b>' : '')+'</p>';
+
+      STAGES.forEach(function(st){
+        var s = p.stages[st.key]||{};
+        var pack = PACK[p.id+'-'+st.key]||{};
+        html += '<div class="card" style="margin-bottom:12px">';
+        html += '<h4 style="margin-top:0">'+st.no+' · '+st.name+
+                ' <span class="muted" style="font-weight:400">—— '+E(s.target||st.sub)+'</span></h4>';
+        if(st.key!=='transfer'){
+          html += '<p class="muted" style="margin:0 0 6px">挂题 '+((s.drills||[]).length)+' 题（点题号跳题库）</p>';
+          html += '<ul class="tight" style="margin:0 0 8px">'+ (s.drills||[]).map(drillRow).join('') +'</ul>';
+        } else {
+          var t = TASK[s.task]||{};
+          html += '<p class="muted" style="margin:0 0 6px">迁移任务（真实问题，不在题库里）</p>';
+          html += '<div class="note ok" style="margin:0 0 8px"><span class="t"><a href="packs.html#'+E(s.task||'')+'">'+E(t.name||s.task||'')+'</a>'+
+                  '　<span class="badge hot">'+E(t.difficulty||'')+'</span></span>'+
+                  '<b>场景：</b>'+E(t.scene||'')+'<br>'+
+                  '<b>产出物：</b>'+E(t.output||pack.output||'')+'<br>'+
+                  '<span class="muted">完整五步引导与验收标准见练习包页'+
+                  '（任务 id <code>'+E(s.task||'')+'</code>，见上方链接）</span></div>';
+        }
+        if(pack.output && st.key!=='transfer'){
+          html += '<p class="muted" style="margin:0 0 6px"><b>产出物：</b>'+E(pack.output)+'</p>';
+        }
+        if(pack.completion){
+          html += '<p class="muted" style="margin:0"><b>完成标准：</b>'+E(pack.completion)+'</p>';
+        }
+        html += '</div>';
+      });
+
+      html += '<div class="card" style="border-left:4px solid var(--warn)">';
+      html += '<h4 style="margin-top:0">卡点并集（'+(p.stages.transfer.errors||[]).length+' 条）</h4>';
+      html += '<div class="note warn" style="margin:0 0 10px"><span class="t">★ 这是本路径的并集</span>'+
+              'PSC_PATHS 的卡点是这条骨架覆盖人群的<b>去重并集</b>；'+
+              '单个入口（角色页）只显示自己的 <b>3 条核心卡点</b>。'+
+              '想知道「我这个身份最该防哪 3 条」，请看 <a href="role.html?slug='+E((p.entries||[])[0]||'')+'">角色页</a>。</div>';
+      html += '<ul class="tight" style="margin:0">'+ (p.stages.transfer.errors||[]).map(errRow).join('') +'</ul>';
+      html += '</div>';
+
+      html += '</section>';
+    });
+    host.innerHTML = html;
+  })();
+</script>
+</body>
+</html>

@@ -86,11 +86,16 @@
     PSC_NAV.forEach(g=>{
       html += '<div class="nav-item"><a class="navlink" href="javascript:void(0)">'+g.group+'</a><div class="dropdown">';
       g.items.forEach(it=>{
-        const href = it.id==='philosophy' ? 'philosophy.html'
+        const href = it.id==='roles'   ? 'index.html#roles'
+                   : it.id==='paths'   ? 'paths.html'
+                   : it.id==='packs'   ? 'packs.html'
+                   : it.id==='philosophy' ? 'philosophy.html'
                    : it.id==='practice'  ? 'practice.html'
                    : it.id==='drills'    ? 'drills.html'
                    : it.id==='quiz'      ? 'quiz.html'
                    : it.id==='progress'  ? 'progress.html'
+                   : it.id==='nonstep'   ? 'nonstep.html'
+                   : it.id==='partner'   ? 'partner.html'
                    : 'chapter-'+it.id+'.html';
         html += '<a href="'+href+'" data-id="'+it.id+'">'+it.title+'</a>';
       });
@@ -130,7 +135,20 @@
       '并补上原书未能承载的反馈与陪练。<br>'+
       '通用解题策略是百年来的公共智慧积累（Polya 1945、Woods 等）；'+
       '站内例题取自流传已久的经典问题与真实工作场景。'+
-      '完整学术源流与方法出处见<a href="references.html">延伸阅读</a>。</div></div>';
+      '完整学术源流与方法出处见<a href="references.html">延伸阅读</a>。</div>'+
+      /* 题库版本号：出问题时先问用户页脚这一行。见 data.js 头部 PSC_VERSION 注释。 */
+      (function(){
+        try{
+          if(typeof PSC_VERSION==='undefined') return '';
+          const v = PSC_VERSION;
+          return '<div style="margin-top:6px;">题库版本 '+
+            v.major+'.'+v.minor+'.'+v.patch+'　·　'+v.date+'　·　'+esc(v.codename)+'</div>';
+        }catch(e){ return ''; }
+      })()+
+      '<div style="margin-top:6px;">© 2026 solve-lab.cn　｜　内容为学习用途的转述与改写，'
+      +'原书《解决问题的策略与技能》（江丕权、李越、戴国强编著，科学普及出版社，1992）'
+      +'权利归三位编著者及出版者　｜　书目与出处见<a href="references.html">延伸阅读</a></div>'
+      +'</div>';
   }
 
   function init(activeId){
@@ -149,6 +167,12 @@
   }
   function esc(s){
     return String(s==null?'':s).replace(/[&<>"']/g, c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+  }
+  /* 强调渲染：数据里用双星号包起来的词，是编写时的 Markdown 强调标记。
+     本站不渲染 Markdown，直接输出会把星号原样显示出来（即 precheck 说的「Markdown 泄漏」）。
+     先转义再换成粗体标签，顺序不能反（反过来会把标签本身当数据转义掉）。 */
+  function em(s){
+    return esc(s).replace(/\*\*([^*]+)\*\*/g, '<b>$1</b>');
   }
   function download(filename, text, mime){
     const blob = new Blob([text], {type:(mime||'text/plain')+';charset=utf-8'});
@@ -197,7 +221,7 @@
 
   window.PSC = {
     KEY_PROGRESS, KEY_SHEETS, KEY_LOGS, KEY_QUIZ,
-    read, write, toast, uid, fmtDate, esc, download, copyText,
+    read, write, toast, uid, fmtDate, esc, em, download, copyText,
     getProgress, setLayer, chapterDone, overallPercent,
     init, refreshNavProgress, renderChapterProgress
   };

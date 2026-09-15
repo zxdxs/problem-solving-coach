@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>角色入口 · 解决问题训练站</title>
+<meta name="description" content="8 个角色入口：选一个身份，用同一套五步方法解决你手头的问题。">
+<link rel="stylesheet" href="assets/style.css">
+
+<!-- ===== SEO / 分享元数据（0.2-F2A）===== -->
+<link rel="canonical" href="https://solve-lab.cn/role.html">
+<link rel="icon" href="/favicon.ico" sizes="32x32">
+<link rel="apple-touch-icon" href="assets/og/apple-touch-icon.png">
+<!-- Open Graph -->
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="解决问题训练站">
+<meta property="og:title" content="角色入口 · 解决问题训练站">
+<meta property="og:description" content="8 个角色入口：选一个身份，用同一套五步方法解决你手头的问题。">
+<meta property="og:url" content="https://solve-lab.cn/role.html">
+<meta property="og:image" content="https://solve-lab.cn/assets/og/og-role.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<!-- Twitter / X -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="角色入口 · 解决问题训练站">
+<meta name="twitter:description" content="8 个角色入口：选一个身份，用同一套五步方法解决你手头的问题。">
+<meta name="twitter:image" content="https://solve-lab.cn/assets/og/og-role.jpg">
+</head>
+<body>
+
+<div class="nav">
+  <div class="nav-inner">
+    <a class="brand" href="index.html">解决问题训练站<small>PROBLEM SOLVING LAB</small></a>
+    <div class="nav-links" id="nav-links"></div>
+    <span class="nav-progress" id="nav-progress">掌握度 0%</span>
+  </div>
+</div>
+
+<div class="wrap">
+
+  <div class="crumb"><a href="index.html">首页</a><span>/</span><a href="index.html#roles">角色入口</a><span>/</span><span id="crumb-role">角色</span></div>
+
+  <div class="hero" style="padding:26px 0 18px">
+    <h1 id="role-name" style="font-size:30px">角色</h1>
+    <p id="role-tagline">—</p>
+  </div>
+
+  <div class="note ok" id="role-intro-box" style="display:none">
+    <span class="t">从这里开始</span><span id="role-intro"></span>
+  </div>
+
+  <div class="btn-row" style="margin:16px 0 6px">
+    <a class="btn" id="start-btn-top" href="practice.html">开始五步</a>
+  </div>
+
+  <h2 id="questions">场景预设问题</h2>
+  <p class="muted" id="questions-lead">选完身份，先看这 5 个问题——它们就是五步的入口问法。</p>
+  <div class="card"><ol class="tight" id="question-list" style="margin:0"></ol></div>
+
+  <h2 id="key-errors">你容易卡在这里</h2>
+  <p class="muted">本角色 3 条核心卡点（来自 91 条卡点整理；
+  标「原书 p×××」的，是原书对这类问题有对应论述的页码）。</p>
+  <div class="grid g3" id="error-list"></div>
+
+  <div class="card" id="start-box" style="border-left:4px solid var(--brand)">
+    <h4 style="margin-top:0">准备好了吗？</h4>
+    <p class="muted">打开五步执行单，选一道你手头的真实问题，走一遍。
+    <b>不求一次做对，只求五步都留下产出物。</b></p>
+    <div class="btn-row" style="margin-bottom:0">
+      <a class="btn" id="start-btn" href="practice.html">开始五步</a>
+      <a class="btn ghost" href="index.html#roles">换一个角色</a>
+      <a class="btn ghost" href="drills.html#drill-break-001">先热身（打破定式 4 题）</a>
+    </div>
+  </div>
+
+  <div class="note" id="role-audience" style="display:none"></div>
+
+</div>
+
+<div class="footer" id="site-footer"></div>
+
+<script src="assets/data.js"></script>
+<script src="assets/app.js"></script>
+<script>
+  PSC.init('roles');
+  (function(){
+    const q = new URLSearchParams(location.search);
+    const slug = q.get('slug') || '';
+    const box = document.getElementById('error-list');
+    const role = (typeof PSC_ROLES!=='undefined' ? PSC_ROLES : []).filter(r=>r.id===slug)[0];
+
+    if(!role){
+      document.getElementById('role-name').textContent = '未查到这个角色';
+      document.getElementById('role-tagline').textContent =
+        '地址里的 slug「'+(slug||'（空）')+'」不在 8 个角色里。回到首页重新选一个。';
+      document.getElementById('question-list').innerHTML = '';
+      box.innerHTML = '<div class="card"><p class="muted" style="margin:0">'+
+        '可选角色：'+((typeof PSC_ROLES!=='undefined'?PSC_ROLES:[]).map(r=>r.name).join('、')||'（数据未装）')+
+        '</p></div>';
+      document.getElementById('start-box').style.display = 'none';
+      return;
+    }
+
+    document.title = role.name + ' · ' + role.tagline + ' · 解决问题训练站';
+    document.getElementById('crumb-role').textContent = role.name;
+    document.getElementById('role-name').textContent = role.name;
+    document.getElementById('role-tagline').textContent = role.tagline;
+
+    document.getElementById('role-intro').textContent = role.intro || '';
+    document.getElementById('role-intro-box').style.display = '';
+
+    document.getElementById('question-list').innerHTML =
+      (role.questions||[]).map(x=>'<li>'+PSC.esc(x)+'</li>').join('');
+
+    /* 0.2-F1 修10：徽章加 title 解释；「原书 p×××」改为链接，指向延伸阅读的出处说明 */
+    const BADGE_TITLE = {
+      '原书':'原书有直接论述',
+      '多源':'原书与公开讨论都指向它',
+      '观察':'来自公开社区讨论整理，非原书内容。',
+      '推导':'从题库数据推导，尚无原书或观察依据，待核'
+    };
+    const strengthTag = s => s==='推导'
+      ? '<span class="badge todo" title="'+BADGE_TITLE['推导']+'">本站推解</span>'
+      : '<span class="badge" title="'+(BADGE_TITLE[s]||'')+'">'+PSC.esc(s)+'</span>';
+    const pageTag = e => e.page
+      ? '<a class="badge hot" style="text-decoration:none" href="references.html#origins" title="点击查看原书书目与版本信息">原书 '+PSC.esc(e.page)+'</a>'
+      : '<span class="badge todo" title="来自公开社区讨论整理，非原书内容。">样本来自公开讨论</span>';
+
+    box.innerHTML = (role.key_errors||[]).map(e=>
+      '<div class="card" style="border-left:4px solid var(--warn)">'+
+        '<h4 style="margin-top:0">'+PSC.esc(e.id)+' '+strengthTag(e.strength)+'</h4>'+
+        '<p class="muted" style="margin:0 0 10px">'+PSC.esc(e.text)+'</p>'+
+        pageTag(e)+
+      '</div>').join('') || '<div class="card"><p class="muted" style="margin:0">（数据未装）</p></div>';
+
+    document.getElementById('role-audience').innerHTML =
+      '<span class="t">这个入口对应谁</span>本站按岗位入口，不按人群标签；'+
+      '这一条路径对应的人群是 <b>'+PSC.esc(role.audience)+'</b>，'+
+      '路径编号 <b>'+PSC.esc(role.path)+'</b>'+
+      (role.warmup ? '，开始前先走一遍公共热身「先破个定式」。' : '。');
+    document.getElementById('role-audience').style.display = '';
+  })();
+</script>
+</body>
+</html>
