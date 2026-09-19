@@ -28,15 +28,15 @@
 </head>
 <body>
 
-<div class="nav">
+<nav class="nav" aria-label="主导航">
   <div class="nav-inner">
     <a class="brand" href="index.html">解决问题训练站<small>PROBLEM SOLVING LAB</small></a>
     <div class="nav-links" id="nav-links"></div>
     <span class="nav-progress" id="nav-progress">掌握度 0%</span>
   </div>
-</div>
+</nav>
 
-<div class="wrap narrow">
+<main class="wrap narrow" id="main">
 
   <div class="crumb"><a href="index.html">首页</a><span>/</span>联系与共建</div>
   <h1>联系与共建</h1>
@@ -57,21 +57,21 @@
   <h2 id="s1">一、分享</h2>
 
   <div class="card">
-    <h4 style="margin-top:0">① 分享这一站</h4>
+    <h3 class="h4" style="margin-top:0">① 分享这一站</h3>
     <p class="muted">把网址复制走，贴到任何地方。对方打开就能用，不用注册、不用装东西。</p>
     <div class="btn-row">
       <button class="btn" id="btn-copy-url">复制本站网址</button>
       <button class="btn ghost" id="btn-copy-short">复制短版推荐语</button>
       <button class="btn ghost" id="btn-copy-long">复制长版推荐语</button>
     </div>
-    <label class="f">预览：短版推荐语</label>
+    <label class="f" for="ta-short">预览：短版推荐语</label>
     <textarea id="ta-short" readonly style="min-height:120px"></textarea>
-    <label class="f">预览：长版推荐语</label>
+    <label class="f" for="ta-long">预览：长版推荐语</label>
     <textarea id="ta-long" readonly style="min-height:170px"></textarea>
   </div>
 
   <div class="card">
-    <h4 style="margin-top:0">② 分享我的练习成果</h4>
+    <h3 class="h4" style="margin-top:0">② 分享我的练习成果</h3>
     <p class="muted">把你练了多少、掌握到什么程度，生成一段可直接粘贴的文字。
     <b>数据来自你自己浏览器里的记录，不上传任何服务器。</b></p>
     <div id="stat-brief" class="note ok" style="margin:10px 0"></div>
@@ -79,6 +79,7 @@
       <button class="btn" id="btn-gen-brief">生成我的成果文案</button>
       <button class="btn ghost" id="btn-copy-brief">复制成果文案</button>
     </div>
+    <label class="f" for="ta-brief">预览：我的成果文案</label>
     <textarea id="ta-brief" placeholder="点上面的按钮生成" style="min-height:150px"></textarea>
   </div>
 
@@ -98,21 +99,21 @@
   <p>这个站点最需要的不是赞美，是这三件事。门槛从低到高：</p>
   <div class="note ok"><span class="t">你的名字会被记住</span>
   凡是贡献被采纳，你的名字（可用昵称）与具体贡献，
-  都会出现在<a href="contributors.html"><b>贡献者名单</b></a>里，长期保留。</div>
+  都会出现在<a href="provenance.html#s-credits"><b>致谢名单</b></a>里，长期保留。</div>
 
   <div class="grid g3">
     <div class="card">
-      <h4>① 挑错与建议</h4>
+      <h3 class="h4">① 挑错与建议</h3>
       <p class="muted">发现错别字、讲得不清楚、题目有歧义、某句话让你卡住了——
       直接开个 Issue 或写信。<b>最低门槛，也是最有用的贡献。</b></p>
     </div>
     <div class="card">
-      <h4>② 补充题目</h4>
+      <h3 class="h4">② 补充题目</h3>
       <p class="muted">自己出一道好题（尤其是真实工作／生活场景题），连同答案和解析一起发过来。
       <b>站内的场景题都是这么来的。</b></p>
     </div>
     <div class="card">
-      <h4>③ 写章节 / 做翻译</h4>
+      <h3 class="h4">③ 写章节 / 做翻译</h3>
       <p class="muted">把骨架章节扩成详填版，或翻译成其他语言。
       可先读<a href="references.html">延伸阅读</a>，了解这套方法的来龙去脉。</p>
     </div>
@@ -121,6 +122,9 @@
   <h3>改哪里：一张对照表</h3>
   <div class="table-scroll">
   <table>
+    <caption style="caption-side:bottom;text-align:left;font-size:13px;color:#64748b;padding-top:6px">
+      <b>表 参建-1　共建对照表</b>（本站整理）
+    </caption>
     <thead><tr><th>你想改什么</th><th>改哪个文件</th><th>难度</th></tr></thead>
     <tbody>
       <tr><td>加／改一道自测题</td><td><code>assets/data.js</code> → <code>PSC_QUIZ</code></td><td>低</td></tr>
@@ -153,7 +157,7 @@
     <li><b>技术层面：</b>评论区需要服务器和数据库，一加上就不再是零成本、零维护的静态站了。</li>
     <li><b>体验层面：</b>静态站的评论区（Disqus、Gitalk 之类）要么加载慢、要么满是广告，
     反而会毁掉这个站最值钱的东西——<b>专注</b>。</li>
-    <li><b>内容层面：</b>这个站教的是"想清楚再动手"。评论区最不缺的就是没想清楚就发出去的意见。
+    <li><b>内容层面：</b>这个站教的是「想清楚再动手」。评论区最不缺的就是没想清楚就发出去的意见。
     <b>用邮件和 Issue 代替，反馈质量会高一个量级。</b></li>
   </ul>
   <p>如果日后真的需要多人互动（比如学习小组、作业互评），再考虑加账号系统。
@@ -170,9 +174,9 @@
     </a>
   </div>
 
-</div>
+</main>
 
-<div class="footer" id="site-footer"></div>
+<footer class="footer" id="site-footer"></footer>
 
 <script src="assets/data.js"></script>
 <script src="assets/app.js"></script>
@@ -299,7 +303,7 @@
         var mailto = ('mailto:' + SITE.email
           + '?subject=' + encodeURIComponent('【解决问题训练站】反馈与建议')
           + '&body=' + encodeURIComponent(bodyLines)).replace(/&/g, '&amp;');
-        html += '<div class="card"><h4 style="margin-top:0">① 写信给维护者</h4>'
+        html += '<div class="card"><h3 class="h4" style="margin-top:0">① 写信给维护者</h3>'
           + '<p class="muted">点下面的按钮会打开你的邮件客户端，正文已经填好模板，'
           + '并自动附上你当前的练习数据。</p>'
           + '<p><a class="btn" href="' + mailto + '">写信：' + PSC.esc(SITE.email) + '</a></p></div>';
@@ -325,7 +329,7 @@
           '- 浏览器：' + (navigator.userAgent || '').slice(0, 120)
         ].join('\n');
         var gh = SITE.github.replace(/\/$/, '').replace(/&/g, '&amp;');
-        html += '<div class="card"><h4 style="margin-top:0">② 在 GitHub 上开 Issue</h4>'
+        html += '<div class="card"><h3 class="h4" style="margin-top:0">② 在 GitHub 上开 Issue</h3>'
           + '<p class="muted">适合提 bug、建议新功能、补充题目。公开讨论，别人也能看到并补充。</p>'
           + '<div class="btn-row">'
           + '<a class="btn" target="_blank" rel="noopener" href="' + gh + '/issues/new?title='
@@ -339,7 +343,7 @@
       }
 
       if(SITE.community || SITE.qrcode){
-        html += '<div class="card"><h4 style="margin-top:0">③ 微信与我联系</h4>';
+        html += '<div class="card"><h3 class="h4" style="margin-top:0">③ 微信与我联系</h3>';
         if(SITE.community){
           html += '<p>' + PSC.esc(SITE.community) + '</p>';
         }

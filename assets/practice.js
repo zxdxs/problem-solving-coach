@@ -24,21 +24,21 @@
     if(!box) return;
     let html = '';
     html += '<label class="f">我要解决的事<span style="color:#b91c1c"> *</span></label>'+
-            '<input type="text" id="f-title" placeholder="可以是一道题、一次故障、一个需求、一节课、一次辅导——用一句话写下来">';
+            '<input type="text" id="f-title" aria-label="我要解决的事" placeholder="可以是一道题、一次故障、一个需求、一节课、一次辅导——用一句话写下来">';
     html += '<div style="display:flex;gap:12px;flex-wrap:wrap">'+
             '<div style="flex:1 1 160px"><label class="f">领域标签</label>'+
-            '<select id="f-domain"><option value="">请选择</option><option>工作决策</option><option>项目排期</option><option>学习备考</option>'+
+            '<select id="f-domain" aria-label="领域标签"><option value="">请选择</option><option>工作决策</option><option>项目排期</option><option>学习备考</option>'+
             '<option>人际沟通</option><option>数理题</option><option>工程问题</option><option>生活琐事</option><option>辅导孩子</option><option>教学备课</option><option>其他</option></select></div>'+
             '<div style="flex:1 1 160px"><label class="f">投入时间（分钟）</label>'+
-            '<input type="number" id="f-minutes" min="0" placeholder="如 25"></div></div>';
+            '<input type="number" id="f-minutes" aria-label="投入时间（分钟）" min="0" placeholder="如 25"></div></div>';
 
     PSC_STEPS.forEach(s=>{
       html += '<div class="step-card">'+
-        '<h4>第 '+s.no+' 步 · '+s.name+'</h4>'+
+        '<h3 class="h4">第 '+s.no+' 步 · '+s.name+'</h3>'+
         '<p class="goal">目的：'+s.goal+'</p>'+
         '<div class="act-list"><b>可做动作：</b>'+s.actions.join(' / ')+'</div>'+
         '<label class="f">本步产出物（'+s.output+'）</label>'+
-        '<textarea id="f-step'+s.no+'" placeholder="'+s.output+'&#10;自问：'+s.check+'"></textarea>'+
+        '<textarea id="f-step'+s.no+'" aria-label="第 '+s.no+' 步产出物：'+s.output+'" placeholder="'+s.output+'&#10;自问：'+s.check+'"></textarea>'+
         '</div>';
     });
 
@@ -50,7 +50,7 @@
     html += '</fieldset>';
 
     html += '<label class="f">一句话范例化（笛卡儿式收尾：这类问题以后都能怎么解？）</label>'+
-            '<textarea id="f-gem" placeholder="凡是……的问题，都可以用……来处理。"></textarea>';
+            '<textarea id="f-gem" aria-label="一句话范例化" placeholder="凡是……的问题，都可以用……来处理。"></textarea>';
 
     html += '<div class="btn-row">'+
             '<button class="btn" id="btn-save">保存到我的练习库</button>'+
@@ -158,24 +158,24 @@
     const list = PSC.read(PSC.KEY_SHEETS, []);
     document.getElementById('lib-count').textContent = list.length;
     if(!list.length){
-      box.innerHTML = '<p class=”muted“>练习库还是空的。到”五步执行单“做一题并保存，过程就会记录在这里。</p>';
+      box.innerHTML = '<p class="muted">练习库还是空的。到”五步执行单“做一题并保存，过程就会记录在这里。</p>';
       return;
     }
     let html = '';
     list.forEach(s=>{
       const n = filledCount(s);
       const cls = n===5 ? 'full' : (n>=3 ? 'part' : '');
-      html += '<div class=”lib-item“ data-id=”'+s.id+'“>'+
-        '<div class=”hd“><span class=”tt“>'+PSC.esc(s.title)+'</span>'+
-        '<span class=”chip '+cls+'“>'+n+'/5 步</span>'+
-        '<span class=”meta“>'+PSC.esc(s.domain)+' · '+PSC.fmtDate(s.updatedAt)+'</span></div>'+
-        '<div class=”btn-row“ style=”margin:8px 0 0“>'+
-        '<button class=”btn sm ghost act-view“>查看</button>'+
-        '<button class=”btn sm ghost act-edit“>载入编辑</button>'+
-        '<button class=”btn sm ghost act-md“>导出 MD</button>'+
-        '<button class=”btn sm ghost act-del“>删除</button>'+
+      html += '<div class="lib-item" data-id="'+PSC.esc(s.id)+'">'+
+        '<div class="hd"><span class="tt">'+PSC.esc(s.title)+'</span>'+
+        '<span class="chip '+cls+'">'+n+'/5 步</span>'+
+        '<span class="meta">'+PSC.esc(s.domain)+' · '+PSC.fmtDate(s.updatedAt)+'</span></div>'+
+        '<div class="btn-row" style="margin:8px 0 0">'+
+        '<button class="btn sm ghost act-view">查看</button>'+
+        '<button class="btn sm ghost act-edit">载入编辑</button>'+
+        '<button class="btn sm ghost act-md">导出 MD</button>'+
+        '<button class="btn sm ghost act-del">删除</button>'+
         '</div>'+
-        '<div class=”lib-body“>'+PSC.esc(sheetToMarkdown(s))+'</div></div>';
+        '<div class="lib-body">'+PSC.esc(sheetToMarkdown(s))+'</div></div>';
     });
     box.innerHTML = html;
 
@@ -186,7 +186,7 @@
       });
       item.querySelector('.act-edit').addEventListener('click', ()=>{
         loadSheetIntoForm(findSheet(id));
-        document.querySelector('.tab[data-tab=”sheet“]').click();
+        document.querySelector('.tab[data-tab="sheet"]').click();
         PSC.toast('已载入，可继续编辑','good');
       });
       item.querySelector('.act-md').addEventListener('click', ()=>{
@@ -211,18 +211,18 @@
     const logs = PSC.read(PSC.KEY_LOGS, []);
     document.getElementById('log-count').textContent = logs.length;
     if(!logs.length){
-      box.innerHTML = '<p class=”muted“>还没有日志。训练完随手记一句：今天卡在哪一步、下次怎么改。积累 20 条，你会清楚看见自己的变化。</p>';
+      box.innerHTML = '<p class="muted">还没有日志。训练完随手记一句：今天卡在哪一步、下次怎么改。积累 20 条，你会清楚看见自己的变化。</p>';
       return;
     }
     let html = '';
     logs.forEach(l=>{
-      html += '<div class=”lib-item“ data-id=”'+l.id+'“>'+
-        '<div class=”hd“><span class=”tt“>'+PSC.esc(l.text.split('\n')[0].slice(0,60))+'</span>'+
-        '<span class=”meta“>'+PSC.fmtDate(l.createdAt)+'</span></div>'+
-        (l.text.indexOf('\n')>=0 ? '<div class=”lib-body show“ style=”margin-top:8px“>'+PSC.esc(l.text)+'</div>' : '')+
-        '<div class=”btn-row“ style=”margin:8px 0 0“>'+
-        '<button class=”btn sm ghost act-full“>展开全文</button>'+
-        '<button class=”btn sm ghost act-del“>删除</button></div></div>';
+      html += '<div class="lib-item" data-id="'+PSC.esc(l.id)+'">'+
+        '<div class="hd"><span class="tt">'+PSC.esc(l.text.split('\n')[0].slice(0,60))+'</span>'+
+        '<span class="meta">'+PSC.fmtDate(l.createdAt)+'</span></div>'+
+        (l.text.indexOf('\n')>=0 ? '<div class="lib-body show" style="margin-top:8px">'+PSC.esc(l.text)+'</div>' : '')+
+        '<div class="btn-row" style="margin:8px 0 0">'+
+        '<button class="btn sm ghost act-full">展开全文</button>'+
+        '<button class="btn sm ghost act-del">删除</button></div></div>';
     });
     box.innerHTML = html;
     box.querySelectorAll('.lib-item').forEach(item=>{

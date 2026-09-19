@@ -32,7 +32,8 @@ python3 -m http.server 8000
 
 ## 二、怎么分享给别人 / 发布上线
 
-> 🚀 **想立刻上线？直接看 [`DEPLOY.md`](DEPLOY.md)** —— 30 分钟清单，零成本，不需要手机号/微信/域名。
+> 🚀 **本站是纯静态站：整个文件夹就是网站根目录，丢到任意静态托管上即可上线**（不需要后端、不需要数据库）。
+> 目前的实际部署是**双 origin、同一个域名**：国内走 **华为云 OBS ＋ CDN**，国外走 **GitHub Pages**，都服务 `https://solve-lab.cn/`。
 
 
 
@@ -40,14 +41,19 @@ python3 -m http.server 8000
 
 | 平台 | 做法 | 费用 |
 |---|---|---|
-| **GitHub Pages** | 建仓库 → 上传文件 → Settings → Pages → 选主分支根目录 | 免费 |
+| **华为云 OBS**（本站国内用） | 建桶 → 开**静态网站托管**（首页 `index.html`、错误页 `404.html`）→ 上传整个文件夹 → 挂 CDN 并开智能压缩 | 存储几元/月 ＋ CDN 流量 |
+| **GitHub Pages**（本站国外用） | 建仓库 → 上传文件 → Settings → Pages → 选主分支根目录 | 免费 |
 | **Vercel** | 拖拽整个文件夹到 vercel.com/new | 免费（Hobby 方案） |
 | **Netlify** | 拖拽文件夹到 app.netlify.com/drop | 免费 |
 | **腾讯云 COS / 阿里云 OSS** | 建存储桶 → 开静态网站 → 上传 | 几元/月 |
 | **任意虚拟主机** | 整个文件夹丢进 www 目录 | 视主机 |
 
-> 若要使用中国大陆的服务器（腾讯云/阿里云等），需要完成 **ICP 备案**（通常 1–20 个工作日）。
+> 若要使用中国大陆的服务器（华为云/腾讯云/阿里云等），需要完成 **ICP 备案**（通常 1–20 个工作日）。
 > 想立刻上线、不想备案，优先选 Vercel / Netlify / GitHub Pages。
+
+> ⚠️ **双 origin 的两条硬要求**（本站用「国内华为云 ＋ 国外 GitHub Pages」时踩得到）：
+> ① **两个 origin 必须同时更新** —— 页脚的版本号就是判据，两边不一致时用户会看到新旧混排；
+> ② **静态资源要带版本号或短缓存** —— `assets/` 下的路径是裸路径（无 `?v=`），务必给 HTML 设短缓存、给 `assets/` 设长缓存并在升级时改名或加查询串。
 
 ---
 
@@ -55,8 +61,16 @@ python3 -m http.server 8000
 
 ```
 problem-solving-coach/
-├── index.html                 首页（学习路径 + 9 天精熟法）
+├── index.html                 首页（本站要做什么 ＋ 公共热身）
 ├── philosophy.html            理念篇：什么叫"完全掌握"
+├── lessons.html               课件目录（18 讲的总入口）
+├── lesson-strategy-1..4.html  第 1 章 4 讲
+├── lesson-self-1..3.html      第 2 章 3 讲
+├── lesson-creativity-1..2.html 第 3 章 2 讲
+├── lesson-classify-1..2.html  第 4 章 2 讲
+├── lesson-knowledge-1..3.html 第 5 章 3 讲
+├── lesson-comm-1..3.html      第 6 章 3 讲
+├── lesson-attitude-1.html     第 7 章 1 讲
 ├── chapter-strategy.html      第 1 章 五步策略【详填】
 ├── chapter-self.html          第 2 章 认识自己的思维
 ├── chapter-creativity.html    第 3 章 创造力与头脑风暴
@@ -65,17 +79,26 @@ problem-solving-coach/
 ├── chapter-comm.html          第 6 章 表达与交流
 ├── chapter-attitude.html      第 7 章 态度与动机
 ├── practice.html              五步执行单 + 我的练习库 + 训练日志
+├── drills.html                题库（83 题，按训练点索引）
+├── errors.html                错误池（32 条错误归因，链到该练的题）
+├── nonstep.html               五步之外（第六个抽屉）
 ├── quiz.html                  掌握度自测（13 题，自动判分）
 ├── progress.html              学习进度追踪 + 导入导出
-├── references.html            方法源流、版权说明、延伸书单
+├── partner.html               找陪练 / 陪练墙
+├── references.html            方法源流、原书书目、延伸书单
+├── provenance.html            ★ 版权 · 授权 · 版本溯源（来源分层 / 引用规则 / 致谢名单 / 版本沿革）
 ├── contact.html               分享 / 联系 / 共同维护（联系钩子页）
+├── 404.html                   404 页（华为云静态托管的错误文档）
+├── CNAME / robots.txt / sitemap.xml   部署与搜索引擎配置
 └── assets/
     ├── style.css              全站样式（含打印样式）
     ├── data.js                章节地图、题库、五步定义【改内容常动这里】
     ├── app.js                 导航渲染、本地存储、导入导出
     ├── practice.js            执行单与练习库逻辑
     ├── quiz.js                自测判分逻辑
-    └── progress.js            进度追踪逻辑
+    ├── progress.js            进度追踪逻辑
+    ├── partner.js             陪练墙渲染
+    └── og/                    分享图（15 张）
 ```
 
 ---
@@ -87,7 +110,7 @@ problem-solving-coach/
 | 章节名称、简介、顺序 | `assets/data.js` 里的 `PSC_CHAPTERS` |
 | 自测题目、答案、解析 | `assets/data.js` 里的 `PSC_QUIZ` |
 | 五步的操作定义、产出物 | `assets/data.js` 里的 `PSC_STEPS` |
-| 错误归因清单 | `assets/data.js` 里的 `PSC_ERRORS` |
+| 错误归因清单（错误池 32 条） | `assets/data.js` 里的 `PSC_ERROR_DETAIL` |
 | 导航栏分组 | `assets/data.js` 里的 `PSC_NAV` |
 | 章节正文 | 对应的 `chapter-*.html` |
 | 配色、字号、打印样式 | `assets/style.css` |
@@ -106,10 +129,19 @@ problem-solving-coach/
 
 ## 六、关于版权
 
-- 解题策略属**思想与方法**范畴，不受著作权保护（思想与表达二分法）。
-- 站内所有讲解文字、表格、量规、练习与工具模板均为**原创撰写与设计**。
-- 例题取自**公有领域经典问题**（渡河问题等），或为**本站自创**的工程与职场场景题。
-- `references.html` 中的书单仅列书目事实，供读者进一步学习，不复制任何原书正文。
+**完整的来源分层、授权状态、引用规则与版本沿革，集中在一页：`provenance.html`（版权 · 授权 · 版本溯源）。**
+下面是摘要：
+
+- 本站是江丕权、李越、戴国强编著《解决问题的策略与技能》（科学普及出版社，1992）的**转述与教学化改写**，
+  不是原书的电子版。**原书的方法、例题、量表与表格，权利归三位编著者及出版者所有。**
+- 原书特有的**练习题目表述、量表、清单、表格与图**，本站**逐项标注出处**（题库每道题都标了对应的原书练习编号）。
+- 解题策略本身属**思想与方法**范畴，不受著作权保护；这一层本站重新组织与转述。
+- **授权状态**：本站已致函科学普及出版社咨询著作权归属并申请使用许可；
+  **在获得明确答复前，站内仅作引用并标注出处。**第一作者江丕权先生已于 2011 年逝世，本站持续寻找其继承人与另两位编著者的下落。
+- 若权利人认为本站使用不当，请通过 `contact.html` 来信，我们会在核实后第一时间修改或移除。
+
+> 早先版本的本节曾写「站内所有练习与工具模板均为原创」「例题取自公有领域或本站自创」——
+> 这与题库页「这里的题全部出自原书」的说法冲突，**已于 1.15.0 更正**，以 `provenance.html` 的口径为准。
 
 ---
 

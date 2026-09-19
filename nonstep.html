@@ -28,15 +28,15 @@
 </head>
 <body>
 
-<div class="nav">
+<nav class="nav" aria-label="主导航">
   <div class="nav-inner">
     <a class="brand" href="index.html">解决问题训练站<small>PROBLEM SOLVING LAB</small></a>
     <div class="nav-links" id="nav-links"></div>
     <span class="nav-progress" id="nav-progress">掌握度 0%</span>
   </div>
-</div>
+</nav>
 
-<div class="wrap">
+<main class="wrap" id="main">
 
   <div class="crumb"><a href="index.html">首页</a><span>/</span>五步之外</div>
 
@@ -49,8 +49,9 @@
   <div class="note ok"><span class="t">先走五步，再来这里</span>
   这一页是<b>第六个抽屉</b>。前五个抽屉在 <a href="practice.html">五步执行单</a> 和
   <a href="chapter-strategy.html#s3b">第 1 章「每一步卡住了怎么办」</a>里——
-  每一步都有它自己最常见的错误和对应的补强动作。<br>
-  <b>五个都查过、都对不上，再翻这里。</b></div>
+  每一步都有它自己最常见的错误和对应的补强做法。<br>
+  <b>五个都查过、都对不上，再翻这里。</b>
+  另外，全站 32 条错法的完整清单（含五步内的那些）在 <a href="errors.html">错误池</a>。</div>
 
   <h2 id="why">一、为什么要有「五步之外」</h2>
   <div id="nonstep-why"></div>
@@ -66,9 +67,9 @@
     <a class="btn ghost" href="chapter-strategy.html#s3b">看每一步卡住了怎么办</a>
   </div>
 
-</div>
+</main>
 
-<div class="footer" id="site-footer"></div>
+<footer class="footer" id="site-footer"></footer>
 
 <script src="assets/data.js"></script>
 <script src="assets/app.js"></script>
@@ -96,7 +97,7 @@
     if(box && K && K['抽屉']){
       let h = '';
       K['抽屉'].forEach(d=>{
-        h += '<div class="step-card"><h4>'+E(d['抽屉'])+'</h4>'+
+        h += '<div class="step-card"><h3 class="h4">'+E(d['抽屉'])+'</h3>'+
              '<p class="goal">'+E(d['何时查']||'')+'</p>';
         if(d['自查'] && d['自查'].length)
           h += '<div class="fb-blk"><b>自查（问自己）</b><ul class="tight">'+
@@ -106,16 +107,15 @@
                d['补强'].map(r=>'<li>'+E(r.action)+
                  (r['关联']?'　<span class="muted">（'+E(r['关联'])+'）</span>':'')+'</li>').join('')+'</ul></div>';
         if(d['条目'] && d['条目'].length){
-          h += '<div class="fb-blk"><b>这一抽屉里的具体表现</b>';
+          h += '<div class="fb-blk"><b>这一抽屉里的具体表现</b>'+
+               '<p class="muted" style="margin:4px 0 0;font-size:13px">'+
+               '每条只留一句表现；完整诊断与补强清单在错误池（同一批条目，避免两页各讲一遍）。</p>';
           d['条目'].forEach(e=>{
             h += '<div style="margin:11px 0 0;padding:11px 13px;background:#f8fafc;border-radius:7px">'+
                  '<p style="margin:0"><b>'+E(e['表现']||'')+'</b></p>'+
-                 '<p style="margin:6px 0 2px" class="muted">诊断（问自己）</p><ol class="dx-ol">'+
-                   (e['诊断建议']||[]).map(x=>'<li>'+E(x)+'</li>').join('')+'</ol>'+
-                 '<p style="margin:4px 0 2px" class="muted">补强（马上能做）</p><ol class="dx-ol">'+
-                   (e['补强动作']||[]).map(x=>'<li>'+E(x)+'</li>').join('')+'</ol>'+
+                 '<p style="margin:8px 0 0"><a href="errors.html#'+E(e['error_id'])+'">完整诊断与补强见错误池 →</a></p>'+
                  ((e['关联题目']&&e['关联题目'].length)
-                   ? '<p style="margin:8px 0 0"><span class="muted">去练</span>　'+drillLinks(e['关联题目'])+'</p>'
+                   ? '<p style="margin:6px 0 0"><span class="muted">去练</span>　'+drillLinks(e['关联题目'])+'</p>'
                    : '')+
                  '</div>';
           });
@@ -137,7 +137,7 @@
               '没有对应条目。它们已经收在 <a href="chapter-strategy.html#s3b">第 1 章</a>'+
               '对应步骤的「常见错误」里，放在这里只是为了让错误池<b>一条都不漏</b>。</p>';
       if(others.length){
-        h += '<div class="table-scroll"><table><thead><tr>'+
+        h += '<div class="table-scroll"><table><caption style="caption-side:bottom;text-align:left;font-size:13px;color:#64748b;padding-top:6px"><b>表 五外-1　错误池索引</b>（本站整理）</caption><thead><tr>'+
              '<th style="width:96px">编号</th><th style="width:104px">属于哪一步</th>'+
              '<th>表现</th><th style="width:26%">去练</th></tr></thead><tbody>'+
              others.map(e=>'<tr><td class="muted">'+E(e.id)+'</td>'+

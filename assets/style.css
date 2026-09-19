@@ -4,7 +4,7 @@
 :root{
   --ink:#1a2233;
   --ink-2:#4a5568;
-  --ink-3:#718096;
+  --ink-3:#5f6f85;
   --brand:#1e40af;
   --brand-2:#3b82f6;
   --brand-soft:#eff6ff;
@@ -78,15 +78,60 @@ body{
   font-size:12px; color:#94a3b8; padding:4px 10px; border:1px solid #334155; border-radius:999px;
 }
 
+/* 汉堡按钮：仅在窄屏显示（>640px 一律 display:none，桌面导航完全不变） */
+.nav-toggle{
+  display:none; align-items:center; justify-content:center;
+  width:44px; height:44px; flex:0 0 auto; padding:0; cursor:pointer;
+  background:#1e293b; color:#e2e8f0; border:1px solid #334155; border-radius:9px;
+}
+.nav-toggle .bars,
+.nav-toggle .bars::before,
+.nav-toggle .bars::after{
+  display:block; width:18px; height:2px; border-radius:2px; background:#e2e8f0; content:"";
+}
+.nav-toggle .bars{position:relative;}
+.nav-toggle .bars::before{position:absolute; top:-6px; left:0;}
+.nav-toggle .bars::after{position:absolute; top:6px; left:0;}
+
+/* ---------- 窄屏导航（≤640px）：折叠 ＋ 汉堡 ＋ 点击展开 ---------- */
+@media (max-width:640px){
+  .nav-inner{padding:8px 14px;}
+  .nav-inner > .brand{order:1;}
+  .nav-inner > .nav-progress{order:2; margin-left:auto;}
+  .nav-inner > .nav-toggle{order:3; margin-left:8px; display:inline-flex;}
+  .nav-inner > .nav-links{order:4; flex-basis:100%;}
+
+  /* 折叠态：导航链接默认不显示 */
+  .nav-links{
+    display:none; flex-direction:column; gap:2px;
+    margin:6px 0 0; padding-top:6px; border-top:1px solid #334155;
+  }
+  .nav-links[data-open="true"]{display:flex;}
+
+  /* 触控目标：≥44px（窄屏专用；桌面端仍是 6px 10px） */
+  .nav a.navlink{padding:10px 12px; font-size:14.5px;}
+
+  /* 分组改为可点击展开：不再依赖 hover／focus-within */
+  .nav-item{position:static;}
+  .nav-item:hover .dropdown, .nav-item:focus-within .dropdown{display:none;}
+  .nav-item[data-open="true"] .dropdown{display:block;}
+  .dropdown{
+    position:static; display:none; min-width:0; margin:0 0 4px;
+    background:transparent; border:0; border-left:2px solid #334155;
+    border-radius:0; box-shadow:none; padding:2px 0 2px 10px;
+  }
+  .dropdown a{padding:10px 12px; font-size:14px;}
+}
+
 /* ---------- 容器 ---------- */
 .wrap{max-width:1140px; margin:0 auto; padding:26px 20px 90px;}
 .wrap.narrow{max-width:900px;}
 
 /* ---------- 标题 ---------- */
-h1{font-size:30px; line-height:1.35; margin:0 0 8px; font-weight:800; letter-spacing:-.2px;}
+h1, .h1{font-size:30px; line-height:1.35; margin:0 0 8px; font-weight:800; letter-spacing:-.2px; padding-bottom:0; border-bottom:0;}
 h2{font-size:22px; margin:38px 0 12px; padding-bottom:8px; border-bottom:2px solid var(--line); font-weight:750;}
-h3{font-size:18px; margin:26px 0 10px; font-weight:700;}
-h4{font-size:15.5px; margin:18px 0 8px; font-weight:700; color:var(--ink-2);}
+h3, .h3{font-size:18px; margin:26px 0 10px; font-weight:700; padding-bottom:0; border-bottom:0;}
+h4, .h4{font-size:15.5px; margin:18px 0 8px; font-weight:700; color:var(--ink-2);}
 p{margin:10px 0;}
 a{color:var(--brand);}
 a:hover{color:var(--brand-2);}
@@ -98,7 +143,7 @@ small{font-size:13px;}
 .crumb{font-size:13px; color:var(--ink-3); margin-bottom:14px;}
 .crumb a{color:var(--ink-3); text-decoration:none;}
 .crumb a:hover{color:var(--brand);}
-.crumb span{margin:0 6px; color:var(--line-2);}
+.crumb span{margin:0 6px; color:var(--ink-3);}
 
 /* ---------- 卡片 ---------- */
 .card{
@@ -185,7 +230,7 @@ legend{font-weight:800; font-size:15px; padding:0 8px; color:var(--brand);}
   background:#fff; border:1px solid var(--line); border-left:4px solid var(--brand);
   border-radius:var(--radius); padding:16px 18px; margin:22px 0; box-shadow:var(--shadow);
 }
-.progress-box h4{margin:0 0 4px; color:var(--brand);}
+.progress-box h4, .progress-box .h4{margin:0 0 4px; color:var(--brand);}
 .progress-grid{display:grid; grid-template-columns:repeat(auto-fit,minmax(150px,1fr)); gap:10px; margin-top:12px;}
 .prog-item{
   border:1px solid var(--line); border-radius:9px; padding:10px 12px; background:#fafbfd;
@@ -254,7 +299,7 @@ legend{font-weight:800; font-size:15px; padding:0 8px; color:var(--brand);}
   background:linear-gradient(135deg,#0f172a 0%,#1e3a8a 55%,#1e40af 100%);
   color:#fff; border-radius:16px; padding:34px 32px; margin-bottom:22px;
 }
-.hero h1{color:#fff; font-size:32px;}
+.hero h1, .hero .h1{color:#fff; font-size:32px;}
 .hero p{color:#c7d7f5; font-size:16px; max-width:760px;}
 .hero .btn{background:#fff; color:var(--brand);}
 .hero .btn.ghost{background:transparent; color:#fff; border-color:rgba(255,255,255,.45);}
@@ -296,7 +341,7 @@ legend{font-weight:800; font-size:15px; padding:0 8px; color:var(--brand);}
 /* 步骤卡 */
 .step-card{border:1px solid var(--line); border-left:4px solid var(--brand); border-radius:10px;
   padding:14px 18px; margin:14px 0; background:#fcfdff;}
-.step-card h4{margin:0 0 2px; color:var(--brand); font-size:16px;}
+.step-card h4, .step-card .h4{margin:0 0 2px; color:var(--brand); font-size:16px;}
 .step-card .goal{font-size:13.5px; color:var(--ink-3); margin:0 0 8px;}
 .act-list{font-size:13px; color:var(--ink-2); background:#f1f5f9; border-radius:7px; padding:8px 12px; margin:0 0 10px;}
 .act-list b{color:var(--ink);}
@@ -366,6 +411,20 @@ legend{font-weight:800; font-size:15px; padding:0 8px; color:var(--brand);}
      保留是为了将来若加入更宽的表，不会出现"右半边被裁掉却没人发现"。
      注意：刻意不在这里缩小表字号——经实测无溢出，缩小只会降低可读性。 */
   .table-scroll{overflow:visible !important;}
+
+  /* 图表同理（R1-G：R2 反例 CE-1）。
+     R1-G 给 .psc-fig 加了 overflow-x:auto、给每个 SVG 加了 min-width（= 设计宽 780–900px），
+     两者都比打印页宽（约 700–740px）大。于是 Chrome 对【整页】做 shrink-to-fit：
+     实测（Page.printToPDF ＋ 光栅化）——内文字级 9.75pt → 8.04pt（×0.8246）、PDF 页数 17 → 14。
+     注意：并不是某张图被裁掉——图会完整印出来，代价是【整份文件被缩小约 17.5%】。
+     所以这里两条一起：
+       ① 取消横向滚动容器；
+       ② 取消 min-width，让 width:100% + max-width:NNNpx 重新生效——图自己缩到页宽，
+          页面就不必被整体缩放（实测内文字级回到 9.75pt、页数回到 17、与 R1-G 之前的包逐像素相同）。
+     ⚠️ ② 不是可选的：只留①【不会被裁、也不会有任何告警】，但会静默把整份列印缩小约 17.5%。
+     改这一段时请两条一起测。 */
+  .psc-fig{overflow:visible !important;}
+  .psc-fig > svg{min-width:0 !important;}
 }
 
 /* ── 题目诊断折叠区（子任务 1.4-B1）────────────────────────────────
@@ -396,21 +455,37 @@ ol.dx-ol li{margin:2px 0}
 a.dx-tag{text-decoration:none}
 a.dx-tag:hover{background:var(--brand);color:#fff}
 
-/* ===== 0.2-B1 首页第一屏：角色入口 ＋ 公共热身 ===== */
+/* ===== 首页第一屏：公共热身（入口卡已移除） ===== */
 .first-screen{margin:18px 0 6px;}
-.role-grid{display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); gap:14px; margin-top:16px;}
-.role-card{display:block; background:var(--card,#fff); border:1px solid var(--line-2,#dbe3ef);
-  border-radius:12px; padding:16px 16px 14px; text-decoration:none; color:inherit;
-  border-top:4px solid var(--brand,#2E5C8A); transition:transform .15s, border-color .15s, box-shadow .15s;}
-.role-card:hover{transform:translateY(-2px); border-color:var(--brand-2,#4a7fb5);
-  box-shadow:0 6px 18px rgba(46,92,138,.10); color:inherit;}
-.role-card h3{margin:0 0 6px; font-size:17px; line-height:1.3;}
-.role-card p{margin:0; font-size:13.5px; color:var(--ink-3,#5b6b80); line-height:1.6;}
 .warmup-entry{display:flex; align-items:center; justify-content:space-between; gap:14px; flex-wrap:wrap;
   margin-top:16px; padding:14px 16px; border:1px dashed var(--line-2,#dbe3ef); border-radius:12px;
   background:var(--brand-soft,#f4f7fc);}
-.warmup-entry h3{margin:0 0 4px; font-size:15.5px;}
+.warmup-entry h3, .warmup-entry .h3{margin:0 0 4px; font-size:15.5px;}
 .warmup-entry p{margin:0; font-size:13px; color:var(--ink-3,#5b6b80);}
 .warmup-act{display:flex; align-items:center; gap:10px; flex-wrap:wrap;}
-@media (max-width:900px){ .role-grid{grid-template-columns:repeat(2,minmax(0,1fr));} }
-@media (max-width:560px){ .role-grid{grid-template-columns:1fr;} }
+
+/* ---------- 原書補遺（折疊） ---------- */
+details.addendum{margin-top:34px; border-top:1px solid var(--line); padding-top:14px}
+details.addendum>summary{cursor:pointer; font-weight:800; font-size:19px; color:var(--ink);
+  list-style:none; display:block; padding:4px 0}
+details.addendum>summary::-webkit-details-marker{display:none}
+details.addendum>summary::before{content:'▸ '; color:var(--brand); font-weight:400}
+details.addendum[open]>summary::before{content:'▾ '}
+details.addendum>summary small{font-weight:400; font-size:13.5px; color:var(--ink-3)}
+details.addendum .addendum-body{margin-top:12px}
+
+/* ---------- 图表：手机上不缩小，改为横向捲动（R1-G / UX-1） ----------
+   24 个内联 SVG 原本只有 width:100% + max-width:NNNpx，在窄屏被等比缩小，
+   图内文字等效字级最低到 5.9px（500px 实测）。改成「固定自然宽 + 容器横向捲动」。
+   预期副作用：视窗宽 780–920px 时较宽的图会出现横向捲动——刻意取舍。 */
+.psc-fig{overflow-x:auto; -webkit-overflow-scrolling:touch;}
+.psc-fig > figcaption{position:sticky; left:0;}
+
+/* ---------- 触控目标：可点高度一律 ≥ 44px（R1-G / UX-5） ----------
+   基线实测：.btn 35px、.btn.sm 35px、.tab 41px、表单控件 35–37px、range 16px。
+   注意：.btn 保持 display:inline-block，不改成 flex（会破坏同行按钮的基线对齐）。 */
+.btn, .btn.sm, .tab, .pager a,
+input[type=text], input[type=number], select,
+input[type=range], .btn-t14, .btn-t19 { min-height:44px; }
+input[type=range]{ height:44px; }   /* 轨道视觉不变，只放大可点区 */
+.cbcell{display:flex; align-items:center; justify-content:center; min-height:44px; cursor:pointer}
