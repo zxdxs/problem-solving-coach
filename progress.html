@@ -28,15 +28,15 @@
 </head>
 <body>
 
-<div class="nav">
+<nav class="nav" aria-label="主导航">
   <div class="nav-inner">
     <a class="brand" href="index.html">解决问题训练站<small>PROBLEM SOLVING LAB</small></a>
     <div class="nav-links" id="nav-links"></div>
     <span class="nav-progress" id="nav-progress">掌握度 0%</span>
   </div>
-</div>
+</nav>
 
-<div class="wrap">
+<main class="wrap" id="main">
 
   <div class="crumb"><a href="index.html">首页</a><span>/</span>学习进度</div>
   <h1>学习进度 · 掌握度追踪</h1>
@@ -44,7 +44,7 @@
   <b>看得见的进度，是长期练习唯一的燃料。</b></p>
 
   <div class="card">
-    <h3 style="margin-top:0">总体掌握度</h3>
+    <h2 class="h3" style="margin-top:0">总体掌握度</h2>
     <div id="prog-overall"></div>
   </div>
 
@@ -64,12 +64,12 @@
     <button class="btn ghost" id="btn-print">打印追踪表</button>
     <button class="btn ghost" id="btn-reset" style="color:#b91c1c">清空全部数据</button>
   </div>
-  <input type="file" id="file-import" accept="application/json,.json" style="display:none">
+  <input type="file" id="file-import" aria-label="导入学习进度文件" accept="application/json,.json" style="display:none">
 
   <h2>怎么用这张表</h2>
   <ol>
-    <li><b>别急着勾。</b>勾选的标准是"我有证据"，不是"我觉得我懂了"。证据可以是：一份执行单、一次自测成绩、一次真实的成功应用。</li>
-    <li><b>四层不均衡是正常的。</b>多数人"应知"远高于"迁移"。如果你的表是这样，说明练得还不够真。</li>
+    <li><b>别急着勾。</b>勾选的标准是「我有证据」，不是「我觉得我懂了」。证据可以是：一份执行单、一次自测成绩、一次真实的成功应用。</li>
+    <li><b>四层不均衡是正常的。</b>多数人「应知」远高于「迁移」。如果你的表是这样，说明练得还不够真。</li>
     <li><b>迁移层是最难也最值钱的。</b>只有它能证明你把方法变成了自己的本能。</li>
     <li><b>每周回来看一次。</b>重点不是勾了多少，而是哪一格卡住最久——那就是你下一周的练习主题。</li>
   </ol>
@@ -85,9 +85,9 @@
     </a>
   </div>
 
-</div>
+</main>
 
-<div class="footer" id="site-footer"></div>
+<footer class="footer" id="site-footer"></footer>
 
 <script src="assets/data.js"></script>
 <script src="assets/app.js"></script>

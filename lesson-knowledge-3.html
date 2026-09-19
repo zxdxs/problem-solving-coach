@@ -1,0 +1,469 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>课件 5-3　估一估 ＋ 三道向内的题 ＋ 练习与自检 · 解决问题训练站</title>
+<link rel="stylesheet" href="assets/style.css">
+
+<!-- ===== SEO / 分享元数据（0.2-F2A 规范，R1-B 新增页沿用）===== -->
+<meta name="description" content="估算练的不是算准，是「估到够用为止」。这一节给出三条规则（最佳粗略规则／逐次近似／数量级）、一家杂货店卖多少牙膏的完整估法、量纲与单位对照表、可以填两遍的个人资料表，以及三道「向内」的整理题。">
+<link rel="canonical" href="https://solve-lab.cn/lesson-knowledge-3.html">
+<link rel="icon" href="/favicon.ico" sizes="32x32">
+<link rel="apple-touch-icon" href="assets/og/apple-touch-icon.png">
+<!-- Open Graph -->
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="解决问题训练站">
+<meta property="og:title" content="课件 5-3　估一估 ＋ 三道向内的题 ＋ 练习与自检">
+<meta property="og:description" content="估算练的不是算准，是「估到够用为止」。这一节给出三条规则（最佳粗略规则／逐次近似／数量级）、一家杂货店卖多少牙膏的完整估法、量纲与单位对照表、可以填两遍的个人资料表，以及三道「向内」的整理题。">
+<meta property="og:url" content="https://solve-lab.cn/lesson-knowledge-3.html">
+<meta property="og:image" content="https://solve-lab.cn/assets/og/og-chapter-knowledge.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<!-- Twitter / X -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="课件 5-3　估一估 ＋ 三道向内的题 ＋ 练习与自检">
+<meta name="twitter:description" content="估算练的不是算准，是「估到够用为止」。这一节给出三条规则（最佳粗略规则／逐次近似／数量级）、一家杂货店卖多少牙膏的完整估法、量纲与单位对照表、可以填两遍的个人资料表，以及三道「向内」的整理题。">
+<meta name="twitter:image" content="https://solve-lab.cn/assets/og/og-chapter-knowledge.jpg">
+</head>
+<body>
+
+<nav class="nav" aria-label="主导航">
+  <div class="nav-inner">
+    <a class="brand" href="index.html">解决问题训练站<small>PROBLEM SOLVING LAB</small></a>
+    <div class="nav-links" id="nav-links"></div>
+    <span class="nav-progress" id="nav-progress">掌握度 0%</span>
+  </div>
+</nav>
+
+<main class="wrap" id="main">
+
+  <div class="crumb"><a href="index.html">首页</a><span>/</span><a href="chapter-knowledge.html">第 5 章　知识学习与结构</a><span>/</span>课件 5-3</div>
+
+  <h1>课件 5-3　估一估</h1>
+  <p class="lead">这一章讲的是知识。而知识里最实用、也最少被专门练的一类，是<b>估算</b>——
+  因为它练的不是「算准」，是<b>「估到够用为止」</b>。
+  本讲收尾还给出三道方向相反的题：不给问题，让你回头整理自己已有的东西。</p>
+
+  <div class="note"><span class="t">课件信息</span>
+  <b>所属</b>：第 5 章　知识学习与结构　·　<b>本节</b>：第 5 章第 3 讲（本章共 3 讲）<br>
+  <b>对应原书</b>：原书第五章 p183–244；内含印刷页 216、230、231、233、234 的直接引用　·　<b>预计时长</b>：约 22 分钟（另含原书补遗选读约 8 分钟）<br>
+  <b>本节性质</b>：实操层——本讲 8 张表里，表 5-3-⑥、表 5-3-⑦ 两张可以「拿起来就填」（其余是参照表与题单）。<br>
+  <b>前置要求</b>：建议先看 <a href="lesson-knowledge-1.html">课件 5-1</a> 与 <a href="lesson-knowledge-2.html">5-2</a>。</div>
+
+  <div class="toc">
+    <strong>本节目录</strong>
+    <ol>
+      <li><a href="#s1">本节目标</a></li>
+      <li><a href="#s2">一、估算的三条规则</a></li>
+      <li><a href="#s3">二、一家杂货店每周卖多少牙膏</a></li>
+      <li><a href="#s4">三、量纲与单位：不算就能查出错</a></li>
+      <li><a href="#s5">四、先估一遍你自己</a></li>
+      <li><a href="#s6">五、三道「向内」的题，与本章收尾</a></li>
+      <li><a href="#s7">本节自检</a></li>
+      <li><a href="#s8">想深入？</a></li>
+      <li><a href="#s9">下一步</a></li>
+    </ol>
+  </div>
+
+  <h2 id="s1">本节目标</h2>
+  <p>看完这一节，你应该能做到三件事：</p>
+  <div class="grid g3">
+    <div class="card"><h3 class="h4">1　说清估算的边界</h3>
+      <p class="muted" style="margin-bottom:0">能说出「最佳粗略规则」与「逐次近似规则」，
+      并判断一个估算<b>什么时候算够用</b>。</p></div>
+    <div class="card"><h3 class="h4">2　用量纲挡错</h3>
+      <p class="muted" style="margin-bottom:0">能用量纲检查发现「不用算就知道错」的式子，
+      并说清「相对密度」为什么是无量纲的。</p></div>
+    <div class="card"><h3 class="h4">3　把知识向内整理一次</h3>
+      <p class="muted" style="margin-bottom:0">能完成三道「向内」的题——
+      给自己的课程分类、画自己的知识结构框图、按用途列自己的经验资料。</p></div>
+  </div>
+
+  <h2 id="s2">一、估算的三条规则</h2>
+  <p>原书在「经验知识」一节里给了三条规则。它们的共同点是：<b>都在回答「估到什么程度算完」。</b></p>
+
+  <div class="table-scroll">
+  <table>
+    <caption style="caption-side:bottom;text-align:left;font-size:13px;color:#64748b;padding-top:6px">
+      <b>表 5-3-①　估算的三条规则</b>（据原书第五章第五节重绘）。★ <b>原表无 caption，表号为本页所补。</b>
+    </caption>
+    <thead><tr><th style="width:22%">名称</th><th style="width:78%">原书表述（摘）</th></tr></thead>
+    <tbody>
+      <tr><td><b>最佳粗略规则</b></td><td>表明我们的精确性仅仅满足需要即可；或者说，<b>答案的精确性要与可供利用的资源相适应</b></td></tr>
+      <tr><td><b>逐次近似规则</b></td><td>我们先作简单、粗略的计算，<b>如果看上去方向对头，再作比较精确的计算</b></td></tr>
+      <tr><td><b>数量级</b></td><td>通常理解为「<b>出入不到 10 倍</b>」……55,000 和 25,000 的数量级都是 10⁴</td></tr>
+    </tbody>
+  </table>
+  </div>
+
+  <div class="note ok"><span class="t">这三条和第 1 章是同一条</span>
+  <b>「最佳粗略规则」＝第 1 章的「最佳解取决于条件与资源」</b>；
+  <b>「逐次近似规则」＝第 1 章的「逐级近似」</b>。
+  <br><span class="muted">同一件事，第 1 章从「策略」讲，这里从「知识」讲——<b>第二次出现，说法更具体了。</b></span></div>
+
+  <div class="note"><span class="t">经验在两个阶段出场</span>
+  探索阶段<b>敢估计</b>，回顾阶段<b>核对结果是否合理</b>。
+  <br><span class="muted">这是第五步「回顾总结」最可操作的一条：<b>不必重算，先用经验看一眼量级对不对。</b></span></div>
+
+  <div class="note warn"><span class="t">专家的「如果……那么」</span>
+  专家在探索阶段会提很多「<b>如果……那么会怎样</b>」，推理是定性的，
+  <b>对各项作定量估算，以了解哪种情况重要</b>。
+  <br><span class="muted">这直接回答了「五步的第 2 步到底在做什么」——<b>不是发呆，是在做一连串定性的「如果……那么」加定量估算。</b></span></div>
+
+  <h2 id="s3">二、一家杂货店每周卖多少牙膏</h2>
+  <p>两千人居民区、一家杂货店，每周卖出多少支 150ml 牙膏？
+  原书给了两种估法，得 <b>250</b> 与 <b>160</b>——然后不去纠结两个月还是三个月的差别，只落一句：</p>
+
+  <div class="note ok"><span class="t">这一句的教法</span>
+  结论是：<b>每周 160～250 支，而不是 10～1000 支。</b>
+  <br><br>它教的是「<b>估到够用为止</b>」，不是「算准」。
+  会数数、知道刷牙要挤牙膏，就能做——<b>门槛低到不能再低，练的却是全书要害。</b></div>
+
+  <p>而且原书自带流程，与第 3 章的小组制度完全同构：</p>
+
+  <div class="table-scroll">
+  <table>
+    <caption style="caption-side:bottom;text-align:left;font-size:13px;color:#64748b;padding-top:6px">
+      <b>表 5-3-②　估算的四阶段</b>（据原书活动 1 重绘）。★ <b>原表无 caption，表号为本页所补。</b>
+    </caption>
+    <thead><tr><th style="width:25%">阶段</th><th style="width:75%">做什么</th></tr></thead>
+    <tbody>
+      <tr><td>① 个人独立估</td><td>30 秒，不许商量</td></tr>
+      <tr><td>② 自己细估</td><td>10 分钟，把 30 秒的直觉拆开重算</td></tr>
+      <tr><td>③ 几个人集中比较</td><td>把各自的结果放在一起，<b>看差在哪一步</b></td></tr>
+      <tr><td>④ 填表记录</td><td>记录「学到了什么」——<b>这一步最常被省掉，也最值钱</b></td></tr>
+    </tbody>
+  </table>
+  </div>
+
+  <p class="muted">可直接开练的三题（原书活动 1）：
+  <b>一面墙要用多少块砖</b>／<b>多少个乒乓球能充满这个房间</b>／<b>这座城里有几家修自行车的</b>。</p>
+
+  <div class="note"><span class="t">为什么第 ③ 步是「看差在哪一步」</span>
+  两个人估同一个数，结果差两倍并不奇怪——<b>但差在哪一环才是信息</b>。
+  <br><span class="muted">一个把「每人每天刷几次牙」估成 3，另一个估成 1.5，差距就在这一环，而不在数学。
+  <b>先 30 秒凭直觉、再 10 分钟拆开重算，就是为了让你自己看见直觉是在哪一环跑偏的。</b></span></div>
+
+  <h2 id="s4">三、量纲与单位：不算就能查出错</h2>
+  <p>原书配了几张对照表。<b>算之前先看量纲，能挡掉一大半低级错。</b></p>
+
+  <div class="table-scroll">
+  <table id="tab-5-10" style="max-width:520px">
+    <caption style="caption-side:bottom;text-align:left;font-size:13px;color:#64748b;padding-top:6px">
+      <b>表 5-3-③　常用量的量纲</b>（原书表 5-10·p234）。
+      L＝长度、M＝质量、T＝时间、I＝电流、N＝物质的量。
+    </caption>
+    <thead><tr><th style="width:50%">量</th><th style="width:50%">量纲</th></tr></thead>
+    <tbody>
+      <tr><td>焓</td><td>L²MT⁻²</td></tr>
+      <tr><td>电位</td><td>L²MT⁻³I⁻¹</td></tr>
+      <tr><td>介电常数</td><td>M⁻¹T⁴I²</td></tr>
+      <tr><td>磁通量</td><td>L²MT⁻²I⁻¹</td></tr>
+      <tr><td>磁强度</td><td>L⁻¹T⁻¹I</td></tr>
+      <tr><td>摩尔熵</td><td>L²MT⁻²N⁻¹</td></tr>
+      <tr><td>法拉第常数</td><td>TIN⁻¹</td></tr>
+      <tr style="background:var(--ok-soft)"><td>相对密度</td><td><b>1</b>（无量纲）</td></tr>
+    </tbody>
+  </table>
+  </div>
+
+  <div class="note ok"><span class="t">最后一行是重点</span>
+  <b>「相对密度」的量纲是 1——它是一个纯数。</b>
+  <br><span class="muted">凡是两个同类量相比（密度比密度、长度比长度），量纲就约掉了。
+  <b>看到「相对」「比」「系数」这类词，先想一下它的量纲是不是 1</b>——
+  如果是，那它就不该带单位，带了就是错的。</span></div>
+
+  <div class="table-scroll">
+  <table id="tab-5-6" style="max-width:520px">
+    <caption style="caption-side:bottom;text-align:left;font-size:13px;color:#64748b;padding-top:6px">
+      <b>表 5-3-④　基本单位（七个）</b>（原书表 5-6·p231）。
+    </caption>
+    <thead><tr><th style="width:46%">量</th><th style="width:54%">单位</th></tr></thead>
+    <tbody>
+      <tr><td>长度</td><td>米</td></tr>
+      <tr><td>质量</td><td>公斤</td></tr>
+      <tr><td>时间</td><td>秒</td></tr>
+      <tr><td>电流</td><td>安培</td></tr>
+      <tr><td>热力学温度</td><td>开尔文</td></tr>
+      <tr><td>物质的量</td><td>摩尔</td></tr>
+      <tr><td>发光强度</td><td>坎德拉</td></tr>
+    </tbody>
+  </table>
+  </div>
+
+  <div class="note"><span class="t">这张表和上一张表是一对</span>
+  表 5-3-④ 说「哪七个量是基本的」，表 5-3-③ 说「其它量的量纲怎么由它们拼出来」。
+  <br>注意<b>「物质的量——摩尔」这一条</b>：它是个「数数的单位」，和长度、质量不是一类东西。
+  <b>这也是摩尔常常被用错的原因。</b></div>
+
+  <div class="table-scroll">
+  <table id="tab-5-9">
+    <caption style="caption-side:bottom;text-align:left;font-size:13px;color:#64748b;padding-top:6px">
+      <b>表 5-3-⑤　量纲分析</b>（原书表 5-9·p233）。
+    </caption>
+    <thead><tr><th style="width:16%">量</th><th style="width:30%">方程式</th><th style="width:24%">量纲</th><th style="width:30%">导出单位</th></tr></thead>
+    <tbody>
+      <tr><td>速度</td><td>v = ds/dt</td><td>LT⁻¹</td><td>m/s</td></tr>
+      <tr><td>力</td><td>F = m·d²s/dt²</td><td>MLT⁻²</td><td>kg·m/s²</td></tr>
+      <tr><td>动能</td><td>E<sub>k</sub> = ½mv²</td><td>ML²T⁻²</td><td>kg·m²/s²</td></tr>
+      <tr><td>势能</td><td>E<sub>p</sub> = mgh</td><td>ML²T⁻²</td><td>kg·m²/s²</td></tr>
+      <tr style="background:var(--ok-soft)"><td><b>能</b></td><td>E = ½mv² + mgh</td><td><b>ML²T⁻²</b></td><td>kg·m²/s²</td></tr>
+    </tbody>
+  </table>
+  </div>
+
+  <div class="note ok"><span class="t">★ 最后一行是这张表的用意所在</span>
+  <b>动能和势能的量纲完全相同——都是 ML²T⁻²。</b>所以它们可以直接相加（E = ½mv² + mgh 才有意义）。
+  <br><br>反过来：<b>量纲不同的两个量相加，一定是错的——不用算就知道。</b>
+  <br><br>这就是量纲分析的全部用处：<b>它是唯一一个「不算就能查出错」的工具。</b></div>
+
+  <h2 id="s5">四、先估一遍你自己</h2>
+  <p>原书让你把自己身上的数先估一遍。<b>先估，再查，把两个数都写下来。</b></p>
+
+  <div class="table-scroll">
+  <table id="tab-5-7" style="max-width:560px">
+    <caption style="caption-side:bottom;text-align:left;font-size:13px;color:#64748b;padding-top:6px">
+      <b>表 5-3-⑥　个人资料表</b>（原书表 5-7·p230）。先估，再查，把两个数都写下来。
+      ★ <b>原表无 caption，表号为本页所补。</b>
+    </caption>
+    <thead><tr><th style="width:44%">细目</th><th style="width:28%">你的估计</th><th style="width:28%">实际值</th></tr></thead>
+    <tbody>
+      <tr><td>身高</td><td class="muted">　</td><td class="muted">　</td></tr>
+      <tr><td>双臂平伸直长</td><td class="muted">　</td><td class="muted">　</td></tr>
+      <tr><td>步长</td><td class="muted">　</td><td class="muted">　</td></tr>
+      <tr><td>手指距</td><td class="muted">　</td><td class="muted">　</td></tr>
+      <tr><td>房高</td><td class="muted">　</td><td class="muted">　</td></tr>
+      <tr><td>自重</td><td class="muted">　</td><td class="muted">　</td></tr>
+      <tr><td>手提重</td><td class="muted">　</td><td class="muted">　</td></tr>
+      <tr><td>日饮水量</td><td class="muted">　</td><td class="muted">　</td></tr>
+      <tr><td>汽油箱容积</td><td class="muted">　</td><td class="muted">　</td></tr>
+      <tr><td>步行速度</td><td class="muted">　</td><td class="muted">　</td></tr>
+      <tr><td>自行车速度</td><td class="muted">　</td><td class="muted">　</td></tr>
+      <tr><td>汽车速度</td><td class="muted">　</td><td class="muted">　</td></tr>
+      <tr><td>汽车功率</td><td class="muted">　</td><td class="muted">　</td></tr>
+      <tr><td>水的热容量</td><td class="muted">　</td><td class="muted">　</td></tr>
+      <tr><td>水的汽化潜热</td><td class="muted">　</td><td class="muted">　</td></tr>
+      <tr><td>水的密度</td><td class="muted">　</td><td class="muted">　</td></tr>
+    </tbody>
+  </table>
+  </div>
+
+  <div class="note"><span class="t">为什么从「你自己」开始估</span>
+  因为这些数你每天在用，<b>却几乎从没量过</b>。
+  <br>估「一座城里有几家修自行车的」之所以难，是因为中间每一环你都没数。
+  而「我一步有多长」这种事，<b>估错了没有任何借口</b>——它恰好是校准估感的起点。
+  <br><span class="muted">原书把这张表放在估算一节，用意在此。</span></div>
+
+  <div class="table-scroll">
+  <table id="tab-5-8" style="max-width:560px">
+    <caption style="caption-side:bottom;text-align:left;font-size:13px;color:#64748b;padding-top:6px">
+      <b>表 5-3-⑦　个人资料表（不同单位制）</b>（原书表 5-8·p233）。
+      同一张表，填两遍不同的单位制。★ <b>原表无 caption，表号为本页所补。</b>
+    </caption>
+    <thead><tr><th style="width:40%">项目</th><th style="width:30%">单位制一：数值／单位</th><th style="width:30%">单位制二：数值／单位</th></tr></thead>
+    <tbody>
+      <tr><td>身高</td><td class="muted">　</td><td class="muted">　</td></tr>
+      <tr><td>双臂平伸直长</td><td class="muted">　</td><td class="muted">　</td></tr>
+      <tr><td>步长</td><td class="muted">　</td><td class="muted">　</td></tr>
+      <tr><td>手指距</td><td class="muted">　</td><td class="muted">　</td></tr>
+      <tr><td>房高</td><td class="muted">　</td><td class="muted">　</td></tr>
+      <tr><td>自重</td><td class="muted">　</td><td class="muted">　</td></tr>
+      <tr><td>手提重</td><td class="muted">　</td><td class="muted">　</td></tr>
+      <tr><td>日饮水量</td><td class="muted">　</td><td class="muted">　</td></tr>
+      <tr><td>汽油箱容积</td><td class="muted">　</td><td class="muted">　</td></tr>
+      <tr><td>步行速度</td><td class="muted">　</td><td class="muted">　</td></tr>
+      <tr><td>自行车速度</td><td class="muted">　</td><td class="muted">　</td></tr>
+      <tr><td>汽车速度</td><td class="muted">　</td><td class="muted">　</td></tr>
+      <tr><td>汽车功率</td><td class="muted">　</td><td class="muted">　</td></tr>
+      <tr><td>水的热容量</td><td class="muted">　</td><td class="muted">　</td></tr>
+      <tr><td>水的汽化潜热</td><td class="muted">　</td><td class="muted">　</td></tr>
+      <tr><td>水的密度</td><td class="muted">　</td><td class="muted">　</td></tr>
+    </tbody>
+  </table>
+  </div>
+
+  <div class="note warn"><span class="t">为什么要填两遍</span>
+  因为<b>你一旦换单位，很多「感觉上对」的数就会露馅</b>。
+  <br><br>「我体重 60」——60 什么？填了两套单位制之后，你会被迫去想
+  <b>公斤和磅、米和英尺之间到底差多少</b>。
+  <br><br><b>而估错的人，几乎都是只会一套单位的人。</b></div>
+
+  <h2 id="s6">五、三道「向内」的题，与本章收尾</h2>
+  <p>本站现有的练习全是「向外」的——给你一个问题让你解。原书章末这三题方向相反，
+  <b>不给你问题，让你回头整理自己已有的东西</b>：</p>
+
+  <div class="table-scroll">
+  <table>
+    <caption style="caption-side:bottom;text-align:left;font-size:13px;color:#64748b;padding-top:6px">
+      <b>表 5-3-⑧　三道「向内」的题</b>（据原书第五章练习重绘）。★ <b>原表无 caption，表号为本页所补。</b>
+    </caption>
+    <thead><tr><th style="width:8%">#</th><th style="width:46%">题目</th><th style="width:46%">练什么</th></tr></thead>
+    <tbody>
+      <tr><td>1</td><td>把自己学过的课程按<b>定律／约束定律／模型</b>分类</td><td>分类八条准则，用在自己身上</td></tr>
+      <tr><td>2</td><td>把自己的知识画成<b>结构框图</b>，并评价它</td><td>看结构，不看存量</td></tr>
+      <tr><td>3</td><td>按不同<b>用途</b>列出自己的经验资料</td><td>经验要按用途归档，否则调不出来</td></tr>
+    </tbody>
+  </table>
+  </div>
+
+  <div class="note ok"><span class="t">★ 第 1 题尤其好</span>
+  它是第 4 章分类八条准则的直接应用，而对象是<b>你自己</b>。
+  <b>分类是手段不是目的</b>——这是最好的一次示范。
+  <br><span class="muted">本站现有的练习全是「向外」的，这一半完全没做——<b>这三道题补的正是那一半。</b></span></div>
+
+  <h3>本章的练习任务</h3>
+  <div class="grid g3">
+    <div class="card"><h3 class="h4">练习 1：合书回忆</h3>
+      <p class="muted" style="margin-bottom:0">读完一节就合上书，写下你能想起的全部要点，
+      再翻回去<b>用另一种颜色补全</b>。<b>补全的部分就是你的薄弱区。</b></p></div>
+    <div class="card"><h3 class="h4">练习 2：重组成一张图</h3>
+      <p class="muted" style="margin-bottom:0">把本章内容压缩成一张<b>不超过 15 个节点</b>的结构图，
+      并说明每个节点之间的关系（因果／并列／层级）。</p></div>
+    <div class="card"><h3 class="h4">练习 3：提一个分析性问题</h3>
+      <p class="muted" style="margin-bottom:0">针对你正在学的内容，提出一个「为什么」或「如果……会怎样」的问题，
+      并试着自己回答。<b>提不出好问题，往往说明还没真懂。</b></p></div>
+  </div>
+
+  <h3>出门票自检</h3>
+  <p class="muted">练完本章，回答这三个问题。答不上来就回头补，不要急着往下走。</p>
+  <ol>
+    <li>我今天学的东西，合上书能想起多少？</li>
+    <li>我的笔记是抄录还是重组？能不能用它反推原书结构？</li>
+    <li>我提过问题吗？还是全程被动接受？</li>
+  </ol>
+
+  <div class="btn-row">
+    <a class="btn" href="practice.html">用五步执行单记录练习过程</a>
+    <a class="btn ghost" href="progress.html">查看我的学习进度</a>
+  </div>
+
+  <h3>原书补遗（本讲相关摘录）</h3>
+  <div class="grid g2">
+    <div class="card"><h3 class="h4">合理知识结构的三个特征</h3>
+      <p class="muted" style="margin-bottom:0"><b>整体性（综合性）／层次性／动态性</b>。
+      原书说知识结构是「多要素、多序列、多层次的<b>有机组合</b>」，而且是「<b>动态的综合体</b>」。</p></div>
+    <div class="card"><h3 class="h4">经验知识那节忽然转向创造力</h3>
+      <p class="muted" style="margin-bottom:0"><b>扎实的经验数据，应该用来想别人没想过的方案。</b>
+      经验不是创造力的反面——<b>没有经验垫底，离奇多半只是外行的胡想。</b></p></div>
+    <div class="card"><h3 class="h4">SQ3R 读书执行单</h3>
+      <p class="muted" style="margin-bottom:0"><b>浏览／发问／阅读／复述／复习</b>——
+      与解题执行单配成一对。</p></div>
+    <div class="card"><h3 class="h4">「人为什么要睡觉」</h3>
+      <p class="muted" style="margin-bottom:0">孩子连问四层：「为什么要睡觉？→ 因为要休息。→ 为什么要休息？→ 因为工作累了。→ 人为什么会累？」
+      答案是「这孩子怎么没完没了，<b>问你妈妈去</b>！」——<b>原书用它说明发问的勇气常常是这样被磨掉的。</b></p></div>
+  </div>
+
+  <div class="note warn"><span class="t">第 5 章到此收口</span>
+  <b>5-1 讲知识怎么进去（笔记与工作记忆），5-2 讲知识怎么组织（结构），5-3 讲知识怎么用出来（估算与向内整理）。</b>
+  三讲合起来回答一个问题：<b>你手上的知识够不够、结构对不对。</b>
+  <br><br>下一章往下走是<b>第 6 章　表达与交流</b>——
+  因为「知识够了」之后的下一个问题，是<b>怎么让别人也接受你的解法</b>。</div>
+
+  <h2 id="s7">本节自检</h2>
+  <p>四道题，先自己答，再展开对照。<b>第 1 题与第 4 题请动手填。</b></p>
+
+  <div class="card">
+    <h3 class="h4">第 1 题（动手题）</h3>
+    <p>用表 5-3-⑥ 给自己估 5 项（身高、步长、日饮水量、步行速度、水的密度），
+    写下估计值，再去查实际值。<b>哪一项差得最多？</b></p>
+    <details class="dx"><summary>对照参考</summary>
+      <div class="dx-body">
+        <p>没有标准答案，但有两个验收点：</p>
+        <p><b>① 你是否先写了估计值再看答案。</b>先查后写等于没做——练的是估感，不是记忆。</p>
+        <p><b>② 差得最多的那一项，多半是「你从没量过、也没换过单位」的那一项。</b>
+        常见的是「日饮水量」（很多人估 2 升，实际远不到）与「步行速度」（常被低估到 3 km/h 以下）。</p>
+        <p class="muted">「挑哪 5 项」与「差得最多」这一问为本站所加；原书只要求整表填两遍。</p>
+      </div>
+    </details>
+  </div>
+
+  <div class="card">
+    <h3 class="h4">第 2 题</h3>
+    <p>「相对密度」的量纲是 1，这说明什么？看到哪些词要警觉？</p>
+    <details class="dx"><summary>看参考答案</summary>
+      <div class="dx-body">
+        <p>说明它是一个<b>纯数</b>——凡是两个同类量相比（密度比密度、长度比长度），量纲就约掉了。</p>
+        <p>所以<b>它不该带单位，带了就是错的</b>。要警觉的词是「<b>相对</b>」「<b>比</b>」「<b>系数</b>」。</p>
+        <p class="muted">这条推论是本站从原表最后一行（相对密度＝1）推出来的。</p>
+      </div>
+    </details>
+  </div>
+
+  <div class="card">
+    <h3 class="h4">第 3 题</h3>
+    <p>「动能和势能的量纲完全相同」——这句话有什么用？</p>
+    <details class="dx"><summary>看参考答案</summary>
+      <div class="dx-body">
+        <p>正因为量纲完全相同（都是 ML²T⁻²），它们<b>才可以直接相加</b>——
+        E = ½mv² + mgh 这个式子才有意义。</p>
+        <p>反过来：<b>量纲不同的两个量相加，一定是错的——不用算就知道。</b></p>
+        <p>这是量纲分析的全部用处：<b>它是唯一一个「不算就能查出错」的工具。</b>
+        第 1 章讲专家示范时，第一步就是「先检查单位一致不一致」，靠的正是这一条。</p>
+      </div>
+    </details>
+  </div>
+
+  <div class="card">
+    <h3 class="h4">第 4 题（动手题）</h3>
+    <p>做一遍第 2 道「向内」的题：<b>把自己的知识画成一张结构框图</b>（不超过 15 个节点），
+    然后看——哪个分支是空的？哪一层你分不清？</p>
+    <details class="dx"><summary>对照参考</summary>
+      <div class="dx-body">
+        <p>没有标准答案。但可照课件 5-2 的四步自查：</p>
+        <p><b>① 根节点是什么</b>（你这一行的总问题是什么）；<b>② 第一层按什么分</b>（是不是同一个标准）；
+        <b>③ 每个分支下面三到四层</b>；<b>④ 哪一支空白、哪一层分不清。</b></p>
+        <p><b>画不出来的地方，就是原书说的「结构缺乏」</b>——它不是「学得少」，是「没串起来」。</p>
+        <p class="muted">第 ①②③④ 步的自查清单为本站所加（源自 5-2 的图 5-2 读法）。</p>
+      </div>
+    </details>
+  </div>
+
+  <h2 id="s8">想深入？</h2>
+  <div class="grid g2">
+    <div class="card"><h3 class="h4">第 5 章完整版</h3>
+      <p class="muted">章节页里有完整的原表、图 5-1／5-2 的原始说明、
+      以及本章全部原书补遗。</p>
+      <p><a class="btn" href="chapter-knowledge.html">去看第 5 章　知识学习与结构 →</a></p></div>
+    <div class="card"><h3 class="h4">上一讲：结构充足还是缺乏</h3>
+      <p class="muted">十一项结构自检、福尔摩斯的深浅分配、
+      一个真实学科的结构图，以及读文献最容易栽的三种坑。</p>
+      <p><a class="btn" href="lesson-knowledge-2.html">回到课件 5-2　结构充足还是缺乏 →</a></p></div>
+  </div>
+
+  <h2 id="s9">下一步</h2>
+  <div class="grid g2">
+    <div class="card"><h3 class="h4">第 5 章已全部建完（3 讲）</h3>
+      <p class="muted">下一章是<b>第 6 章　表达与交流</b>：写之前先问「这份东西是干什么用的」、
+      口头交流的四个特点、动笔前先定三件事，以及「先查再干」的一个真实教训。</p>
+      <p><a class="btn sm" href="lesson-comm-1.html">去看课件 6-1 →</a></p></div>
+    <div class="card"><h3 class="h4">先去做一次掌握度自测</h3>
+      <p class="muted">本章三讲都看完了，正好用自测验收一次——
+      它会按四层给分，并告诉你该回哪一讲补强。</p>
+      <p><a class="btn" href="quiz.html">进入掌握度自测 →</a>
+      <a class="btn ghost" href="lessons.html">回到课件目录 →</a></p></div>
+  </div>
+
+  <div class="pager">
+    <a href="lesson-knowledge-2.html">
+      <div class="dir">PREV</div>
+      <div class="tt">← 课件 5-2　结构充足还是缺乏</div>
+    </a>
+    <a href="lessons.html">
+      <div class="dir">INDEX</div>
+      <div class="tt">课件目录（18 讲）→</div>
+    </a>
+  </div>
+
+</main>
+
+<footer class="footer" id="site-footer"></footer>
+
+<script src="assets/data.js"></script>
+<script src="assets/app.js"></script>
+<script>
+  /* 课件页不在 PSC_NAV 里（不动导航）。传 'knowledge'，让侧栏高亮到所属的「第 5 章」。 */
+  PSC.init('knowledge');
+</script>
+</body>
+</html>

@@ -65,7 +65,7 @@
       ex.classList.add('show');
 
       if(q.type==='scale'){
-        if(!picked.length){ allAnswered = false; stats[q.layer].total++; return; }
+        if(!picked.length){ allAnswered = false; stats[q.layer].total += 100; return; }
         const sc = SCALE_SCORE[parseInt(picked[0].value,10)] || 0;
         stats[q.layer].got += sc; stats[q.layer].total += 100;
         card.querySelectorAll('.opt').forEach(o=>o.classList.remove('correct','wrong'));
@@ -111,8 +111,9 @@
         (p>=85?'#6ee7b7':(p>=65?'#7dd3fc':(p>=40?'#fcd34d':'#fca5a5')))+'"></i></span>'+
         '<span class="pc">'+p+'%</span></div>';
     });
+    /* 判定规则已在 quiz.html 页首静态说明（「判定线：L3 应会是及格线，L4 迁移才算完全掌握」），
+       成绩卡里不再重复，只保留可操作的补救提示——成绩卡只说「这次考了多少」。 */
     html += '</div><div class="muted" style="margin-top:12px;color:#c7d7f5">'+
-      '判定规则：L3 应会是及格线，<b>L4 迁移</b>才算完全掌握。'+
       '未达标的层级，回到对应章节补练后重测。</div></div>';
     document.getElementById('quiz-result').innerHTML = html;
 
@@ -125,7 +126,7 @@
 
     // 同步进度：达到 L3 以上，标记该章“应知/应会”
     if(pct>=65){ PSC.setLayer('strategy','know',true); PSC.setLayer('strategy','do',true); }
-    if(pct>=85){ PSC.setLayer('strategy','understand',true); }
+    if(pct>=85){ PSC.setLayer('strategy','understand',true); PSC.setLayer('strategy','transfer',true); }
 
     document.getElementById('quiz-result').scrollIntoView({behavior:'smooth', block:'center'});
   }

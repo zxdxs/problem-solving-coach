@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>错误池 · 32 条常见错误 · 解决问题训练站</title>
+<link rel="stylesheet" href="assets/style.css">
+
+<!-- ===== SEO / 分享元数据 ===== -->
+<meta name="description" content="32 条常见解题错误一条不漏：每条给出表现、归因（卡在哪一步／知识不足／态度与状态）、诊断问题、补强动作、关联训练点与执行单、原书依据，并直接链到该练的那几道题。">
+<link rel="canonical" href="https://solve-lab.cn/errors.html">
+<link rel="icon" href="/favicon.ico" sizes="32x32">
+<link rel="apple-touch-icon" href="assets/og/apple-touch-icon.png">
+<!-- Open Graph -->
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="解决问题训练站">
+<meta property="og:title" content="错误池 · 32 条常见错误 · 解决问题训练站">
+<meta property="og:description" content="32 条常见解题错误一条不漏：每条给出表现、归因、诊断问题、补强动作、原书依据，并直接链到该练的那几道题。">
+<meta property="og:url" content="https://solve-lab.cn/errors.html">
+<meta property="og:image" content="https://solve-lab.cn/assets/og/og-tools.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<!-- Twitter / X -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="错误池 · 32 条常见错误 · 解决问题训练站">
+<meta name="twitter:description" content="32 条常见解题错误一条不漏：表现、归因、诊断问题、补强动作、原书依据，并直接链到该练的那几道题。">
+<meta name="twitter:image" content="https://solve-lab.cn/assets/og/og-tools.jpg">
+</head>
+<body>
+
+<nav class="nav" aria-label="主导航">
+  <div class="nav-inner">
+    <a class="brand" href="index.html">解决问题训练站<small>PROBLEM SOLVING LAB</small></a>
+    <div class="nav-links" id="nav-links"></div>
+    <span class="nav-progress" id="nav-progress">掌握度 0%</span>
+  </div>
+</nav>
+
+<main class="wrap" id="main">
+
+  <div class="crumb"><a href="index.html">首页</a><span>/</span>错误池</div>
+  <h1>错误池 · 32 条</h1>
+  <p class="lead">这一页收的不是题，是<b>错法</b>：原书里散落在各章的「常见错误」，一条一条拣出来，
+  配上「怎么问出自己正犯这条错」「马上能做什么」，再直接指到该练的那几道题。</p>
+
+  <p class="muted">全部 32 条都出自江丕权、李越、戴国强《解决问题的策略与技能》（科学普及出版社，1992）
+  各章的「常见错误」清单与相应论述，出处逐条标在卡片上。<b>归因、诊断问题与补强动作这三栏是本站补的</b>——
+  原书点出了错法，本站把它接到可执行的检查动作上。</p>
+
+  <div class="note"><span class="t">怎么用这一页</span>
+  一、题做错了，先别重做，来这里按<b>归因</b>找：是卡在某一步，还是知识不够、状态不对。<br>
+  二、找到那条之后，照着<b>「诊断（问自己）」</b>念一遍——能对上一两条，就是它。<br>
+  三、最后点<b>「去练这几道题」</b>，回题库做对应的题；做完再回来对照一次「补强」。</div>
+
+  <div id="err-index"></div>
+  <div id="err-list"></div>
+
+  <div class="pager">
+    <a href="drills.html">
+      <div class="dir">PRACTICE</div>
+      <div class="tt">去题库挑一道练 →</div>
+    </a>
+    <a href="nonstep.html">
+      <div class="dir">NON-STEP</div>
+      <div class="tt">五步之外的卡点 →</div>
+    </a>
+  </div>
+
+</main>
+
+<footer class="footer" id="site-footer"></footer>
+
+<script src="assets/data.js"></script>
+<script src="assets/app.js"></script>
+<script>
+PSC.init('errors');
+
+(function(){
+  var box = document.getElementById('err-list');
+  var idxBox = document.getElementById('err-index');
+  if(!box) return;
+  if(typeof PSC_ERROR_DETAIL === 'undefined' || !PSC_ERROR_DETAIL.length){
+    box.innerHTML = '<p class="muted">（数据未装：assets/data.js 载入失败，本页暂时没有内容。）</p>';
+    return;
+  }
+
+  /* 「关联执行单」在题库的诊断里存的是 id（step-N-ills-M），在错误池里存的是人话。
+     两种都走同一张表：取得到就翻成人话，取不到就原样显示——绝不把裸 id 摆给读者。 */
+  var ILL = {};
+  if(typeof PSC_STEPS !== 'undefined'){
+    PSC_STEPS.forEach(function(s){
+      (s.ills||[]).forEach(function(t,i){ ILL['step-'+s.no+'-ills-'+(i+1)] = t; });
+    });
+  }
+
+  /* 训练点 → 题库分组锚点（与 drills.html 的 GROUP_SLUG 同一张表） */
+  var GROUP_SLUG = {'打破定式':'break','估算与数量级':'estimate','分类与整理':'classify',
+    '交流与表达':'comm','情境与多解':'multi','术语与方法':'terms',
+    '创造力与脑风暴':'brainstorm','科学与工程':'science'};
+
+  var DRILL_IDS = {};
+  if(typeof PSC_DRILLS !== 'undefined'){ PSC_DRILLS.forEach(function(d){ DRILL_IDS[d.id] = 1; }); }
+
+  function drillLink(id){
+    if(DRILL_IDS[id]) return '<a class="dx-tag" href="drills.html#'+PSC.esc(id)+'">'+PSC.esc(id)+'</a>';
+    return '<span class="dx-tag" title="题库里没有这道题">'+PSC.esc(id)+'</span>';
+  }
+  function tagLink(t){
+    var slug = GROUP_SLUG[t];
+    if(slug) return '<a class="dx-tag" href="drills.html#g-'+slug+'">'+PSC.esc(t)+'</a>';
+    return '<span class="dx-tag">'+PSC.esc(t)+'</span>';
+  }
+  function ol(items, fn){
+    if(!items || !items.length) return '<p class="muted" style="margin:4px 0 0">（暂无）</p>';
+    return '<ol class="dx-ol">'+items.map(function(x){ return '<li>'+fn(x)+'</li>'; }).join('')+'</ol>';
+  }
+
+  var ORDER = ['第一步 明确问题','第二步 探索思考','第三步 拟定计划','第四步 实施执行',
+               '第五步 回顾总结','知识不足','态度与状态'];
+  var groups = {};
+  PSC_ERROR_DETAIL.forEach(function(e){
+    var g = e['归因'] || '其他';
+    if(!groups[g]) groups[g] = [];
+    groups[g].push(e);
+  });
+  var keys = ORDER.filter(function(k){ return groups[k]; })
+    .concat(Object.keys(groups).filter(function(k){ return ORDER.indexOf(k) < 0; }));
+
+  /* 顶部索引：32 条按归因分组列号，点号直接跳到卡片 */
+  if(idxBox){
+    var ih = '<div class="note" style="margin-bottom:4px"><span class="t">按归因查（共 '+PSC_ERROR_DETAIL.length+' 条）</span>';
+    ih += keys.map(function(k){
+      return '<div style="margin:5px 0"><b>'+PSC.esc(k)+'</b>　<span class="muted">'+groups[k].length+' 条</span>　'+
+        groups[k].map(function(e){ return '<a class="dx-tag" href="#'+PSC.esc(e.id)+'">'+PSC.esc(e.id)+'</a>'; }).join('')+
+        '</div>';
+    }).join('');
+    ih += '</div>';
+    idxBox.innerHTML = ih;
+  }
+
+  var html = '';
+  keys.forEach(function(k){
+    html += '<h2 style="margin-top:30px">'+PSC.esc(k)+
+            '　<span class="muted" style="font-size:14px;font-weight:400">'+groups[k].length+' 条</span></h2>';
+    groups[k].forEach(function(e){
+      html += '<article class="step-card" id="'+PSC.esc(e.id)+'" style="border-left-color:var(--brand-2)">';
+      html += '<h3 class="h4" style="margin:0 0 6px">'+PSC.esc(e.id)+
+              '　<span class="muted" style="font-weight:400;font-size:13px">'+
+              PSC.esc(e['出处']||'')+'</span></h3>';
+      html += '<p style="margin:0 0 8px">'+PSC.em(e['表现']||'')+'</p>';
+      html += '<div class="fb-blk"><b>诊断（问自己）</b>'+
+              ol(e['诊断'], function(x){ return PSC.em(x); })+'</div>';
+      html += '<div class="fb-blk"><b>补强（马上能做）</b>'+
+              ol(e['补强'], function(x){ return PSC.em(x); })+'</div>';
+      var tp = (e['关联训练点']||[]).map(tagLink).join(' ');
+      if(tp) html += '<div class="fb-blk"><b>关联训练点</b>　'+tp+'</div>';
+      var ill = e['关联执行单'];
+      if(ill) html += '<div class="fb-blk"><b>关联执行单</b>　'+PSC.em(ILL[ill]||ill)+'</div>';
+      if(e['原书依据']) html += '<div class="fb-blk"><b>原书依据</b>　'+PSC.em(e['原书依据'])+'</div>';
+      var dl = (e['关联题目']||[]).map(drillLink).join(' ');
+      if(dl) html += '<div class="fb-blk"><b>去练这几道题</b>　'+dl+'</div>';
+      html += '</article>';
+    });
+  });
+  box.innerHTML = html;
+})();
+</script>
+</body>
+</html>

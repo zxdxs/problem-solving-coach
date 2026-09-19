@@ -9,7 +9,7 @@
     if(!box) return;
     const p = PSC.getProgress();
     let done = 0, total = 0;
-    let html = '<div class="table-scroll"><table><thead><tr><th style="min-width:190px">章节</th>'+
+    let html = '<div class="table-scroll"><table><caption style="caption-side:bottom;text-align:left;font-size:13px;color:#64748b;padding-top:6px"><b>表 进度-1　掌握点矩阵</b>（［本站归纳］，非原书原表）</caption><thead><tr><th style="min-width:190px">章节</th>'+
       PSC_LAYERS.map(l=>'<th title="'+l.desc+'">'+l.name+'</th>').join('')+
       '<th>完成度</th></tr></thead><tbody>';
 
@@ -23,7 +23,7 @@
         const on = !!c[l.key];
         html += '<td style="text-align:center"><label class="checkline" style="justify-content:center;margin:0">'+
           '<input type="checkbox" data-ch="'+ch.id+'" data-layer="'+l.key+'" '+(on?'checked':'')+'>'+
-          '<span style="font-size:12.5px;color:'+(on?'#047857':'#94a3b8')+'">'+(on?'✓':'—')+'</span></label></td>';
+          '<span style="font-size:12.5px;color:'+(on?'#047857':'var(--ink-3)')+'">'+(on?'✓':'—')+'</span></label></td>';
       });
       html += '<td><span class="bar-mini"><i style="width:'+pct+'%"></i></span> '+pct+'%</td></tr>';
     });
@@ -50,13 +50,8 @@
   function initIO(){
     const ex = document.getElementById('btn-export');
     if(ex) ex.addEventListener('click', ()=>{
-      const data = {
-        app:'解决问题训练站', version:1, exportedAt:new Date().toISOString(),
-        progress: PSC.read(PSC.KEY_PROGRESS, {}),
-        sheets:   PSC.read(PSC.KEY_SHEETS, []),
-        logs:     PSC.read(PSC.KEY_LOGS, []),
-        quiz:     PSC.read(PSC.KEY_QUIZ, [])
-      };
+      /* 单一真相来源：9 个 key 的清单在 app.js 的 STORE_KEYS（exportAll 里） */
+      const data = PSC.exportAll();
       PSC.download('我的学习数据.json', JSON.stringify(data,null,2), 'application/json');
       PSC.toast('已导出全部学习数据','good');
     });
@@ -71,10 +66,8 @@
       r.onload = ()=>{
         try{
           const d = JSON.parse(r.result);
-          if(d.progress) PSC.write(PSC.KEY_PROGRESS, d.progress);
-          if(d.sheets)   PSC.write(PSC.KEY_SHEETS, d.sheets);
-          if(d.logs)     PSC.write(PSC.KEY_LOGS, d.logs);
-          if(d.quiz)     PSC.write(PSC.KEY_QUIZ, d.quiz);
+          /* 旧的 4-field 导出档也能导入：只写档里有的 field，其余保持原值 */
+          PSC.importAll(d);
           PSC.toast('导入成功','good');
           render();
         }catch(err){ PSC.toast('文件格式不正确','bad'); }
@@ -85,8 +78,8 @@
 
     const rs = document.getElementById('btn-reset');
     if(rs) rs.addEventListener('click', ()=>{
-      if(!confirm('确定清空全部学习数据？包括进度、练习库、日志与成绩。建议先导出备份。')) return;
-      [PSC.KEY_PROGRESS, PSC.KEY_SHEETS, PSC.KEY_LOGS, PSC.KEY_QUIZ].forEach(k=>localStorage.removeItem(k));
+      if(!confirm('确定清空全部学习数据？包括进度、练习库、日志、成绩、六维量表、陪练设置与旧版 30 天计划残留。建议先导出备份。')) return;
+      PSC.clearAll();
       PSC.toast('已清空','good');
       render();
     });
