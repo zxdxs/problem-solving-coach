@@ -44,10 +44,6 @@
   <p class="lead">正文页只留必要的出处标注，不再插大段说明。
   原先散在各页的<b>来源分层、授权状态、引用规则与合规自检</b>，全部收在这一页。</p>
 
-  <div class="note ok"><span class="t">本站的立场，一句话</span>
-  这个站<b>不是原书的电子版</b>。原书的方法、例题与论述，权利归三位编著者及出版者所有；
-  本站做的是三件事：把方法整理成可练习的形式、为每一步配上可验收的产出物、补上原书承载不了的反馈与陪练。</div>
-
   <h2 id="s1">一、来源分层：哪些是原书的，哪些是本站的</h2>
   <p>本站的主线所本，是 1992 年科学普及出版社出版的那本书（下称「原书」）。
   讲解文字由本站重新组织与改写，但<b>方法、量表与清单的设计属于原书作者的贡献</b>。</p>
@@ -82,6 +78,8 @@
   二是根据实际工作场景设计的题目。<b>原书本身的练习也多为生活化题目</b>，本站继承了这一特点。</p>
 
   <h2 id="s2">二、授权状态（如实说明）</h2>
+  <p>先讲清一句：本站<b>不是原书的电子版</b>。以下是各项权利状态；
+  原书编著者与出版者的致谢名单，见<a href="contributors.html">贡献墙</a>。</p>
 
   <div class="table-scroll">
   <table>
@@ -130,13 +128,7 @@
   因此凡属原书特有的量表、清单、表格与题目，本站一律标注出处。
   <b>我们想做的是把一门被压扁的课还回来，不是把一本书换个地方重发一遍。</b></div>
 
-  <h2 id="s-credits">三、致谢：这本书的编著者与出版者</h2>
-  <p>本站不是凭空长出来的。以下名单恒定置顶——没有他们，就没有这个站。
-  完整名单（含贡献类型与参与方式）见<a href="contributors.html">贡献墙</a>；
-  两处渲染的是 data.js 里同一份 <code>PSC_CREDITS</code>，不会各说各话。</p>
-  <div id="credits-list"></div>
-
-  <h2 id="s4">四、引用规则：怎么读本站的出处标注</h2>
+  <h2 id="s4">三、引用规则：怎么读本站的出处标注</h2>
   <p>正文页只保留一行式出处。它们的读法如下：</p>
 
   <div class="table-scroll">
@@ -150,13 +142,12 @@
       <tr><td><code>（本站整理）</code></td><td>该表是<b>本站归纳</b>，不是原书任何一张表。<b>引用时不可写作「原书认为」。</b></td></tr>
       <tr><td><b>原书补遗</b>（页末折叠区）</td><td>原书<b>有、而本站正文未展开</b>的内容索引，附出处，供你回原书按图索骥。</td></tr>
       <tr><td>章号（第 N 章、表 1-2、练习 16）</td><td><b>一律指原书编号</b>，不是本站章号。两套编号的对照见<a href="drills.html#list">题库页的章号对照表</a>。</td></tr>
-      <tr><td>「待纸本核对」徽章（题库）</td><td>该题字段已按原书 PDF 逐题补全，但<b>还差一次纸质本对照</b>——宁可标出来，不替它宣称核对过。</td></tr>
       <tr><td>未标注出处的句子</td><td>按本站规则：<b>凡未注明者，一律视为出自原书</b>。若你发现某处标了原书却查不到，请务必来信指出。</td></tr>
     </tbody>
   </table>
   </div>
 
-  <h2 id="s5">五、引用合规自检</h2>
+  <h2 id="s5">四、引用合规自检</h2>
   <p>同一套方法在全站跑了一遍：抽取每页正文的句子，凡出现「原书／原著／书中／作者／本书」字样的，
   逐条核对它有没有出处，以及有没有把本站自撰内容写成原书内容。</p>
 
@@ -198,13 +189,8 @@
 
   <p class="muted">以上两表可随时由站点的自检脚本重跑复现；本站不把「未命中」当成已核通过。</p>
 
-  <h2 id="s6">六、内容指正与共建</h2>
-  <p>若您发现站内任何一处<b>出处标错、引文对不上、或权利归属写错</b>，请通过<a href="contact.html">联系页</a>告知，
-  我们会在核实后第一时间修改或移除。贡献内容请自己写；若涉及原书特有的量表、清单或步骤，<b>请一并标注「据原书」</b>。</p>
-
   <div class="btn-row" style="margin-top:20px">
     <a class="btn" href="references.html">方法源流与延伸书单</a>
-    <a class="btn ghost" href="#s-credits">致谢名单</a>
     <a class="btn ghost" href="contributors.html">贡献墙</a>
     <a class="btn ghost" href="contact.html">联系与共建</a>
   </div>
@@ -216,41 +202,5 @@
 <script src="assets/data.js"></script>
 <script src="assets/app.js"></script>
 <script>PSC.init('provenance');</script>
-<script>
-/* 致谢名单：从 data.js 的 PSC_CREDITS 渲染（照抄原贡献者页渲染脚本的名单部分，
-   去掉统计数字、类型图例与 typeInfo()）。仍用 PSC.esc 转义。 */
-(function(){
-  var box = document.getElementById('credits-list');
-  if(!box) return;
-  var list = (typeof PSC_CREDITS !== 'undefined' && PSC_CREDITS) ? PSC_CREDITS : [];
-  if(!list.length){ box.innerHTML = '<p class="muted">（致谢名单未装载）</p>'; return; }
-  var esc = function(s){ return PSC.esc(s); };
-  /* 原书作者与出版者（types 含 source）恒定置顶，其余保持原有顺序 */
-  var ordered = list.slice().sort(function(a,b){
-    var as = (a.types||[]).indexOf('source') >= 0 ? 0 : 1;
-    var bs = (b.types||[]).indexOf('source') >= 0 ? 0 : 1;
-    return as - bs;
-  });
-  var html = '';
-  ordered.forEach(function(c, idx){
-    var isOrigin = (c.types||[]).indexOf('source') >= 0;
-    if(isOrigin && idx === 0){
-      html += '<p class="muted" style="margin:0 0 10px">没有下面这两位，就没有这个网站。'+
-              '本站所用方法与例题，全部出自江丕权、李越、戴国强编著'+
-              '《解决问题的策略与技能》（科学普及出版社，1992）。</p>';
-    }
-    var items = (c.items||[]).map(function(i){ return '<li>'+esc(i)+'</li>'; }).join('');
-    var link = c.link
-      ? ' <a href="'+esc(c.link)+'" target="_blank" rel="noopener" style="font-size:14px">主页 ↗</a>'
-      : '';
-    html += '<div class="card" style="margin-bottom:10px">'+
-      '<h3 class="h4" style="margin-top:0">'+esc(c.name)+link+'</h3>'+
-      '<p class="muted" style="margin:0 0 6px">'+esc(c.date||'')+'　·　'+(c.items||[]).length+' 项贡献</p>'+
-      '<ul class="tight" style="margin-bottom:0">'+items+'</ul>'+
-    '</div>';
-  });
-  box.innerHTML = html;
-})();
-</script>
 </body>
 </html>
