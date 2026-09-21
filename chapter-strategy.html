@@ -1250,7 +1250,7 @@
         h += '<div class="fb-blk"><b>这一步最常见的错误</b>'+
              '<table class="label-table"><caption style="caption-side:bottom;text-align:left;font-size:14px;color:#64748b;padding-top:6px">'+
              '<b>表 2-⑩　第 '+s.no+' 步：这一步最常见的错误</b>（本站整理）</caption>'+
-             '<thead><tr><th style="width:88px">编号</th><th>表现</th><th style="width:28%">你会怎么说</th></tr></thead><tbody>'+
+             '<thead><tr><th>编号</th><th>表现</th><th style="width:28%">你会怎么说</th></tr></thead><tbody>'+
              s.common_errors.map(c=>'<tr><td class="muted"><a class="dx-tag" href="errors.html#'+PSC.esc(c.error_id)+'">'+PSC.esc(c.error_id)+'</a></td><td>'+PSC.em(c.表现)+
                '</td><td class="muted">「'+PSC.em(c.典型说法)+'」</td></tr>').join('')+
              '</tbody></table></div>';
@@ -1260,7 +1260,7 @@
         h += '<div class="fb-blk"><b>卡住时的补强动作</b>'+
              '<table><caption style="caption-side:bottom;text-align:left;font-size:14px;color:#64748b;padding-top:6px">'+
              '<b>表 2-⑪　第 '+s.no+' 步：卡住时的补强动作</b>（本站整理）</caption>'+
-             '<thead><tr><th>动作</th><th style="width:30%">什么时候用</th><th style="width:88px">针对</th></tr></thead><tbody>'+
+             '<thead><tr><th>动作</th><th style="width:30%">什么时候用</th><th>针对</th></tr></thead><tbody>'+
              s.reinforcements.map(r=>'<tr><td>'+PSC.em(r.action)+'</td><td class="muted">'+PSC.em(r.适用)+
                '</td><td class="muted">'+PSC.em(r.关联)+'</td></tr>').join('')+
              '</tbody></table></div>';

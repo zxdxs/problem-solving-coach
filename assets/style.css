@@ -188,12 +188,13 @@ td .k{font-weight:700;}
      全站另有 124 张表的第一列是整段说明文字（如 50% 宽的对照表），
      对它们 nowrap 会把表格撑爆成横向滚动。 */
 .label-table th:first-child,
-.label-table td:first-child{white-space:nowrap; min-width:5em;}
+.label-table td:first-child{white-space:nowrap; min-width:5em; width:1px;}
 
-/* 窄屏宁可折行，也不能溢出 */
+/* 窄屏宁可折行，也不能溢出；但要留 5em 下限，否則第一列會被壓到約 1 個字寬
+   （實測 inquiry@320 一度只剩 40px、標籤折成 5 行，比原 inline 92px 的 2 行更糟） */
 @media (max-width:414px){
   .label-table th:first-child,
-  .label-table td:first-child{white-space:normal; min-width:0;}
+  .label-table td:first-child{white-space:normal; min-width:5em; width:auto;}
 }
 
 /* ---------- 窄屏：g2 的最小轨道是 300px，320px 视窗会被它撑爆 ----------
