@@ -181,6 +181,21 @@ tbody tr:nth-child(even){background:#fafbfd;}
 td .k{font-weight:700;}
 .table-scroll{overflow-x:auto;}
 
+/* ---------- 标签表：第一列是「步骤名／字段名」 ----------
+   站上有 6 处第一列被写死成过窄的宽度（88px / 92px / 98px），在 auto 版面下
+   会被压到折行。nowrap 让该列自己撑到内容所需宽度，不必去动那些 width。
+   ★ 只套用在加了 .label-table 的表上，不可对 table/td:first-child 全域套用：
+     全站另有 124 张表的第一列是整段说明文字（如 50% 宽的对照表），
+     对它们 nowrap 会把表格撑爆成横向滚动。 */
+.label-table th:first-child,
+.label-table td:first-child{white-space:nowrap; min-width:5em;}
+
+/* 窄屏宁可折行，也不能溢出 */
+@media (max-width:414px){
+  .label-table th:first-child,
+  .label-table td:first-child{white-space:normal; min-width:0;}
+}
+
 /* ---------- 提示塊 ---------- */
 .note{
   border-left:4px solid var(--brand); background:var(--brand-soft);
