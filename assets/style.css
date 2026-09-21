@@ -196,6 +196,16 @@ td .k{font-weight:700;}
   .label-table td:first-child{white-space:normal; min-width:0;}
 }
 
+/* ---------- 窄屏：g2 的最小轨道是 300px，320px 视窗会被它撑爆 ----------
+   .g2 是 repeat(auto-fit,minmax(300px,1fr))，轨道下限写死 300px；
+   320px 视窗扣掉 .wrap 内距只剩约 280px，于是整页横向溢出。
+   实测元凶是 chapter-strategy「错误归因表」的 .grid.g2（320 下溢出 23px）。
+   ≤414px 把下限拿掉：仍是一栏，只是不再强制 300px 宽。
+   ★ 此为既有 bug，与表格修正无关，可独立 revert 而不影响上一个 commit。 */
+@media (max-width:414px){
+  .g2{grid-template-columns:1fr;}
+}
+
 /* ---------- 提示塊 ---------- */
 .note{
   border-left:4px solid var(--brand); background:var(--brand-soft);
