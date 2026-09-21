@@ -129,6 +129,7 @@
                        : it.id==='partner'   ? 'partner.html'
                        : it.id==='provenance' ? 'provenance.html'
                        : it.id==='references' ? 'references.html'
+                       : it.id==='contributors' ? 'contributors.html'
                        : 'chapter-'+it.id+'.html';
             html += '<a href="'+href+'" data-id="'+it.id+'">'+it.title+'</a>';
           });

@@ -85,7 +85,7 @@ const PSC_SITE = {
   sloganSub:'',
   // ICP 备案号（例：'京ICP备2026000000号-1'）：**备案通过后必须显示**
   //   —— 依工信部要求，须在网站底部标示备案号并链接 https://beian.miit.gov.cn/
-  //   留空则不输出这一段（与 email／github 的 falsy 判断一致）；填号只需改这一行，全站 39 页同时生效。
+  //   留空则不输出这一段（与 email／github 的 falsy 判断一致）；填号只需改这一行，全站所有页面同时生效。
   beian:'蜀ICP备2026055920号',
   // 公安网备（部分省分要求，例：'京公网安备 11010502000000号'）：留空则不显示
   gongan:'',
@@ -103,14 +103,16 @@ const PSC_SITE = {
 
 /* ============================================================
    致谢名单（原名「贡献者表彰」）
-   —— 目前恒为 3 条：原书三位编著者、出版者、站长本人。
+   —— 目前恒为 2 条：原书三位编著者、出版者。
+      站长本人【不入此名单】（业主要求，2026-09-19）：维护者署名见 PSC_SITE.maintainer，
+      只出现在页脚与联系页，不在这里重复领功。
       日后若有第三方贡献者，照下面这个格式加一条即可，全站自动显示。
    ============================================================ */
 
 /* 致谢名单：
    types 含 'source' 的条目恒定置顶，其余按首次贡献时间由早到晚排列
    name : 显示的名字（可用昵称，尊重隐私）
-   types: 贡献类型，可填多个（目前只用到 source／founder 两种）
+   types: 贡献类型，可填多个（目前只用到 source 一种；founder／bug／quiz 等留给日后的贡献者）
    items: 具体贡献列表，一句一条
    date : 首次贡献时间，格式 2026-09；原书条目写出版年份
    link : 可选，个人主页 / GitHub，留空则不显示
@@ -151,6 +153,23 @@ const PSC_CREDITS = [
   // }
 ];
 
+/* 贡献类型表（贡献墙用）：
+   key   : 与 PSC_CREDITS 条目里 types 数组的值对应
+   color : 徽章颜色，渲染时按 `${color}1a` 作底、`${color}55` 作边框
+   desc  : 图例里的一句话解释
+   最后一項 'other' 同时充当「未知类型」的兜底（contributors.js 的 typeInfo）。 */
+const PSC_CONTRIBUTOR_TYPES = [
+  {key:'source',  name:'本源',   color:'#92400e', desc:'原书作者与出版者——没有他们就没有这个站'},
+  {key:'founder', name:'发起',   color:'#b45309', desc:'创建本站与核心体系'},
+  {key:'bug',     name:'挑错',   color:'#b91c1c', desc:'指出错字、表述不清、逻辑漏洞'},
+  {key:'quiz',    name:'出题',   color:'#1d4ed8', desc:'贡献自测题或真实场景练习题'},
+  {key:'write',   name:'写章节', color:'#047857', desc:'撰写或扩写章节正文'},
+  {key:'design',  name:'设计',   color:'#6d28d9', desc:'改进排版、样式、交互体验'},
+  {key:'idea',    name:'建议',   color:'#0f766e', desc:'提出被采纳的功能或内容建议'},
+  {key:'translate', name:'翻译', color:'#be185d', desc:'翻译为其他语言'},
+  {key:'other',   name:'其他',   color:'#475569', desc:'其他形式的帮助'}
+];
+
 /* 导航分组 */
 const PSC_NAV = [
   {group:'学方法', items:[
@@ -176,6 +195,7 @@ const PSC_NAV = [
   {group:'延伸阅读', items:[
     {id:'references', title:'书目与方法源流'},
     {id:'provenance', title:'版权 · 授权 · 溯源'},
+    {id:'contributors', title:'贡献墙'},
   ]},
 ];
 
