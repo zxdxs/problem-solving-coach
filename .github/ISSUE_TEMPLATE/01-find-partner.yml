@@ -1,0 +1,44 @@
+name: 找陪练
+description: 发布一条陪练招募，让想组对的人找到你
+title: "[找陪练] "
+labels: ["找陪练"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        ⚠️ **安全提醒**：请不要填写真实姓名、手机号、住址、工作单位。
+        第一次交流建议在 Issue 里公开进行，不要急着加私人微信。
+  - type: input
+    id: nick
+    attributes:
+      label: 昵称
+      description: 将显示在陪练墙上，用昵称即可
+      placeholder: 例：都江堰老汪
+    validations: { required: true }
+  - type: input
+    id: where
+    attributes:
+      label: 城市 / 线上
+      description: 只写到城市一级，或写"线上"
+      placeholder: 例：成都 / 线上
+    validations: { required: true }
+  - type: textarea
+    id: want
+    attributes:
+      label: 想练什么
+      description: 想一起练的方向
+      placeholder: 例：把五步用到工作里的真实问题上
+    validations: { required: true }
+  - type: input
+    id: time
+    attributes:
+      label: 可约时段
+      placeholder: 例：工作日白天 / 每晚 20:00 后
+  - type: checkboxes
+    id: rules
+    attributes:
+      label: 确认
+      options:
+        - label: 我知道结对时倾听者**不能给答案**
+        - label: 我同意角色互换，一次讲、一次听
+        - label: 我没有填写真实姓名、手机号、住址等隐私信息

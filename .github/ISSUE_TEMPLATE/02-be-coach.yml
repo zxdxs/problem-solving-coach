@@ -1,0 +1,31 @@
+name: 报名辅导员
+description: 申请成为辅导员（带人练的人）
+title: "[辅导员] "
+labels: ["辅导员"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        当辅导员**不要求你多厉害**，只要求你**忍得住不给答案**。
+        请先确认下面三条自查。
+  - type: input
+    id: nick
+    attributes: { label: 昵称, placeholder: 例：都江堰老汪 }
+    validations: { required: true }
+  - type: input
+    id: where
+    attributes: { label: 城市 / 线上, placeholder: 例：成都 / 线上 }
+    validations: { required: true }
+  - type: checkboxes
+    id: selfcheck
+    attributes:
+      label: 自查三条
+      options:
+        - label: 我做过六维风格量表前测
+        - label: 我完整填过 5 张以上五步执行单
+        - label: 我承诺只说那七句话，**绝不给答案**
+  - type: textarea
+    id: exp
+    attributes:
+      label: 你想带什么样的人
+      placeholder: 例：想带刚开始练、总是跳过第二步的人

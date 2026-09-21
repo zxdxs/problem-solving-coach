@@ -1,0 +1,511 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>课件 2-1　策略从哪来：三个版本、条件与资源、五个用处 · 解决问题训练站</title>
+<link rel="stylesheet" href="assets/style.css">
+
+<!-- ===== SEO / 分享元数据（0.2-F2A 规范，R1-B 新增页沿用）===== -->
+<meta name="description" content="通用解题策略不是某个人的发明，而是百年教学研究的沉淀。这一节导读讲清三个版本（四步／六步／本站五步）的差异、为什么「最佳解」取决于条件与资源、约束的两种形态，以及策略的五个用处与八家体系的共同骨架。">
+<link rel="canonical" href="https://solve-lab.cn/lesson-strategy-1.html">
+<link rel="icon" href="/favicon.ico" sizes="32x32">
+<link rel="apple-touch-icon" href="assets/og/apple-touch-icon.png">
+<!-- Open Graph -->
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="解决问题训练站">
+<meta property="og:title" content="课件 2-1　策略从哪来：三个版本、条件与资源、五个用处">
+<meta property="og:description" content="通用解题策略不是某个人的发明，而是百年教学研究的沉淀。这一节导读讲清三个版本（四步／六步／本站五步）的差异、为什么「最佳解」取决于条件与资源、约束的两种形态，以及策略的五个用处与八家体系的共同骨架。">
+<meta property="og:url" content="https://solve-lab.cn/lesson-strategy-1.html">
+<meta property="og:image" content="https://solve-lab.cn/assets/og/og-chapter-strategy.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<!-- Twitter / X -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="课件 2-1　策略从哪来：三个版本、条件与资源、五个用处">
+<meta name="twitter:description" content="通用解题策略不是某个人的发明，而是百年教学研究的沉淀。这一节导读讲清三个版本（四步／六步／本站五步）的差异、为什么「最佳解」取决于条件与资源、约束的两种形态，以及策略的五个用处与八家体系的共同骨架。">
+<meta name="twitter:image" content="https://solve-lab.cn/assets/og/og-chapter-strategy.jpg">
+</head>
+<body>
+
+<nav class="nav" aria-label="主导航">
+  <div class="nav-inner">
+    <a class="brand" href="index.html">解决问题训练站<small>PROBLEM SOLVING LAB</small></a>
+    <div class="nav-links" id="nav-links"></div>
+    <span class="nav-progress" id="nav-progress">掌握度 0%</span>
+  </div>
+</nav>
+
+<main class="wrap" id="main">
+
+  <div class="crumb"><a href="index.html">首页</a><span>/</span><a href="chapter-strategy.html">第 2 章　五步策略</a><span>/</span>课件 2-1</div>
+
+  <h1>课件 2-1　策略从哪来</h1>
+  <p class="lead">五步策略不是某个人拍脑袋发明的，是<b>百年教学研究一层层叠出来的</b>。
+  这一节把它的来历、它的边界、以及它为什么值得学，一次说清。</p>
+
+  <div class="note"><span class="t">课件信息</span>
+  <b>所属</b>：第 2 章　五步策略　·　<b>本节</b>：第 2 章第 1 讲（本章共 4 讲）<br>
+  <b>对应原书</b>：原书第二章 p62–96（＋绪论 p7–8）　·　<b>预计时长</b>：约 23 分钟<br>
+  <b>本节性质</b>：本章的总纲——讲「策略从哪来、为什么是这个样子」。具体每一步怎么做，留给 1-2 到 1-4。<br>
+  <b>前置要求</b>：无。这是整个「学方法」板块的第一讲。</div>
+
+  <div class="toc">
+    <strong>本节目录</strong>
+    <ol>
+      <li><a href="#s1">本节目标</a></li>
+      <li><a href="#s2">一、策略从哪来：三个版本</a></li>
+      <li><a href="#s3">二、最佳解不是「最准」：条件与资源</a></li>
+      <li><a href="#s4">三、约束有两种：说出来的，和没说出来的</a></li>
+      <li><a href="#s5">四、逐级近似怎么用：一个漏水的反应器</a></li>
+      <li><a href="#s6">五、策略的五个用处，和八家体系的共同骨架</a></li>
+      <li><a href="#s7">本节自检</a></li>
+      <li><a href="#s8">想深入？</a></li>
+      <li><a href="#s9">下一步</a></li>
+    </ol>
+  </div>
+
+  <h2 id="s1">本节目标</h2>
+  <p>看完这一节，你应该能做到三件事：</p>
+  <div class="grid g3">
+    <div class="card"><h3 class="h4">1　说清三个版本差在哪</h3>
+    <p class="muted" style="margin-bottom:0">能说出四步版、六步版与本站五步的差异，
+    并指出<b>哪一步是四步版缺的、也是新手最容易跳过的</b>。</p></div>
+    <div class="card"><h3 class="h4">2　不把「最佳解」当「正确答案」</h3>
+    <p class="muted" style="margin-bottom:0">能解释为什么答案的精度由<b>条件与资源</b>决定，
+    并能说出自己「为什么停在这个精度」。</p></div>
+    <div class="card"><h3 class="h4">3　认出没说出来的约束</h3>
+    <p class="muted" style="margin-bottom:0">面对一个问题，能分别写出<b>明显的约束</b>与<b>隐含的约束</b>，
+    并说明漏掉后者会怎样。</p></div>
+  </div>
+
+  <h2 id="s2">一、策略从哪来：三个版本</h2>
+  <p>通用解题策略不是某个人的发明，而是百年教学研究的沉淀。
+  弄清版本差异，你才知道<b>每一步为什么存在</b>。</p>
+
+
+  <div class="table-scroll">
+  <table>
+    <caption style="caption-side:bottom;text-align:left;font-size:14px;color:#64748b;padding-top:6px">
+      <b>表 2-1-①　三个版本的差异</b>（本站整理）。
+    </caption>
+    <thead><tr><th style="width:20%">版本</th><th style="width:8%">步数</th><th style="width:36%">内容</th><th style="width:36%">差异关键</th></tr></thead>
+    <tbody>
+      <tr>
+        <td><b>早期四步版</b><br><small class="muted">Polya, 1945</small></td><td>4</td>
+        <td>明确问题 → 拟定计划 → 实施 → 回顾</td>
+        <td>开山之作，但从「弄清问题」直接跳到「拟定计划」，<b>中间缺了一块</b></td>
+      </tr>
+      <tr>
+        <td><b>六步版</b><br><small class="muted">伍兹（D. R. Woods）及同事<br>加拿大麦克马斯特大学</small></td><td>6</td>
+        <td>增强动机 → 明确问题 → <b>探索思考</b> → 拟定计划 → 实施 → 回顾</td>
+        <td>补上了「探索」，并额外强调动机</td>
+      </tr>
+      <tr>
+        <td><b>本站五步</b><br><small class="muted">框架本于原书（1992）</small></td><td><b>5</b></td>
+        <td><b>明确问题 → 探索思考 → 拟定计划 → 实施执行 → 回顾总结</b></td>
+        <td>保留「探索」；把动机与态度<b>贯穿全程</b>，不单列为一步</td>
+      </tr>
+    </tbody>
+  </table>
+  </div>
+
+  <p class="muted">表中「本站五步」的<b>策略框架本于原书</b>；本站所做的工作是统一各步措辞、
+  并为每一步配齐可验收的产出物与检查点（见课件 2-2 的「五步操作定义表」）——
+  这是原书受纸张所限未能给出的部分。</p>
+
+  <div class="note warn"><span class="t">本章最重要的一个判断</span>
+  <b>「探索思考」是四步版与后续版本最大的差异点，也是新手最容易跳过、代价最高的一步。</b>
+  跳过它，你会在错误的路上高效地狂奔。</div>
+
+  <h2 id="s3">二、最佳解不是「最准」：条件与资源</h2>
+  <p>这是全书最要紧、也最容易被跳过的一条。<b>跳过它，五步法会退化成「解题术」；守住它，才是「解决问题」。</b></p>
+
+  <div class="note warn"><span class="t">原著的核心命题</span>
+  策略被定义为「<b>从已知的条件出发，达到问题最佳解答</b>的求解过程」。
+  请注意这里用的是「最佳」，不是「正确」——
+  现实中的大多数问题<b>并不存在唯一正确的答案</b>，
+  解答的优劣往往取决于两样东西：<b>给定的条件</b>，与<b>你愿意投入的资源</b>。</div>
+
+  <p>原著给过一个很朴素的道理：<b>可利用的资源越多，解答通常越好</b>。所以「好」从来不是绝对的。</p>
+
+  <div class="grid g2">
+    <div class="card"><h3 class="h4">例子：别人问你「什么时候出生的」</h3>
+    <p class="muted" style="margin-bottom:0">一般回答到某年某月某日，误差约 ±12 小时——这在日常已经够用。
+    但如果对方真要问的是「几时」，你就得去翻出生记录或问父母，<b>花更多资源，换来更精确的答案</b>。
+    同一个问题，精度不同，代价不同。</p></div>
+    <div class="card"><h3 class="h4">例子：估算 13 的平方根</h3>
+    <p class="muted" style="margin-bottom:0">手边没有计算器也没有纸笔，你能估出它在 3 和 4 之间、约 3.5；
+    心算强的可以到 3.605；有计算器，则迅速得到更多位小数。
+    <b>答案的精度，是被你手上的资源决定的。</b></p></div>
+  </div>
+
+  <p>由此引出全书最实用的一个方法——原著称之为<b>「逐级近似」「逐步精确」</b>：</p>
+
+  <div class="card">
+    <p class="muted" style="margin-top:0">面对复杂问题，<b>不要试图一次求出完美解</b>。
+    先用简单的假设把问题简化，求出一个粗糙的答案；
+    看清了问题的全貌，再逐步放宽假设、提高精度。</p>
+    <p class="muted" style="margin-bottom:0"><b>每提高一级精度，就多花一份资源。</b>
+    所以真正的问题不是「怎么做到最准」，而是——
+    <b>「在这个条件下，我该停在哪个精度上？」</b></p>
+  </div>
+
+  <div class="note ok"><span class="t">一句话</span>
+  <b>「最佳」不是最准，是在给定条件与资源下的最合适。</b>
+  能说出「我为什么停在这个精度」，比算出更多位小数更能说明你会解决问题。</div>
+
+  <div class="card"><h3 class="h4">自检三问（每次做第 1 步「明确问题」时都问一遍）</h3>
+    <ol class="muted" style="margin-bottom:0">
+      <li>这道题<b>明确说出来</b>的条件有哪些？</li>
+      <li>有哪些<b>没说出来、但真实存在</b>的假定或限制？</li>
+      <li>我需要准到什么程度？<b>再准一级，值不值那个代价？</b></li>
+    </ol>
+  </div>
+
+  <h2 id="s4">三、约束有两种：说出来的，和没说出来的</h2>
+  <p>任何问题都在「一定的条件与准则制约下」求解。困难在于，约束分两种：</p>
+
+  <div class="table-scroll">
+  <table>
+    <caption style="caption-side:bottom;text-align:left;font-size:14px;color:#64748b;padding-top:6px">
+      <b>表 2-1-②　约束的两种形态</b>（据原书第二章重绘）。
+    </caption>
+    <thead><tr><td style="width:16%" aria-hidden="true"></td><th style="width:42%">明显的约束（已说明）</th><th style="width:42%">隐含的约束（未说明）</th></tr></thead>
+    <tbody>
+      <tr>
+        <td><b>怎么来的</b></td>
+        <td>题目里白纸黑字写着</td>
+        <td>靠你从情境中自己认出来</td>
+      </tr>
+      <tr>
+        <td><b>举例</b></td>
+        <td>「十分钟内完成」「绳子质量不计」「摩擦力忽略」「假定理想条件」</td>
+        <td>「这个方案老板会不会批」「家里人能接受吗」「预算其实有上限」</td>
+      </tr>
+      <tr>
+        <td><b>漏掉的后果</b></td>
+        <td>答非所问，白做</td>
+        <td><b>方案在纸面上完美，落地时全盘崩掉</b></td>
+      </tr>
+    </tbody>
+  </table>
+  </div>
+
+  <div class="note"><span class="t">高手的分水岭</span>
+  新手只处理被明确说出来的条件；熟手会主动追问
+  <b>「这里还有哪些没说出来的假定？」</b>
+  ——现实问题里，决定成败的往往是后者。</div>
+
+  <h2 id="s5">四、逐级近似怎么用：一个漏水的反应器</h2>
+  <p>原书讲「逐级近似」，用的是一道这样的题——
+  一个反应器在排空，每隔一段时间量一次液面高度，得到一组数据：</p>
+
+  <div class="table-scroll">
+  <table id="tab-1-1" style="max-width:520px">
+    <caption style="caption-side:bottom;text-align:left;font-size:14px;color:#64748b;padding-top:6px">
+      <b>表 2-1-③　液面高度与时间的关系</b>（原书表 1-1·p18）。
+      <b>高度列 15/15 已确认；时间列 9 项已确认、6 项仍待核——待核的行不写数字。</b>
+    </caption>
+    <thead><tr><th style="width:12%">#</th><th style="width:44%">高度（吋）</th><th style="width:44%">时间（秒）</th></tr></thead>
+    <tbody>
+      <tr><td>1</td><td>15</td><td>0</td></tr>
+      <tr><td>2</td><td>14</td><td>6.0</td></tr>
+      <tr><td>3</td><td>13</td><td>12.2</td></tr>
+      <tr><td>4</td><td>12</td><td>18.7</td></tr>
+      <tr><td>5</td><td>11</td><td>25.5</td></tr>
+      <tr style="background:var(--warn-soft)"><td>6</td><td>10</td><td><b>待核</b></td></tr>
+      <tr style="background:var(--warn-soft)"><td>7</td><td>9</td><td><b>待核</b></td></tr>
+      <tr><td>8</td><td>8</td><td>40.3</td></tr>
+      <tr style="background:var(--warn-soft)"><td>9</td><td>7</td><td><b>待核</b></td></tr>
+      <tr style="background:var(--warn-soft)"><td>10</td><td>6</td><td><b>待核</b></td></tr>
+      <tr style="background:var(--warn-soft)"><td>11</td><td>5</td><td><b>待核</b></td></tr>
+      <tr><td>12</td><td>4</td><td>87.6</td></tr>
+      <tr style="background:var(--warn-soft)"><td>13</td><td>3</td><td><b>待核</b></td></tr>
+      <tr><td>14</td><td>2</td><td>117.5</td></tr>
+      <tr><td>15</td><td>1</td><td>140.7</td></tr>
+    </tbody>
+  </table>
+  </div>
+
+
+  <div class="note ok"><span class="t">★ 注意时间间隔：6.0 → 12.2 → 18.7 → 25.5</span>
+  <b>每掉 1 吋所需的时间，是在不断变长的。</b><br>
+  <span class="muted">头 1 吋只用了 6 秒，而最后那 1 吋（2→1）花了 <b>23.2 秒</b>。<br>
+  <b>——所以「液面下降」不是匀速的，不能用一条直线去套。</b><br>
+  这正是原书要你从数据里自己看出来的东西：<b>先看清形状，再选公式。</b>
+  原书随后用线性、对数、平方三种模型分别做了预测，比较哪一种最贴。</span></div>
+
+  <div class="note"><span class="t">自己试一遍：三种模型，哪条最像？</span>
+  不用算，先画：<br>
+  · <b>线性</b>：高度随时间均匀下降 → 一条直线<br>
+  · <b>对数</b>：一开始掉得快，后来越来越慢 → 一条先陡后平的曲线<br>
+  · <b>平方</b>：掉得更快 → 一条向下弯的弧<br><br>
+  <span class="muted">把上面 15 个点随手画在一张纸上，<b>你一眼就能排出顺序</b>——然后才动手算。
+  这就是「逐级近似」的第一次实践：<b>先粗后细，先看形状再上公式。</b></span></div>
+
+  <h2 id="s6">五、策略的五个用处，和八家体系的共同骨架</h2>
+  <p>为什么非要用一个「成文的策略」，而不是凭直觉来？原著列了五条，其中<b>第四条最容易被忽略，也最值钱</b>。</p>
+
+  <div class="grid g2">
+    <div class="card"><h3 class="h4">① 克服开头的恐慌</h3>
+    <p class="muted" style="margin-bottom:0">面对陌生问题时，人容易发懵。有了固定的步骤，你心里有底——
+    「平静下来，我有一个有组织的方法，一次前进一步。好，现在开始。」</p></div>
+    <div class="card"><h3 class="h4">② 看清自己的偏爱</h3>
+    <p class="muted" style="margin-bottom:0">用同一个策略走一遍，你才知道自己<b>擅长哪一步、回避哪一步</b>。
+    策略是一面镜子，照出你的长项和短板。</p></div>
+    <div class="card"><h3 class="h4">③ 控制思维的进程</h3>
+    <p class="muted" style="margin-bottom:0">知道策略分几步，你就能随时判断<b>「我现在在哪一步」</b>，
+    而不是在混乱中转圈。</p></div>
+    <div class="card" style="border-color:var(--brand);background:var(--brand-soft)"><h3 class="h4">④ 形成共同语言 ★</h3>
+    <p class="muted" style="margin-bottom:0">对一个群体来说，<b>有效的协作要求大家用同一个策略</b>。
+    因为要交流，就需要共同的语言——才能说清「我们<b>进展到哪一步</b>了」。</p></div>
+  </div>
+
+  <div class="note ok"><span class="t">为什么第四条最值钱</span>
+  前三条都是「帮自己」，第四条是<b>「帮一群人」</b>。
+  团队之所以在问题上反复扯皮，往往不是谁不努力，而是<b>每个人脑子里的「步骤」不一样</b>——
+  有人认为还在「弄清问题」，有人已经在「执行」，于是各说各话。
+  <br><br><b>一套共同的方法，就是一个团队最便宜的协作协议。</b></div>
+
+  <div class="note"><span class="t">第五条</span>
+  原著还提到：熟练运用策略能让你逐步形成<b>自己的风格</b>。先守规矩，后成风格——顺序不能颠倒。</div>
+
+  <p class="muted" style="margin-top:24px">原书把<b>八个不同的策略体系横排在一张表里</b>做比较——
+  这是全书视野最宽的一张表：</p>
+
+  <div class="table-scroll">
+  <table id="tab-2-4">
+    <caption style="caption-side:bottom;text-align:left;font-size:14px;color:#64748b;padding-top:6px">
+      <b>表 2-1-④　几种解决问题策略的粗略比较</b>（原书表 2-4·p98）。原表为横排八列，此处改排为纵列以便阅读。
+    </caption>
+    <thead><tr><th style="width:16%">体系</th><th>步骤（自上而下即原表顺序）</th></tr></thead>
+    <tbody>
+      <tr><td><b>波利亚</b></td><td>弄清问题 → 探索思考 → 拟定计划 → 实现计划 → 回顾总结</td></tr>
+      <tr><td><b>伍兹</b></td><td>弄清问题 → 明确问题 → 拟定计划 → 实现计划 → 回顾总结</td></tr>
+      <tr><td><b>心理学</b></td><td>提出问题 → 提出假设 → 检验假设</td></tr>
+      <tr><td><b>斯默尔</b></td><td>观察／了解性质 → 弄清问题中的观点 → 设计试验 → 求解 → 是否假设被证实</td></tr>
+      <tr><td><b>布鲁姆和布瑞尔</b></td><td>弄清问题的性质 → 使用的方法（或程序）→ 对解答的看法</td></tr>
+      <tr><td><b>华莱士</b></td><td>准备 → 沉思 → 启示 → 验证</td></tr>
+      <tr><td><b>普里高津</b></td><td>剖析提问 → 思索 → 立案 → 解决问题 → 证实</td></tr>
+      <tr><td><b>奥斯本</b></td><td>发现问题 → 寻找事实 → 提出设想 → 寻找构思 → 寻找解答 → 运用</td></tr>
+    </tbody>
+  </table>
+  </div>
+
+  <div class="note ok"><span class="t">★ 顺便解决了一个悬案：华莱士的第三步不叫「酝酿」</span>
+  本表第 6 行（华莱士）逐行读出的是：<b>准备 → 沉思 → 启示 → 验证</b>。<br>
+  <span class="muted">中文文献里常把华莱士四阶段写作「准备—<b>酝酿</b>—明朗—验证」，
+  而原书用的是<b>「沉思」「启示」</b>。<b>本站按原书用词，不改回通行译法。</b>
+  （完整的「创造过程四阶段」在<a href="lesson-creativity-1.html">课件 3-1</a>。）</span></div>
+
+  <div class="note ok"><span class="t">★ 八行看下去，冒出来的第一件事是：它们「同构」</span>
+  波利亚四步版、伍兹六步版，<b>连用词都几乎一样</b>；心理学三阶段是同一个骨架的压缩版；
+  斯默尔、奥斯本各自用了不同的词，但<b>顺序是同一套</b>。<br><br>
+  <b>——原书紧接着给的两句结论，必须一起引：</b><br>
+  ① 「有许多共同之处」——所以同一套方法能应付各类问题；<br>
+  ② 「解决不同类型的问题<b>有待具体化</b>」——所以不能照搬。<br>
+  <span class="muted">★ <b>只引第一句就是断章取义。</b>这本书记了八个体系，恰恰是为了说明
+  <b>「骨架可以通用，血肉必须自己长」</b>。</span></div>
+
+  <p class="muted" style="margin-top:26px">五步不是五个孤立的框——原书用一张图把<b>每一步需要什么技能</b>、
+  以及<b>态度怎么贯穿全程</b>画在了一起：</p>
+
+<figure class="psc-fig" id="fig-2-12" style="margin:22px 0 8px">
+<svg viewBox="0 0 920 660" width="100%" role="img" aria-label="解决问题的五步策略及认知与态度成分" style="max-width:920px;min-width:920px;display:block;margin:0 auto;font-family:inherit">
+  <defs>
+    <marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#1e40af"/>
+    </marker>
+  </defs>
+  <text x="120" y="30" text-anchor="middle" font-size="17" font-weight="700" fill="#1a2233">认知成分</text>
+  <text x="460" y="30" text-anchor="middle" font-size="17" font-weight="700" fill="#1e40af">策略</text>
+  <text x="800" y="30" text-anchor="middle" font-size="17" font-weight="700" fill="#1a2233">态度成分</text>
+  <g font-size="17" font-weight="700" text-anchor="middle">
+    <rect x="375" y="52"  width="170" height="58" rx="10" fill="#eff6ff" stroke="#1e40af" stroke-width="2"/>
+    <text x="460" y="88" fill="#1e40af">明确问题</text>
+    <rect x="375" y="166" width="170" height="58" rx="10" fill="#eff6ff" stroke="#1e40af" stroke-width="2"/>
+    <text x="460" y="202" fill="#1e40af">探索思考</text>
+    <rect x="375" y="280" width="170" height="58" rx="10" fill="#eff6ff" stroke="#1e40af" stroke-width="2"/>
+    <text x="460" y="316" fill="#1e40af">拟定计划</text>
+    <rect x="375" y="394" width="170" height="58" rx="10" fill="#eff6ff" stroke="#1e40af" stroke-width="2"/>
+    <text x="460" y="430" fill="#1e40af">实现计划</text>
+    <rect x="375" y="508" width="170" height="58" rx="10" fill="#eff6ff" stroke="#1e40af" stroke-width="2"/>
+    <text x="460" y="544" fill="#1e40af">回顾总结</text>
+  </g>
+  <g stroke="#1e40af" stroke-width="2" marker-end="url(#ar)">
+    <line x1="460" y1="110" x2="460" y2="162"/>
+    <line x1="460" y1="224" x2="460" y2="276"/>
+    <line x1="460" y1="338" x2="460" y2="390"/>
+    <line x1="460" y1="452" x2="460" y2="504"/>
+  </g>
+  <g font-size="14" fill="#1a2233">
+    <g text-anchor="end">
+      <text x="330" y="86">分析</text>
+      <text x="330" y="200">创造</text>
+      <text x="330" y="314">资源管理</text>
+      <text x="330" y="428">分析</text>
+      <text x="330" y="542">分析</text>
+    </g>
+    <g stroke="#cbd5e1" stroke-width="1.5" stroke-dasharray="4 3">
+      <line x1="342" y1="81"  x2="373" y2="81"/>
+      <line x1="342" y1="195" x2="373" y2="195"/>
+      <line x1="342" y1="309" x2="373" y2="309"/>
+      <line x1="342" y1="423" x2="373" y2="423"/>
+      <line x1="342" y1="537" x2="373" y2="537"/>
+    </g>
+  </g>
+  <g font-size="14" fill="#1a2233">
+    <g>
+      <text x="590" y="70">焦虑、紧张</text>
+      <text x="590" y="92">动力</text>
+      <text x="590" y="114">不怕犯错误</text>
+      <text x="590" y="136">有秩序</text>
+      <text x="590" y="158">容忍含糊不清</text>
+      <text x="590" y="196">愿意延缓判断</text>
+      <text x="590" y="218">开扩思路</text>
+      <text x="590" y="240">动脑筋的好奇心</text>
+      <text x="590" y="262">怀疑态度、诚实</text>
+      <text x="590" y="296">坚持、顽强</text>
+      <text x="590" y="348">有秩序</text>
+      <text x="590" y="370">注意细节</text>
+      <text x="590" y="392">智力的客观性、诚实</text>
+      <text x="590" y="424">兴奋、紧张、动力</text>
+      <text x="590" y="446">坚持</text>
+    </g>
+    <line x1="572" y1="60" x2="572" y2="576" stroke="#b45309" stroke-width="2" stroke-dasharray="7 5"/>
+    <line x1="572" y1="60" x2="548" y2="60" stroke="#b45309" stroke-width="2" stroke-dasharray="7 5"/>
+  </g>
+  <text x="530" y="608" font-size="13" fill="#b45309">↑ 态度不占任何一步，它用虚线连着全程</text>
+  <g font-size="14.5" fill="#1a2233">
+    <text x="30" y="608">① 在不同阶段需要不同的技能。</text>
+    <text x="30" y="632">② 在应用策略时，同样的技能不止在一个阶段处使用——例如三、四两个阶段都要用到分析。</text>
+  </g>
+</svg>
+<figcaption class="muted" style="text-align:center;font-size:14px;margin-top:6px">
+  <b>图 1-1-①　解决问题的五步策略及认知与态度成分</b>（原书图 2-12·p91）
+</figcaption>
+</figure>
+
+  <div class="table-scroll">
+  <table id="tab-fig2-12">
+    <caption style="caption-side:bottom;text-align:left;font-size:14px;color:#64748b;padding-top:6px">
+      <b>表 2-1-⑤　图 2-12 右栏「态度成分」分组</b>（原书图 2-12 逐行读图·p91）。
+    </caption>
+    <thead><tr><th style="width:20%">步骤</th><th>原书在该步右侧列出的态度成分</th></tr></thead>
+    <tbody>
+      <tr><td><b>明确问题</b></td><td>焦虑，紧张／动力／不怕犯错误／有秩序的／容忍含糊不清的能力</td></tr>
+      <tr><td><b>探索思考</b></td><td>愿意延缓判断／开扩思路／动脑筋的好奇心／怀疑态度，诚实／容忍含糊不清的能力</td></tr>
+      <tr><td><b>拟定计划</b></td><td>受阻紧张／不怕犯错误／明确／仔细／坚持，顽固</td></tr>
+      <tr><td><b>实现计划</b></td><td>仔细／有秩序／注意细节</td></tr>
+      <tr><td><b>回顾总结</b></td><td>智力的客观性，诚实／兴奋，紧张，动力／坚持／确定</td></tr>
+    </tbody>
+  </table>
+  </div>
+
+  <div class="note"><span class="t">这张表最值得看的一行</span>
+  <b>「探索思考」那一步，态度栏里排的是：愿意延缓判断、开扩思路、动脑筋的好奇心、怀疑态度诚实、容忍含糊不清。</b><br>
+  <span class="muted">——<b>五条里有四条是「忍住」：忍住不判断、忍住不收敛、忍住不确定。</b>
+  原书把「探索思考」这一步的难点，明确地放在<b>态度</b>而不是<b>技巧</b>上。</span></div>
+
+  <h2 id="s7">本节自检</h2>
+  <p>四道题，先自己答，再展开对照。</p>
+
+  <div class="card">
+    <h3 class="h4">第 1 题</h3>
+    <p>四步版与六步版最大的差异是哪一步？为什么它「代价最高」？</p>
+    <details class="dx"><summary>看参考答案</summary>
+      <div class="dx-body">
+        <p>差的是<b>「探索思考」</b>——四步版从「弄清问题」直接跳到「拟定计划」，中间缺了这一块；六步版把它补上，并额外强调了动机。</p>
+        <p>代价最高的原因：<b>跳过它，你会在错误的路上高效地狂奔。</b>没有探索，你拟定的计划只是第一个想到的方案，而实施执行那一步会把这个错误放大。</p>
+      </div>
+    </details>
+  </div>
+
+  <div class="card">
+    <h3 class="h4">第 2 题</h3>
+    <p>「这个答案不够精确，所以没做好。」——用本节的说法，这句话缺了什么？</p>
+    <details class="dx"><summary>看参考答案</summary>
+      <div class="dx-body">
+        <p>缺的是<b>「在给定条件与资源下，最佳解是什么」</b>这一步判断。</p>
+        <p>策略的定义是「<b>从已知的条件出发，达到问题最佳解答</b>」——用的是「最佳」而不是「正确」。
+        答案的精度由<b>条件</b>与<b>你愿意投入的资源</b>决定；<b>每提高一级精度就多花一份资源</b>。</p>
+        <p>所以要问的不是「怎么做到最准」，而是<b>「我该停在哪个精度上」</b>。
+        能说出「我为什么停在这个精度」，比算出更多位小数更能说明你会解决问题。</p>
+      </div>
+    </details>
+  </div>
+
+  <div class="card">
+    <h3 class="h4">第 3 题</h3>
+    <p>约束分两种？漏掉<b>隐含的约束</b>会有什么后果？请各举一个你身上发生过的例子。</p>
+    <details class="dx"><summary>看参考答案</summary>
+      <div class="dx-body">
+        <p>分<b>明显的约束</b>（题目里白纸黑字写着，如「十分钟内完成」「摩擦力忽略」）与
+        <b>隐含的约束</b>（没写出来，靠你从情境里认出来，如「这个方案老板会不会批」「预算其实有上限」）。</p>
+        <p>漏掉明显的 → 答非所问，白做；漏掉隐含的 → <b>方案在纸面上完美，落地时全盘崩掉</b>。</p>
+        <p class="muted">本题要求各举一个自己的例子，原书只给了两类约束的区分。</p>
+      </div>
+    </details>
+  </div>
+
+  <div class="card">
+    <h3 class="h4">第 4 题</h3>
+    <p>把八家体系横排看一遍，它们共同说明了两件相反的事。是哪两件？只说其中一件算不算引对了？</p>
+    <details class="dx"><summary>看参考答案</summary>
+      <div class="dx-body">
+        <p>① 「有许多共同之处」——所以同一套方法能应付各类问题；<br>
+        ② 「解决不同类型的问题<b>有待具体化</b>」——所以不能照搬。</p>
+        <p><b>只说第一件就算断章取义。</b>原书记了八个体系，恰恰是为了说明一件事——
+        <b>骨架可以通用，血肉必须自己长</b>。</p>
+      </div>
+    </details>
+  </div>
+
+  <h2 id="s8">想深入？</h2>
+  <div class="grid g2">
+    <div class="card"><h3 class="h4">第 2 章完整版</h3>
+      <p class="muted">本节是总纲。章节页里还有完整的原表、图 2-12 的左栏词表、
+      以及各处的［方法说明］。</p>
+      <p><a class="btn" href="chapter-strategy.html">去看第 2 章　五步策略 →</a></p></div>
+    <div class="card"><h3 class="h4">下一讲：五步长什么样</h3>
+      <p class="muted">本节讲「策略从哪来」，下一讲直接把五步摊开——
+      每一步的目的、关键动作、<b>产出物</b>，以及一次专家出声思考的完整示范。</p>
+      <p><a class="btn" href="lesson-strategy-2.html">去看课件 2-2　五步长什么样 →</a></p></div>
+  </div>
+
+  <h2 id="s9">下一步</h2>
+  <div class="grid g2">
+    <div class="card"><h3 class="h4">课件 2-2　五步长什么样 ＋ 看专家走一遍</h3>
+      <p class="muted">把五步操作定义表逐格摊开，再用一道经典谜题（三人三兽渡河）
+      完整示范一遍专家在每一步心里说了什么。</p>
+      <p><a class="btn sm" href="lesson-strategy-2.html">开始学习 →</a></p></div>
+    <div class="card"><h3 class="h4">回到课件目录</h3>
+      <p class="muted">「学方法」18 讲的完整清单与建页进度都在目录页。</p>
+      <p><a class="btn ghost" href="lessons.html">去看课件目录（18 讲） →</a></p></div>
+  </div>
+
+  <div class="pager">
+    <a href="lessons.html">
+      <div class="dir">INDEX</div>
+      <div class="tt">← 回到课件目录（18 讲）</div>
+    </a>
+    <a href="lesson-strategy-2.html">
+      <div class="dir">NEXT</div>
+      <div class="tt">课件 2-2　五步长什么样 →</div>
+    </a>
+  </div>
+
+</main>
+
+<footer class="footer" id="site-footer"></footer>
+
+<script src="assets/data.js"></script>
+<script src="assets/app.js"></script>
+<script>
+  /* 课件页不在 PSC_NAV 里（本次不动导航）。
+     传 'strategy'，让侧栏高亮到所属的「第 2 章」；未知 id 不会报错。 */
+  PSC.init('strategy');
+</script>
+</body>
+</html>

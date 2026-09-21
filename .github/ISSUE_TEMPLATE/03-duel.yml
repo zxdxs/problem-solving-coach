@@ -1,0 +1,44 @@
+name: 约架出题
+description: 发起一场约架（互相出题）
+title: "[约架] "
+labels: ["约架"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        ## 出题前先过三问
+        1. 这个题**有唯一正确答案**吗？有 → 不约
+        2. 答案是**数字、公式、术语**吗？是 → 不约
+        3. **换个行业的人**会做吗？不会 → 不约
+
+        **三问全过，才可以出。**
+        ❌ 不接受：学科作业、考试题、竞赛题、有唯一答案的题。
+  - type: input
+    id: nick
+    attributes: { label: 出题人昵称 }
+    validations: { required: true }
+  - type: dropdown
+    id: type
+    attributes:
+      label: 题目类型
+      options: [生活, 工作, 家庭, 人际, 其他]
+    validations: { required: true }
+  - type: textarea
+    id: problem
+    attributes:
+      label: 题目
+      description: 请把情境、约束、条件写清楚
+    validations: { required: true }
+  - type: textarea
+    id: mine
+    attributes:
+      label: 你自己的五步执行单（可选，可先留空）
+      description: 建议先不看别人的，自己走一遍再对照
+  - type: checkboxes
+    id: confirm
+    attributes:
+      label: 确认
+      options:
+        - label: 我确认这道题**没有**唯一正确答案
+        - label: 我确认这不是学科作业、考试题或竞赛题
+        - label: 我承诺收到应战后**三天内**给出反馈

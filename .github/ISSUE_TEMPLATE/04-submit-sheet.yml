@@ -1,0 +1,38 @@
+name: 提交执行单
+description: 应战约架，或参与守擂，提交你的五步执行单
+title: "[执行单] "
+labels: ["执行单"]
+body:
+  - type: input
+    id: nick
+    attributes: { label: 昵称 }
+    validations: { required: true }
+  - type: input
+    id: ref
+    attributes:
+      label: 对应的题目
+      description: 约架/守擂帖的编号或链接
+    validations: { required: true }
+  - type: textarea
+    id: s1
+    attributes: { label: ① 明确问题, description: 用自己的话重述，不抄原题 }
+    validations: { required: true }
+  - type: textarea
+    id: s2
+    attributes: { label: ② 探索思考, description: "至少 3 条候选路径；卡在这里就写清楚卡在哪" }
+    validations: { required: true }
+  - type: textarea
+    id: s3
+    attributes: { label: ③ 拟定计划 }
+  - type: textarea
+    id: s4
+    attributes: { label: ④ 实施执行 }
+  - type: textarea
+    id: s5
+    attributes: { label: ⑤ 回顾总结, description: 单位检查、经验估计、能不能推广到其他场景 }
+  - type: input
+    id: stuck
+    attributes:
+      label: 你卡在第几步
+      placeholder: 例：第 2 步，不知道该往哪个方向想
+    validations: { required: true }
