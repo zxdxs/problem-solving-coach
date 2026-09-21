@@ -120,6 +120,7 @@
             const href = it.id==='lessons' ? 'lessons.html'
                        : it.id==='philosophy' ? 'philosophy.html'
                        : it.id==='practice'  ? 'practice.html'
+                       : it.id==='inquiry'   ? 'inquiry.html'
                        : it.id==='drills'    ? 'drills.html'
                        : it.id==='quiz'      ? 'quiz.html'
                        : it.id==='progress'  ? 'progress.html'

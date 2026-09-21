@@ -82,7 +82,7 @@ problem-solving-coach/
 ├── drills.html                题库（83 题，按训练点索引）
 ├── errors.html                错误池（32 条错误归因，链到该练的题）
 ├── nonstep.html               五步之外（第六个抽屉）
-├── quiz.html                  掌握度自测（13 题，自动判分）
+├── quiz.html                  掌握度自测（16 题，自动判分）
 ├── progress.html              学习进度追踪 + 导入导出
 ├── partner.html               找陪练 / 陪练墙
 ├── references.html            方法源流、原书书目、延伸书单

@@ -72,7 +72,7 @@
     <a class="chapter-card" href="practice.html">
       <div class="no">入口 02</div>
       <h3>练技能</h3>
-      <p>五步执行单：每一步都要留下产出物，写完可导出或打印。另有题库 83 题、掌握度自测 13 题。</p>
+      <p>五步执行单：每一步都要留下产出物，写完可导出或打印。另有题库 83 题、掌握度自测 16 题。</p>
     </a>
     <a class="chapter-card" href="drills.html#g-science">
       <div class="no">入口 03</div>
@@ -81,6 +81,11 @@
       <b>估算与数量级 8 题</b>——从原书对应章节的印刷页直接跳过去。</p>
     </a>
   </div>
+
+  <h2 id="path">学习路径</h2>
+  <p class="muted" style="margin:4px 0 10px">八章正文，从「什么叫完全掌握」一路到「态度与动机」；
+  最后一张是<b>示范题</b>——它是一道题，不是第 9 章。</p>
+  <div class="grid g2" id="path-grid"></div>
 
   <h2 id="how">训练怎么进行</h2>
   <div class="card">
@@ -105,7 +110,7 @@
     <p class="muted" style="margin:10px 0 0">怎么练：先读<a href="lessons.html">课件目录（18 讲，约 338 分钟）</a>；
     每道题填<a href="practice.html">五步执行单</a>；到<a href="drills.html">题库（83 题，按训练点）</a>找题，
     或走<a href="drills.html#g-science">进专题</a>直接攻关原书大学数理题；
-    用<a href="quiz.html">掌握度自测（13 题）</a>定位自己在哪一层；记录都在<a href="progress.html">学习进度</a>里。
+    用<a href="quiz.html">掌握度自测（16 题）</a>定位自己在哪一层；记录都在<a href="progress.html">学习进度</a>里。
     为什么这样设计，见<a href="philosophy.html">理念篇</a>。</p>
   </div>
 
@@ -160,6 +165,35 @@
                          (W.usage ? '（' + W.usage + '）' : '，一次做一道');
       }
     }
+  })();
+
+  /* 学习路径：八章卡 + 一张示范题卡。
+     ★ PSC_CHAPTERS 常数本身一个字符都不改——concat 返回的是新数组。
+       示范题卡不是第 9 章：不显示编号，只带「示范题」角标，满宽独占一行。
+       链接一律沿用数据里既有的 href，不在脚本里拼路径。 */
+  (function(){
+    var box = document.getElementById('path-grid');
+    if(!box) return;
+    if(typeof PSC_CHAPTERS === 'undefined' || !PSC_CHAPTERS) return;
+    var extraCard = {
+      id:'inquiry',
+      demo:true,
+      title:'用五步策略入门一门陌生学问',
+      href:'inquiry.html',
+      desc:'一道远迁移示范题：把五步套在一件人人都会遇到的事上——如何在一个月内入门一门完全陌生的学问。它不是第 9 章，是一道题。'
+    };
+    var cards = PSC_CHAPTERS.concat([extraCard]);
+    box.innerHTML = cards.map(function(ch){
+      var head = ch.demo
+        ? '<div class="no" style="letter-spacing:0"><span class="badge hot" style="margin-left:0">示范题</span></div>'
+        : '<div class="no">' + PSC.esc(ch.no || '') + '</div>';
+      return '<a class="chapter-card" href="' + PSC.esc(ch.href) + '"' +
+             (ch.demo ? ' style="grid-column:1/-1"' : '') + '>' +
+             head +
+             '<h3>' + PSC.esc(ch.title) + '</h3>' +
+             '<p>' + PSC.esc(ch.desc || '') + '</p>' +
+             '</a>';
+    }).join('');
   })();
 </script>
 </body>

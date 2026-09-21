@@ -11,6 +11,30 @@
     return m[k] || k;
   }
 
+  /* 自评量规（scale）的题号一律由数据算出，不写死。
+     将来加题、移题或调序，文案自动跟着变，不会悄悄说错。 */
+  function scaleNos(){
+    return PSC_QUIZ.questions.map((q, i)=>q.type==='scale' ? i+1 : null).filter(n=>n!==null);
+  }
+
+  /* 烟测断言：渲染出的题号，必须与实际 scale 题逐位一致。
+     不一致就在控制台报错并打上 data-preflight="fail"。 */
+  function renderScaleNote(){
+    const el = document.getElementById('quiz-scale-note');
+    if(!el) return;
+    const nos = scaleNos();
+    if(!nos.length) return;
+    el.innerHTML = '第 '+nos.join('、')+' 题是<b>自评量规</b>，请诚实作答——它在测“你实际能不能做到”，不是在测谦虚。';
+    const shown = (el.textContent.match(/\d+/g) || []).map(Number);
+    const ok = shown.length === nos.length && shown.every((n, i)=>n === nos[i]);
+    if(ok){
+      el.removeAttribute('data-preflight');
+    } else {
+      el.setAttribute('data-preflight','fail');
+      try{ console.error('[PSC] 自评量规题号文案与数据不一致：数据='+nos.join(',')+' 文案='+shown.join(',')); }catch(e){}
+    }
+  }
+
   function renderQuiz(){
     const box = document.getElementById('quiz-box');
     if(!box) return;
@@ -148,6 +172,7 @@
 
   document.addEventListener('DOMContentLoaded', ()=>{
     if(!document.getElementById('quiz-box')) return;
+    renderScaleNote();
     renderQuiz();
     renderHistory();
   });
