@@ -33,7 +33,7 @@ python3 -m http.server 8000
 ## 二、怎么分享给别人 / 发布上线
 
 > 🚀 **本站是纯静态站：整个文件夹就是网站根目录，丢到任意静态托管上即可上线**（不需要后端、不需要数据库）。
-> 目前的实际部署是**双 origin、同一个域名**：国内走 **腾讯云 COS ＋ CDN**，国外走 **GitHub Pages**，都服务 `https://solve-lab.cn/`。
+> 目前的实际部署是**双 origin、同一个域名**：国内走 **腾讯云 EdgeOne**（边缘加速，回源 GitHub Pages），国外走 **GitHub Pages**，都服务 `https://solve-lab.cn/`。
 
 
 
@@ -41,7 +41,7 @@ python3 -m http.server 8000
 
 | 平台 | 做法 | 费用 |
 |---|---|---|
-| **腾讯云 COS**（本站国内用，成都 `ap-chengdu`） | 建桶 → 开**静态网站托管**（首页 `index.html`、错误页 `404.html`）→ 上传整个文件夹 → 挂 CDN 并开智能压缩（步骤详见 `TENCENT-CLOUD.md`） | 存储几元/月 ＋ CDN 流量 |
+| **腾讯云 EdgeOne**（本站国内用） | 域名 DNS 配 CNAME → EdgeOne 节点 → **回源 GitHub Pages**（`zxdxs.github.io`）；EdgeOne 控制台添加加速域名后按提示配 TXT 验证与 CNAME | 个人站免费额度内基本不花钱 |
 | **GitHub Pages**（本站国外用） | 建仓库 → 上传文件 → Settings → Pages → 选主分支根目录 | 免费 |
 | **Vercel** | 拖拽整个文件夹到 vercel.com/new | 免费（Hobby 方案） |
 | **Netlify** | 拖拽文件夹到 app.netlify.com/drop | 免费 |
@@ -51,7 +51,7 @@ python3 -m http.server 8000
 > 若要使用中国大陆的服务器（华为云/腾讯云/阿里云等），需要完成 **ICP 备案**（通常 1–20 个工作日）。
 > 想立刻上线、不想备案，优先选 Vercel / Netlify / GitHub Pages。
 
-> ⚠️ **双 origin 的两条硬要求**（本站用「国内腾讯云 COS ＋ 国外 GitHub Pages」时踩得到）：
+> ⚠️ **双 origin 的两条硬要求**（本站用「国内腾讯云 EdgeOne ＋ 国外 GitHub Pages」时踩得到）：
 > ① **两个 origin 必须同时更新** —— 页脚的版本号就是判据，两边不一致时用户会看到新旧混排；
 > ② **静态资源要带版本号或短缓存** —— `assets/` 下的路径是裸路径（无 `?v=`），务必给 HTML 设短缓存、给 `assets/` 设长缓存并在升级时改名或加查询串。
 
@@ -88,7 +88,7 @@ problem-solving-coach/
 ├── references.html            方法源流、原书书目、延伸书单
 ├── provenance.html            ★ 版权 · 授权 · 版本溯源（来源分层 / 引用规则 / 致谢名单 / 版本沿革）
 ├── contact.html               分享 / 联系 / 共同维护（联系钩子页）
-├── 404.html                   404 页（腾讯云 COS 静态托管的错误文档）
+├── 404.html                   404 页（GitHub Pages 提供的错误文档，EdgeOne 回源）
 ├── CNAME / robots.txt / sitemap.xml   部署与搜索引擎配置
 └── assets/
     ├── style.css              全站样式（含打印样式）
