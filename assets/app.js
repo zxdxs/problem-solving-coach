@@ -105,8 +105,9 @@
   function buildNav(){
     const nav = document.getElementById('nav-links');
     if(!nav) return;
-    /* 这 4 条是硬编码底线：即使 data.js 载入失败／PSC_NAV 结构异常，导航也不能整片消失
-       （首页 ＋ 找陪练 ＋ 版权溯源 ＋ 联系与共建；R1-U 后「延伸阅读」升为群组，故为 4 而非 5） */
+    /* 硬编码底线：即使 data.js 载入失败／PSC_NAV 结构异常，导航也不能整片消失
+       （首页为固定首项；找陪练在正常态由业主指定位置插入，见 partnerLink；
+        R1-AQ 起「联系与共建」并入 PSC_NAV 群组，不再尾部固定） */
     let html = '<a class="navlink" href="index.html" data-id="index">首页</a>';
     /* 「找陪练」的位置由业主指定：排在「练技能」与「延伸阅读」之间（R1-AA）。
        降级态（data.js 挂了）时仍在下面单独补一条，见 !navGroups 分支。 */
@@ -117,7 +118,19 @@
         PSC_NAV.forEach(g=>{
           html += '<div class="nav-item"><a class="navlink" href="javascript:void(0)">'+g.group+'</a><div class="dropdown">';
           (g.items||[]).forEach(it=>{
-            const href = it.id==='lessons' ? 'lessons.html'
+            if(it.children && it.children.length){
+              if(it.href){
+                html += '<div class="nav-sub"><a href="'+it.href+'" data-id="'+it.id+'">'+it.title+'</a></div>';
+              } else {
+                html += '<div class="nav-sub">'+it.title+'</div>';
+              }
+              (it.children||[]).forEach(c=>{
+                html += '<a class="nav-sublink" href="'+c.href+'" data-id="'+c.id+'">'+c.title+'</a>';
+              });
+              return;
+            }
+            const href = it.href
+                       || (it.id==='lessons' ? 'lessons.html'
                        : it.id==='philosophy' ? 'philosophy.html'
                        : it.id==='practice'  ? 'practice.html'
                        : it.id==='inquiry'   ? 'inquiry.html'
@@ -128,9 +141,11 @@
                        : it.id==='errors'    ? 'errors.html'
                        : it.id==='partner'   ? 'partner.html'
                        : it.id==='provenance' ? 'provenance.html'
+                       : it.id==='background' ? 'background.html'
                        : it.id==='references' ? 'references.html'
                        : it.id==='contributors' ? 'contributors.html'
-                       : 'chapter-'+it.id+'.html';
+                       : it.id==='contact'   ? 'contact.html'
+                       : 'chapter-'+it.id+'.html');
             html += '<a href="'+href+'" data-id="'+it.id+'">'+it.title+'</a>';
           });
           html += '</div></div>';
@@ -144,14 +159,13 @@
     }
     /* data.js 没载入（或分组渲染失败）时，导航只剩固定入口。
        补上「版权 · 授权 · 溯源」——它是版权／授权／备案时第一个被引用的页面，
-       不能因为数据文件挂了就到不了（R1-H 删掉贡献者页、R1-T 删掉 plan 页之后，
-       固定入口只剩「首页／找陪练」2 条；加上本行与尾端「延伸阅读／联系与共建」2 条，
-       降级态共 5 条；data.js 正常时它已在 PSC_NAV 里，不会重复输出）。 */
+       不能因为数据文件挂了就到不了（R1-AQ 起「联系与共建」并入 PSC_NAV 群组，
+       尾部固定「联系与共建」入口已移除，降级态共 3 条：首页／找陪练／版权溯源；
+       data.js 正常时「版权溯源」已在 PSC_NAV 里，不会重复输出）。 */
     if(!navGroups){
       html += partnerLink;
       html += '<a class="navlink" href="provenance.html" data-id="provenance">版权 · 授权 · 溯源</a>';
     }
-    html += '<a class="navlink" href="contact.html" data-id="contact">联系与共建</a>';
     nav.innerHTML = html;
     buildNavToggle(nav);
   }
