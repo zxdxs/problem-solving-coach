@@ -70,15 +70,66 @@
   <h2>怎么成为贡献者</h2>
   <ol>
     <li><b>做任何一件小事</b>——挑个错、出道题、提个建议，都算。</li>
-    <li><b>告诉我们</b>——到<a href="contact.html">联系与共建</a>页发邮件或开 Issue。</li>
+    <li><b>告诉我们</b>——到<a href="contact.html">联系</a>页发邮件或开 Issue。</li>
     <li><b>等它出现在这个页面上</b>——维护者核实后会加进名单，并通知你。</li>
   </ol>
+
+  <h2>参与方式（从低到高）</h2>
+  <p class="muted">这个站点最需要的不是赞美，是这三件事。门槛从低到高：</p>
+  <div class="grid g3">
+    <div class="card">
+      <h3 class="h4">① 挑错与建议</h3>
+      <p class="muted">发现错别字、讲得不清楚、题目有歧义、某句话让你卡住了——
+      直接开个 Issue 或写信。<b>最低门槛，也是最有用的贡献。</b></p>
+    </div>
+    <div class="card">
+      <h3 class="h4">② 补充题目</h3>
+      <p class="muted">自己出一道好题（尤其是真实工作／生活场景题），连同答案和解析一起发过来。
+      <b>站内的场景题都是这么来的。</b></p>
+    </div>
+    <div class="card">
+      <h3 class="h4">③ 写章节 / 做翻译</h3>
+      <p class="muted">把骨架章节扩成详填版，或翻译成其他语言。
+      可先读<a href="references.html">延伸阅读</a>，了解这套方法的来龙去脉。</p>
+    </div>
+  </div>
+
+  <h3>改哪里：一张对照表</h3>
+  <div class="table-scroll">
+  <table>
+    <caption style="caption-side:bottom;text-align:left;font-size:14px;color:#64748b;padding-top:6px">
+      <b>表 参建-1　共建对照表</b>（本站整理）
+    </caption>
+    <thead><tr><th>你想改什么</th><th>改哪个文件</th><th>难度</th></tr></thead>
+    <tbody>
+      <tr><td>加／改一道自测题</td><td><code>assets/data.js</code> → <code>PSC_QUIZ</code></td><td>低</td></tr>
+      <tr><td>调整五步的操作定义</td><td><code>assets/data.js</code> → <code>PSC_STEPS</code></td><td>低</td></tr>
+      <tr><td>改联系方式</td><td><code>assets/data.js</code> → <code>PSC_SITE</code></td><td>低</td></tr>
+      <tr><td>增删章节、改章节简介</td><td><code>assets/data.js</code> → <code>PSC_CHAPTERS</code></td><td>中</td></tr>
+      <tr><td>写章节正文</td><td><code>chapter-*.html</code></td><td>中</td></tr>
+      <tr><td>改配色、字号、打印样式</td><td><code>assets/style.css</code></td><td>中</td></tr>
+    </tbody>
+  </table>
+  </div>
+  <p class="muted"><code>data.js</code> 是全站的数据中枢：改一处，首页、导航、自测、进度表会同步更新。</p>
+
+  <h3>协作流程</h3>
+  <ol>
+    <li>Fork 仓库到你自己名下</li>
+    <li>改你要改的文件（建议先从小处开始，比如加一道题）</li>
+    <li>提交 Pull Request，说明改了什么、为什么</li>
+    <li>合并后即发布——静态站没有复杂的构建步骤</li>
+  </ol>
+
+  <div class="note warn"><span class="t">共建前请先读这一段</span>
+  贡献内容请<b>自己写</b>。例题优先选用经典问题，或用你自己的真实工作场景来设计。
+  更详细的说明见<a href="references.html">延伸阅读</a>。</div>
 
   <div class="note">
     <span class="t">想直接从代码层面参与？</span>
     本站是开源的。会 Git 的朋友可以直接 Fork 仓库 → 改文件 → 提 Pull Request。
     合并后你的名字会出现在 GitHub 的贡献者图表里，也会被加进这个页面。
-    仓库地址与文件对照表见<a href="contact.html">联系与共建</a>。
+    仓库地址见<a href="contact.html">联系</a>页；文件对照表就在本页上方。
   </div>
 
   <div class="note ok">

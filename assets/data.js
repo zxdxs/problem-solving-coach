@@ -53,7 +53,7 @@
            1.15.0 = 版权与溯源集中化（新建 provenance.html；正文页免责/编辑史说明移出；出处压缩为一行式）
    ★ PSC_VERSION 由 build_data.py 一并保留；重建 data.js 时不会丢。
    ============================================================ */
-const PSC_VERSION = {major:1, minor:33, patch:0, date:'2026-09-20', codename:'R1-AO · 字号整体校准与 stat 对比修复'};
+const PSC_VERSION = {major:1, minor:35, patch:0, date:'2026-09-28', codename:'R1-AQ · 导航分层重构：课件 18 讲展开、7 章入延伸阅读、联系与共建拆分'};
 
 /* ============================================================
    站点共用数据：章节地图 + 题库 + 五步操作定义
@@ -75,6 +75,9 @@ const PSC_VERSION = {major:1, minor:33, patch:0, date:'2026-09-20', codename:'R1
    ============================================================ */
 const PSC_SITE = {
   name:'解决问题训练站',
+  // 正式站址：分享推荐语／复制本站网址一律用这个，不用 location.href
+  //   ——后者在本地预览时会变成 localhost，贴出去没人打得开（R1-BG 修复）。
+  url:'https://solve-lab.cn',
   // 站名一句（slogan）：已于 R1-U（1.24.0）依业主指示【退役】。
   //   退役经过：先砍首页 hero 色块（色块里装着这两句），业主随后明确「灵魂广告也砍」。
   //   现状：本字段与 sloganSub 一律留空 ⇒ renderFooter() 的 `!PSC_SITE.slogan` 分支
@@ -174,14 +177,26 @@ const PSC_CONTRIBUTOR_TYPES = [
 const PSC_NAV = [
   {group:'学方法', items:[
     {id:'philosophy', title:'理念篇（序）：什么叫“完全掌握”'},
-    {id:'lessons', title:'课件目录（18 讲）'},
-    {id:'self', title:'第 1 章　认识自己的思维'},
-    {id:'strategy', title:'第 2 章　五步策略'},
-    {id:'creativity', title:'第 3 章　创造力与头脑风暴'},
-    {id:'classify', title:'第 4 章　问题分类'},
-    {id:'knowledge', title:'第 5 章　知识学习与结构'},
-    {id:'comm', title:'第 6 章　表达与交流'},
-    {id:'attitude', title:'第 7 章　态度与动机'},
+    {id:'lessons', title:'课件（18 讲）', href:'lessons.html', children:[
+      {id:'lesson-strategy-1', title:'2-1 策略从哪来', href:'lesson-strategy-1.html'},
+      {id:'lesson-strategy-2', title:'2-2 五步长什么样', href:'lesson-strategy-2.html'},
+      {id:'lesson-strategy-3', title:'2-3 每一步卡住了怎么办', href:'lesson-strategy-3.html'},
+      {id:'lesson-strategy-4', title:'2-4 怎么验收', href:'lesson-strategy-4.html'},
+      {id:'lesson-self-1', title:'1-1 认识自己的解题风格', href:'lesson-self-1.html'},
+      {id:'lesson-self-2', title:'1-2 两人结对', href:'lesson-self-2.html'},
+      {id:'lesson-self-3', title:'1-3 练习任务与自检', href:'lesson-self-3.html'},
+      {id:'lesson-creativity-1', title:'3-1 想法为什么会枯竭', href:'lesson-creativity-1.html'},
+      {id:'lesson-creativity-2', title:'3-2 备好引发物', href:'lesson-creativity-2.html'},
+      {id:'lesson-classify-1', title:'4-1 分类之前先定目的', href:'lesson-classify-1.html'},
+      {id:'lesson-classify-2', title:'4-2 四种结构化工具', href:'lesson-classify-2.html'},
+      {id:'lesson-knowledge-1', title:'5-1 记笔记与工作记忆', href:'lesson-knowledge-1.html'},
+      {id:'lesson-knowledge-2', title:'5-2 结构充足还是缺乏', href:'lesson-knowledge-2.html'},
+      {id:'lesson-knowledge-3', title:'5-3 估一估与向内的题', href:'lesson-knowledge-3.html'},
+      {id:'lesson-comm-1', title:'6-1 写之前先问', href:'lesson-comm-1.html'},
+      {id:'lesson-comm-2', title:'6-2 口头交流的四个特点', href:'lesson-comm-2.html'},
+      {id:'lesson-comm-3', title:'6-3 先查再干', href:'lesson-comm-3.html'},
+      {id:'lesson-attitude-1', title:'7-1 态度与定势', href:'lesson-attitude-1.html'},
+    ]},
   ]},
   {group:'练技能', items:[
     {id:'practice',  title:'五步执行单'},
@@ -193,9 +208,14 @@ const PSC_NAV = [
     {id:'inquiry',   title:'示范题：入门一门陌生学问'},
   ]},
   {group:'延伸阅读', items:[
+    {id:'background', title:'背景知识库'},
+    {id:'chapters', title:'原书提炼', href:'chapters.html'},
     {id:'references', title:'书目与方法源流'},
-    {id:'provenance', title:'版权 · 授权 · 溯源'},
-    {id:'contributors', title:'贡献墙'},
+  ]},
+  {group:'联系与共建', items:[
+    {id:'contact', title:'联系', href:'contact.html'},
+    {id:'contributors', title:'共建 · 贡献墙', href:'contributors.html'},
+    {id:'provenance', title:'版权 · 授权 · 溯源', href:'provenance.html'},
   ]},
 ];
 
@@ -310,7 +330,7 @@ const PSC_QUIZ = {
         {t:'六步多了“画图”与“列表”，本站并入明确问题', ok:false},
         {t:'两者步骤完全相同，只是命名不同', ok:false},
       ],
-      explain:'“探索思考”是众多版本分野的关键：它补足了从“弄清问题”直接跳到“拟定计划”之间的空白。动机与态度贯穿解题全程，因此不单列为一步。'
+      explain:'“探索思考”是众多版本分野的关键：它补足了从“弄清问题”直接跳到“拟定计划”之间的空白。动机与态度贯穿解题全程，因此不单列为一步。（版本沿革属背景知识，见背景知识库；此题作扩展考核保留。）'
     },
     {
       id:'q3', layer:'know', type:'single',
