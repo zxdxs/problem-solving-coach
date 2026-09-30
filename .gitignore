@@ -1,2 +1,9 @@
 .DS_Store
 tools/lvsimian-quote-verification-report.md
+
+# 内部工作文件：含真实姓名、备案细节与未公开计划，**不得进公开仓库**
+# （原先只写在本机 .git/info/exclude，换 clone 或换机器就失效；2026-09-30 移到这里）
+MIGRATION.md
+SHENGLV-*.md
+.tools/
+.dsh-vision-toolkit/
