@@ -10,7 +10,7 @@
 |---|---|---|---|
 | 問題解決訓練站 | https://solve-lab.cn/ | 蜀ICP备2026055920号-1 | 已上線 |
 | 中文聲韻 | https://shenglv.org.cn/ | 蜀ICP备2026055920号-2 | 已上線 |
-| 聲律發蒙 · 方言導讀（試作） | 待部署至 `shenglv.org.cn/fangyan/` | 同上（同域名） | 未上線 |
+| 聲律發蒙 · 方言導讀 | https://shenglv.org.cn/fangyan/ | 同上（同域名） | 已併入主站倉庫 |
 
 > 備案主體為「中文声韵」，服務負責人同一位；同一主體下的多個域名共用主號、以 `-N` 區分。
 > **備案號必須顯示在網站底部並連結 https://beian.miit.gov.cn/**（法定義務）。
@@ -87,8 +87,8 @@ python3 build_mandarin.py       # 普通話（基準線）
 python3 build_sichuan_site.py   # 產生 site/assets/*
 # 預覽
 python3 -m http.server 8794 --directory site
-# 部署（先方言站、驗證 200、才動主站導覽）
-SSH_TARGET=<user@host> WEB_ROOT=<站點根> ./deploy.sh --go
+# 部署：同步進主站倉庫 fangyan/ → 自檢 → 提交 → 推送
+./deploy.sh --go
 ```
 
 ---
@@ -109,4 +109,4 @@ SSH_TARGET=<user@host> WEB_ROOT=<站點根> ./deploy.sh --go
 - [ ] `DEPLOY.md`／`TENCENT-CLOUD.md` 已過期（Vercel／COS），應改寫或標為歷史文件
 - [ ] `shenglv` 缺部署文件（Caddy 站點根目錄、更新流程、回退方式）
 - [ ] `shenglv` 倉庫無根目錄 `README.md`
-- [ ] 本表的「站點根目錄」等值待補（需伺服器存取權）
+- [x] 部署模型已釐清：`shenglv-site-repo/` 即線上內容，方言站置於其 `fangyan/`
