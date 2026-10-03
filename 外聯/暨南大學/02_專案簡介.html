@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+<head>
+<meta charset="utf-8">
+<title>中文声韵 · 专案简介</title>
+<style>
+  @page { size: A4; margin: 16mm 18mm; }
+  html { font-size: 10.5pt; }
+  body { font-family: "Songti SC", "SimSun", "Noto Serif CJK SC", serif;
+         line-height: 1.65; color: #1c1a17; max-width: 46rem; margin: 0 auto;
+         padding: 1.6rem 1.2rem 3rem; background: #fff; }
+  h1 { font-size: 1.5rem; margin: 0 0 .2rem; letter-spacing: .04em; }
+  .sub { color: #6b6459; font-size: .88rem; margin: 0 0 1.2rem; }
+  h2 { font-size: 1.05rem; margin: 1.6rem 0 .5rem; padding-bottom: .18rem;
+       border-bottom: 1px solid #e0d8c9; letter-spacing: .04em; }
+  p { margin: .5rem 0; }
+  ul, ol { margin: .5rem 0 .5rem 1.2rem; padding: 0; }
+  li { margin: .22rem 0; }
+  table { width: 100%; border-collapse: collapse; font-size: .9rem; margin: .6rem 0; }
+  th, td { border: 1px solid #ddd5c6; padding: .28rem .45rem; text-align: left; }
+  th { background: #f3eee4; font-weight: 700; }
+  td.n { text-align: right; white-space: nowrap; }
+  code { font-family: "Menlo", "Consolas", monospace; font-size: .88em;
+         background: #f6f2ea; padding: .05em .3em; border-radius: 2px; }
+  a { color: #1f5d7a; text-decoration: none; }
+  .note { background: #f7f4ee; border-left: 3px solid #9c2b1f; padding: .6rem .8rem;
+          margin: .9rem 0; font-size: .92rem; }
+  .self { background: #f3eee4; border-radius: 3px; padding: .8rem .9rem; margin-top: 1.2rem;
+          font-size: .95rem; }
+  hr { border: none; border-top: 1px solid #e0d8c9; margin: 1.4rem 0; }
+  .small { font-size: .86rem; color: #6b6459; }
+  @media print { body { padding: 0; } a { color: #1c1a17; } }
+</style>
+</head>
+<body>
+
+<h1>中文声韵 · 专案简介</h1>
+<p class="sub">以《声律发蒙》刘节五卷本为骨架的中文声韵导读与工具网站　·　
+  <a href="https://shenglv.org.cn/">https://shenglv.org.cn/</a>　·　2026 年 10 月</p>
+
+<h2>一、这是什么</h2>
+<p>一个以《声律发蒙》刘节五卷本为骨架的中文声韵<b>导读与工具网站</b>。</p>
+<p>用途很朴素：让孩子读一本有声音、有依据可查的韵书；也让同一个中古音类在不同方言里的走向，能够并排对照。</p>
+<p>本站不是新编韵书，也不自成一家之言——它把散在各处的音韵信息，按<b>同一本书</b>归位。</p>
+
+<h2>二、版本与底本</h2>
+<ul>
+  <li><b>版本来源：国图藏本，据官网校勘。</b></li>
+  <li>正文为元·祝明撰《声律发蒙》，明万历刊本，属公有领域。</li>
+  <li>所据为<b>刘节五卷本</b>：每韵所附小韵字谱与反切，为刘节原谱的忠实转录；刘节原谱本于《广韵》，兼收所选《集韵》字。字谱字头依原本用正体，不作简繁转换。</li>
+  <li>全书五卷 <b>106 韵、376 章、5,998 对句</b>，与平水韵韵部相合。</li>
+</ul>
+
+<h2>三、做了什么（实测规模）</h2>
+<table>
+  <tr><th>项目</th><th>数量</th></tr>
+  <tr><td>全本韵部／章／对句</td><td class="n">106 韵 ／ 376 章 ／ 5,998 句</td></tr>
+  <tr><td>字谱反切</td><td class="n">3,256 条</td></tr>
+  <tr><td>逐字标注粤拼</td><td class="n">7,730 字（罕用字 106 字标「待考」，1.4%，不自造读音）</td></tr>
+  <tr><td>粤语示范音频</td><td class="n">5,998 句（Edge zh-HK 神经语音，批次合成后随站封装，播放无需连网）</td></tr>
+  <tr><td>方言对照</td><td class="n">5 语族 16 点：普通话、粤语、四川话 6、吴语 2、闽南语潮汕片 6</td></tr>
+</table>
+
+<h2>四、方法（可被检验的部分）</h2>
+<p><b>1. 选音依反切。</b>多音字优先依该字所属反切定音，依序比对「声母集合 × 韵母集合」（不取单一读音），再比韵母、再比四声类别；无反切可依者取字典主要读音并于介面标示。不吻合者全部列出，不隐藏。</p>
+<p><b>2. 反切对帐。</b>全合 57.4%；韵母吻合 76.6%；声调吻合 86.2%。失配处即「待查清单」，公开可查，未作修饰。</p>
+<p><b>3. 中古入声在普通话的归调（全量实测）。</b></p>
+<ul>
+  <li>全浊入 265 字 → 归阳平 <b>74%</b></li>
+  <li>次浊入 263 字 → 归去声 <b>93%</b></li>
+  <li>清入 646 字 → 散入四声，最大一群仅 <b>44%</b></li>
+  <li>置换检定：以反切上字分组，组内服从主流 <b>72.3%</b>；把调类打散重排 2,000 次的虚无分布<b>最大仅 56.4%</b> → 声母确实决定去向（此检定不含清浊标注，非循环论证）</li>
+</ul>
+<p class="small">措辞：普通话入声的分派<b>规则确实存在，但繁杂——非专业人士难以推测</b>；难处在于这把钥匙（中古声母清浊）现代读音不再透露。</p>
+<p><b>4. 中古声母不靠人工记忆。</b>以本书小韵的完整反切直查《广韵》小韵表（515 韵中 508 韵命中，余 7 韵改查其反切上字），声母再依三十六字母归清浊。两法皆用 <code>nk2028/tshet-uinh-data</code>（CC0 1.0）。</p>
+
+<h2>五、资料来源与授权</h2>
+<table>
+  <tr><th>语族</th><th>来源</th><th>授权</th></tr>
+  <tr><td>粤语</td><td>rime-cantonese</td><td>CC-BY-4.0 ＋ ODbL</td></tr>
+  <tr><td>普通话</td><td>mozillazg/pinyin-data</td><td>MIT</td></tr>
+  <tr><td>四川话</td><td>蜀拼通音字典（Papnas/shupin）＋各点 Rime 方案规则</td><td>GPL-3.0</td></tr>
+  <tr><td>吴语</td><td>上海话 rime-shanghainese／宁波话 rime-ningbo</td><td>CC0 1.0 ／ LGPL</td></tr>
+  <tr><td>闽南语</td><td>潮汕六点 Rime 方案</td><td>GPL-3.0</td></tr>
+  <tr><td>中古音</td><td>nk2028/tshet-uinh-data</td><td>CC0 1.0</td></tr>
+</table>
+<p><b>GPL-3.0 的对应来源已随站附上</b>，逐档可自 <a href="https://shenglv.org.cn/sources.html">sources.html</a> 下载。本站不使用授权不明或无授权的资料。</p>
+
+<h2>六、已知限制（自陈）</h2>
+<ol>
+  <li><b>多音字约三成七</b>（2,857 字）。选音依反切，但反切未必覆盖全部用例，仍有误判可能。</li>
+  <li><b>反切对帐未达全吻合。</b>中古到粤语的声母演变规则尚未完全建模（全浊清化、云母演变、韵摄分化等），失配处即待查清单。</li>
+  <li><b>字谱罕用字待考。</b>字典未收者标「待考」，不参与对帐统计。</li>
+  <li><b>语料混入简体字二十余处</b>（如「对、来、盖、纠」）。原文本应为繁体，已还原后取音，并记录待回报校勘。</li>
+  <li><b>音频为机器合成。</b>节奏与吟诵艺术处理不等同人声。</li>
+  <li><b>各点标音方案不同</b>（蜀拼、吴语方案、潮汕方案各异），跨语族比较时是否严格可比，是尚未解决的问题。</li>
+  <li><b>客家话暂缓。</b>高覆盖的公开资料未标明授权；唯一有明确授权者覆盖率仅约四成。依「来源必须有明确授权」的标准暂不纳入。</li>
+</ol>
+
+<h2>七、想请教的问题</h2>
+<ol>
+  <li><b>选音体例</b>：以「反切所属声母集合 × 韵母集合」定音、遇不合者列为待查——此法是否站得住？有无更妥的标准做法？</li>
+  <li><b>字表对齐</b>：本站以《声律发蒙》376 章为骨架，学界田野多用《方言调查字表》。二者是否需要对齐？若需要，如何对齐较妥？</li>
+  <li><b>入声归调的表述</b>：第四节第 3 点的统计与措辞，有无不确或过度推论之处？</li>
+  <li><b>方言点与分区</b>：16 个点的选点与片区归属是否妥当？</li>
+  <li><b>客家话</b>：可否指点<b>有明确授权且覆盖足够</b>的客话资料，或正规引用途径？</li>
+  <li><b>错误指正</b>：任何明显的错误，都请直接指出。</li>
+</ol>
+
+<h2>八、联络</h2>
+<p>网站：<a href="https://shenglv.org.cn/">https://shenglv.org.cn/</a>　·　
+   维护者：课孙翁（个人）　·　邮箱：<a href="mailto:hello@solve-lab.cn">hello@solve-lab.cn</a></p>
+
+<div class="self">
+  <b>自述：</b>我没有学术背景，专职带孙。起初只是想把《声律发蒙》整理成一本给孙辈的启蒙书，
+  用的是刘节五卷本；校勘过程中逐渐觉得，中文声韵这件事值得传下去，于是做了这个网站。
+  错谬难免，恳请指正。
+</div>
+
+</body>
+</html>
