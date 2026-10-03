@@ -51,7 +51,9 @@
 | `INTEGRATION.md` | 與主站的整合、線上現況稽核、NAV 補丁、部署方案、Caddy 片段 |
 | `NOTICE.md` | 各來源的授權與我方改動聲明 |
 | `授權說明.md` | 授權摘要 |
-| `deploy.sh` | 部署腳本（預設 dry-run） |
+| `deploy.sh` | 部署腳本（預設 dry-run）；含新鮮度閘門 |
+| `build.sh` | 全量建置（固定五步順序，逐步檢查 exit code） |
+| `qingzhuo.py` | 中古聲母→清濁、入聲聚合、置換檢定、站上文案（單一實作） |
 | `patches/` | 主站導覽補丁（`*.live.patch` 為部署用） |
 
 ---
@@ -81,15 +83,19 @@ node tools/render_test.js                # 無瀏覽器渲染測試
 ### 方言導讀（試作）
 ```bash
 cd sichuan-pilot
-python3 build_sichuan.py        # 四川話 6 點（字典＋方案規則）
-python3 build_dialects.py       # 吳語 2 點、閩南語 6 點
-python3 build_mandarin.py       # 普通話（基準線）
-python3 build_sichuan_site.py   # 產生 site/assets/*
-# 預覽
-python3 -m http.server 8794 --directory site
+./build.sh                      # 全量建置（順序固定，見腳本註解）
+python3 -m http.server 8794 --directory site    # 預覽
 # 部署：同步進主站倉庫 fangyan/ → 自檢 → 提交 → 推送
 ./deploy.sh --go
 ```
+
+`build.sh` 的五步順序不可調換：
+`build_sichuan`（產 `_work/meta.json`）→ `build_dialects` → `build_mandarin`
+→ `analyze_rusheng`（產 `_work/rusheng.json`）→ `build_sichuan_site`（渲染 `site/`）。
+
+`shengyun.html` 的入聲段由 `build_sichuan_site.py` 依 `_work/rusheng.json` 生成，
+夾在 `<!--RUSHENG:BEGIN-->` 與 `<!--RUSHENG:END-->` 之間——**該段勿手改，標記勿刪**。
+`deploy.sh` 會擋下兩者：標記缺失，或資料比 `rusheng.json` 新（代表改了資料未重跑分析）。
 
 ---
 
