@@ -1,16 +1,19 @@
 # 全部網站 · 索引與更新方式
 
-三個站的倉庫、建置指令、部署方式與文件位置。**這是總表；各站細節見其自身文件。**
+兩個站的倉庫、建置指令、部署方式與文件位置。**這是總表；各站細節見其自身文件。**
 
 ---
 
-## 一、三個站
+## 一、兩個站
 
 | 站 | 網址 | 備案 | 狀態 |
 |---|---|---|---|
 | 問題解決訓練站 | https://solve-lab.cn/ | 蜀ICP备2026055920号-1 | 已上線 |
 | 中文聲韻 | https://shenglv.org.cn/ | 蜀ICP备2026055920号-2 | 已上線 |
-| 聲律發蒙 · 方言導讀 | https://shenglv.org.cn/fangyan/ | 同上（同域名） | 已併入主站倉庫 |
+
+> **方言站已於 2026-10-03 併入「中文聲韻」**，不再是獨立站點。原 `shenglv.org.cn/fangyan/`
+> **從未上線過**（一直 404），故廢除它不產生任何外部死鏈。
+> 粵語降為方言切換器中的一個點，與普通話、四川話 6 點、吳語 2 點、閩南語 6 點並列。
 
 > 備案主體為「中文声韵」，服務負責人同一位；同一主體下的多個域名共用主號、以 `-N` 區分。
 > **備案號必須顯示在網站底部並連結 https://beian.miit.gov.cn/**（法定義務）。
@@ -42,19 +45,22 @@
 ⚠️ **缺部署文件**：實際部署方式（Caddy 服務於備案雲資源 `123.206.124.48`，站點根目錄待確認）
 **未見於任何文件**。另倉庫根目錄無 `README.md`。
 
-### 聲律發蒙 · 方言導讀（試作）
-倉庫：`sichuan-pilot/`
+### 方言資料產線（已併入「中文聲韻」）
+倉庫：`sichuan-pilot/`（產出物寫進 `shenglv-site-repo/`）
 
 | 文件 | 內容 |
 |---|---|
-| `README.md` | 四語族 15 點的現況、覆蓋率、入聲四命運、產線三步 |
-| `INTEGRATION.md` | 與主站的整合、線上現況稽核、NAV 補丁、部署方案、Caddy 片段 |
+| `README.md` | 5 語族 16 點的現況、覆蓋率、入聲四命運 |
+| `INTEGRATION.md` | 與主站的整合沿革、線上現況稽核、Caddy 片段 |
 | `NOTICE.md` | 各來源的授權與我方改動聲明 |
 | `授權說明.md` | 授權摘要 |
-| `deploy.sh` | 部署腳本（預設 dry-run）；含新鮮度閘門 |
 | `build.sh` | 全量建置（固定五步順序，逐步檢查 exit code） |
+| `build_unified.py` | **單一出站**：寫入主站倉庫（assets／data／shengyun.html 入聲段） |
+| `deploy.sh` | 驗證＋提交＋推送（不搬檔案）；含新鮮度與殘留連結閘門 |
+| `build_report_rusheng.md` | 入聲歸調的全量實測報告（515 韻、1174 字） |
 | `qingzhuo.py` | 中古聲母→清濁、入聲聚合、置換檢定、站上文案（單一實作） |
-| `patches/` | 主站導覽補丁（`*.live.patch` 為部署用） |
+| `build_sichuan_site.py` | **已退役為零件庫**（`POINTS` ＋ `render_rusheng`）；`main()` 會拒絕執行 |
+| `patches/` | 主站導覽補丁（歷史檔，`*.live.patch` 為當時的部署補丁） |
 
 ---
 
@@ -80,29 +86,42 @@ node tools/render_test.js                # 無瀏覽器渲染測試
 # 上站：Caddy 服務的目錄（部署方式待補文件）
 ```
 
-### 方言導讀（試作）
+### 方言資料（併入「中文聲韻」的那一份）
 ```bash
 cd sichuan-pilot
 ./build.sh                      # 全量建置（順序固定，見腳本註解）
-python3 -m http.server 8794 --directory site    # 預覽
-# 部署：同步進主站倉庫 fangyan/ → 自檢 → 提交 → 推送
-./deploy.sh --go
+# 預覽就用主站倉庫本身：
+python3 -m http.server 8794 --directory ../shenglv-site-repo
+./deploy.sh                     # 驗證（dry-run）
+./deploy.sh --go                # 提交並推送
 ```
 
 `build.sh` 的五步順序不可調換：
 `build_sichuan`（產 `_work/meta.json`）→ `build_dialects` → `build_mandarin`
-→ `analyze_rusheng`（產 `_work/rusheng.json`）→ `build_sichuan_site`（渲染 `site/`）。
+→ `analyze_rusheng`（產 `_work/rusheng.json`）→ `build_unified`（寫入主站倉庫）。
 
-`shengyun.html` 的入聲段由 `build_sichuan_site.py` 依 `_work/rusheng.json` 生成，
-夾在 `<!--RUSHENG:BEGIN-->` 與 `<!--RUSHENG:END-->` 之間——**該段勿手改，標記勿刪**。
-`deploy.sh` 會擋下兩者：標記缺失，或資料比 `rusheng.json` 新（代表改了資料未重跑分析）。
+**產出直接寫進 `shenglv-site-repo/` 根目錄**（不再有 pilot 自己的 `site/`）：
+`assets/fangyan-meta.js`、`assets/fangyan.js`、`data/upstream*/`，以及
+`shengyun.html` 的入聲段。
+
+`deploy.sh` 不搬檔案，只驗證與提交；它會擋下三種情況：
+產生檔缺失／比 `rusheng.json` 舊、`fangyan/` 目錄或連結殘留、
+`shengyun.html` 缺 RUSHENG 標記。
+
+### 方言切換器的三處程式碼（都在主站倉庫，人工維護）
+| 檔案 | 角色 |
+|---|---|
+| `assets/app.js` | 兩級切換器、`readOf/readAt` 逐點讀音、`renderShengyun`、`renderFamGrid` |
+| `quanben.html` | 全本頁，含 `<div id="ptBar">` 與 `assets/fangyan-meta.js` |
+| `shengyun.html` | 聲韻入門；**唯一**預載 `assets/fangyan.js` 的頁面 |
+| `tools/render_test.js` | 依頁面自己的 `<script src>` 載入，並跑 `?pt=chengdu` 換音閘門 |
 
 ---
 
-## 四、通則（三站共用的硬規矩）
+## 四、通則（兩站共用的硬規矩）
 
 1. **備案號必須顯示**：頁腳顯示完整號碼（含 `-N`）並連結工信部。
-2. **提交前指定路徑，不用 `git add -A`**：三個目錄都有未納入版控的內部文件，
+2. **提交前指定路徑，不用 `git add -A`**：各目錄都有未納入版控的內部文件，
    一律 `git add <file>`，並在推送前核對 `git show --stat`。
 3. **不散布無明確授權的資料**；隨附上游來源與授權全文（GPL-3.0 之要求）。
 4. **對外宣稱要有實測依據**；自檢門檻不得放空（空集合不得冒充通過）。
@@ -115,4 +134,6 @@ python3 -m http.server 8794 --directory site    # 預覽
 - [ ] `DEPLOY.md`／`TENCENT-CLOUD.md` 已過期（Vercel／COS），應改寫或標為歷史文件
 - [ ] `shenglv` 缺部署文件（Caddy 站點根目錄、更新流程、回退方式）
 - [ ] `shenglv` 倉庫無根目錄 `README.md`
-- [x] 部署模型已釐清：`shenglv-site-repo/` 即線上內容，方言站置於其 `fangyan/`
+- [x] 部署模型已釐清：`shenglv-site-repo/` 即線上內容；方言站**已併入主站**（`f807d15`）
+- [ ] `/fangyan/` 從未上線，之後也不必再做 404 轉址
+- [ ] 線上仍待同步：GitHub 推送不會自動部署，需在 CVM 上更新站點根目錄
