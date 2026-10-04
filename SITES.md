@@ -20,10 +20,46 @@
 
 ---
 
+## 一之二、主機與 GitHub（2026-10 實測）
+
+**兩個站都不是靠 GitHub 在跑。**
+
+| 站 | DNS | 回應 | 主機 |
+|---|---|---|---|
+| solve-lab.cn | `123.206.124.48` | `server: Caddy` | 同一台 CVM |
+| shenglv.org.cn | `123.206.124.48` | `server: Caddy` | 同上 |
+
+`CNAME`（內容 `solve-lab.cn`）是 GitHub Pages 時代的殘留，**目前不生效**——
+DNS 指向 CVM，回應標頭是 Caddy，不是 `GitHub.com`。`.github/` 底下只有 Issues 模板，**沒有 Actions**。
+
+### GitHub 的角色
+
+僅為異地備份與協作入口，**不參與部署**。業主 2026-10 指示「不再放 github，
+github 只保留識人站」，查證後續問：**兩個倉庫維持現狀、不刪**——因為
+solve-lab.cn 有四個入口連到 GitHub Issues，刪庫即失效：
+
+| 入口 | 連結 |
+|---|---|
+| 找同伴 | `/issues/new?template=01-find-partner.yml` |
+| 應徵教練 | `/issues/new?template=02-be-coach.yml` |
+| 約戰 | `/issues/new?template=03-duel.yml` |
+| 提交講義 | `/issues/new?template=04-submit-sheet.yml` |
+
+（見 `partner.html` 與 `assets/data.js`。）
+
+**識人訓練站**仍在 GitHub，未動。
+
+### ⚠ 工作區邊界
+
+`~/Desktop/shenglv-site-repo/` **已在本工作區之外**（工作區是
+`~/Desktop/problem-solving-coach/`）。動它需要每次授權，或把兩個倉庫移回工作區內。
+
+---
+
 ## 二、文件在哪
 
 ### 問題解決訓練站（`solve-lab.cn`）
-倉庫：`problem-solving-coach/`（GitHub `zxdxs/problem-solving-coach`）
+倉庫：`problem-solving-coach/`（本工作區；GitHub `zxdxs/problem-solving-coach`）
 
 | 文件 | 內容 | 狀態 |
 |---|---|---|
@@ -36,7 +72,7 @@
 `README.md` 已於 `0f9cc48` 更正為此；唯 `DEPLOY.md`／`TENCENT-CLOUD.md` 兩份未同步更新。
 
 ### 中文聲韻（`shenglv.org.cn`）
-倉庫：`shenglv-site-repo/`（GitHub `zxdxs/shenglv`）
+倉庫：`~/Desktop/shenglv-site-repo/`（**已移出本工作區**；GitHub `zxdxs/shenglv`）
 
 | 文件 | 內容 |
 |---|---|
@@ -46,7 +82,7 @@
 **未見於任何文件**。另倉庫根目錄無 `README.md`。
 
 ### 方言資料產線（已併入「中文聲韻」）
-倉庫：`sichuan-pilot/`（產出物寫進 `shenglv-site-repo/`）
+倉庫：`~/Desktop/shenglv-site-repo/sichuan-pilot/`（**巢狀在站點倉庫內**；產出物寫進上層）
 
 | 文件 | 內容 |
 |---|---|
