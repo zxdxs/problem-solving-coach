@@ -285,7 +285,15 @@
                   '<a href="https://beian.miit.gov.cn/" target="_blank" rel="noopener">'+
                   esc(PSC_SITE.beian)+'</a>';
           if(PSC_SITE.gongan){
-            h += '　|　<a href="https://beian.mps.gov.cn/" target="_blank" rel="noopener">'+
+            /* 公安联网备案：号与图标须一并悬挂（见 data.js 的 gongan 注释）。
+               查询码取号中的数字部分，链接到全国互联网安全管理服务平台。 */
+            var code = (String(PSC_SITE.gongan).match(/\d{8,}/) || [''])[0];
+            var ghref = code
+              ? 'https://beian.mps.gov.cn/#/query/webSearch?code=' + encodeURIComponent(code)
+              : 'https://beian.mps.gov.cn/';
+            h += '　|　<a href="'+ghref+'" target="_blank" rel="noopener">'+
+                 '<img src="assets/ghs.png" alt="公安备案图标" width="20" height="20"'+
+                 ' style="vertical-align:text-bottom;margin-right:3px">'+
                  esc(PSC_SITE.gongan)+'</a>';
           }
           return h+'</div>';
