@@ -49,6 +49,26 @@ solve-lab.cn 有四個入口連到 GitHub Issues，刪庫即失效：
 
 **識人訓練站**仍在 GitHub，未動。
 
+### 目錄佈局（2026-10-15 重整）
+
+```
+~/Desktop/problem-solving-coach/          ← psc 倉庫；**根目錄即 solve-lab.cn 網站根目錄**
+~/Desktop/聲韻工程/
+├── shenglv-site-repo/                    ← shenglv.org.cn 的內容
+├── sichuan-pilot/                        ← 方言產線（repo.path 指向上面那個）
+└── 外聯/                                  ← 暨南大學接觸材料（內部，不進任何 repo）
+```
+
+**為什麼要分開**：psc 與 shenglv-site-repo 的 repo 根目錄**各自就是該站的網站根目錄**，
+同步時整包複製。所以任何放在其中的內部檔案都會公開。實際踩過兩次：
+
+1. `sichuan-pilot` 巢狀在站點倉庫內 → 整個產線（327 檔 12MB）公開在 shenglv.org.cn
+2. `外聯/` 放進 psc → 隨 repo 提交而公開在 **GitHub**（raw 網址實測 200）
+
+處理：兩者皆移出（見上圖）；`外聯/` 並已用 `git filter-branch` 從 psc 歷史清除、
+強制推送，raw 網址現為 404。**`build.sh`／`deploy.sh` 的路徑判斷順序為
+① `REPO` 環境變數 ② `repo.path` ③ 並排 ④ 巢狀。**
+
 ### ⚠ 工作區邊界
 
 `~/Desktop/shenglv-site-repo/` **已在本工作區之外**（工作區是
@@ -72,7 +92,7 @@ solve-lab.cn 有四個入口連到 GitHub Issues，刪庫即失效：
 `README.md` 已於 `0f9cc48` 更正為此；唯 `DEPLOY.md`／`TENCENT-CLOUD.md` 兩份未同步更新。
 
 ### 中文聲韻（`shenglv.org.cn`）
-倉庫：`~/Desktop/shenglv-site-repo/`（**已移出本工作區**；GitHub `zxdxs/shenglv`）
+倉庫：`~/Desktop/聲韻工程/shenglv-site-repo/`（**已移出本工作區**；GitHub `zxdxs/shenglv`）
 
 | 文件 | 內容 |
 |---|---|
@@ -82,7 +102,7 @@ solve-lab.cn 有四個入口連到 GitHub Issues，刪庫即失效：
 **未見於任何文件**。另倉庫根目錄無 `README.md`。
 
 ### 方言資料產線（已併入「中文聲韻」）
-倉庫：`~/Desktop/shenglv-site-repo/sichuan-pilot/`（**巢狀在站點倉庫內**；產出物寫進上層）
+倉庫：`~/Desktop/聲韻工程/sichuan-pilot/`（**與站點倉庫並排**；以 `repo.path` 指向站點倉庫）
 
 | 文件 | 內容 |
 |---|---|
@@ -127,7 +147,7 @@ node tools/render_test.js                # 無瀏覽器渲染測試
 cd sichuan-pilot
 ./build.sh                      # 全量建置（順序固定，見腳本註解）
 # 預覽就用主站倉庫本身：
-python3 -m http.server 8794 --directory ../shenglv-site-repo
+python3 -m http.server 8794 --directory ../shenglv-site-repo/shenglv-site-repo
 ./deploy.sh                     # 驗證（dry-run）
 ./deploy.sh --go                # 提交並推送
 ```
