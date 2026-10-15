@@ -5,6 +5,9 @@ tools/lvsimian-quote-verification-report.md
 # （原先只写在本机 .git/info/exclude，换 clone 或换机器就失效；2026-09-30 移到这里）
 MIGRATION.md
 SHENGLV-*.md
+# 站点总索引（含两次内部文件外泄的记录、主机与目录布局）：同样不公开。
+# 2026-10-15 已移至 ~/Desktop/聲韻工程/SITES.md；此处保留规则以防再放回来。
+SITES.md
 # 外聯材料（個人情況、接觸策略、信件草稿）：不得進公開倉庫。
 # 2026-10-15 已移至 ~/Desktop/聲韻工程/外聯/；此處保留規則以防再放回來。
 外聯/

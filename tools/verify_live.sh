@@ -25,13 +25,16 @@ BASE="${BASE:-https://solve-lab.cn}"
 PASS=0; FAIL=0
 
 # ★ case 的樣式是 glob，不是正則——`^(a|b)$` 在這裡不成立（^ $ 會被當字面字元），
-#   必須用真正的 glob 寫法。排除的是「不屬於公開站點」的內部工作文件。
+#   必須用真正的 glob 寫法。排除兩類：① 版控雜項與開發工具，② 不該公開的內部文件
+#   （② 改由第六節正面檢查它們「必須 404」，否則排除就等於放行）。
+INTERNAL_DOCS="SITES.md MIGRATION.md DEPLOY.md TENCENT-CLOUD.md"
+
 is_internal() {
   case "${1}" in
     .git|.git/*|.github|.github/*) return 0 ;;
     .gitignore|.gitattributes) return 0 ;;   # 版控雜項，非站點內容
     tools|tools/*) return 0 ;;               # 開發工具（驗收腳本本身也在內），非站點內容
-    SITES.md) return 0 ;;
+    SITES.md|MIGRATION.md|DEPLOY.md|TENCENT-CLOUD.md) return 0 ;;
     *) return 1 ;;
   esac
 }
@@ -131,6 +134,21 @@ c=$(code https://shenglv.org.cn/)
 if [ "${c}" = "200" ]; then ok "中文聲韻站 —— shenglv.org.cn → ${c}"; else no "中文聲韻站 —— shenglv.org.cn → ${c}"; fi
 
 echo
+echo "── 六、內部文件不得出現在網站上（留在本機與倉庫即可）"
+# 起因：倉庫根目錄 = 網站根目錄，任何放在根目錄的檔案都會被公開。
+# 2026-09 曾因此把暨南大學外聯材料公開在 GitHub；同一個坑在網站端也存在——
+# 這幾份是寫給自己看的（主機、桶名、帳號 ID、備案過程），不是給訪客看的。
+LEAK=0
+for d in ${INTERNAL_DOCS}; do
+  c=$(code "${BASE}/${d}")
+  if [ "${c}" = "200" ]; then
+    no "${d} —— 線上仍可讀取（HTTP 200），應自伺服器刪除"; LEAK=$((LEAK + 1))
+  else
+    ok "${d} —— 線上 → ${c}（未公開）"
+  fi
+done
+
+echo
 echo "════════════════════════════════"
 if [ "${FAIL}" = 0 ]; then
   echo "結果：${PASS} 項全數通過 —— 線上就是本倉庫的內容。"
@@ -141,6 +159,11 @@ if [ "${BAD}" != 0 ]; then
   echo
   echo "第三節有 ${BAD} 個檔案未同步。要上傳的就是這些（倉庫根目錄 → 網站根目錄，相對路徑不變）："
   for f in ${BADLIST}; do echo "  ${f}"; done
+fi
+if [ "${LEAK}" != 0 ]; then
+  echo
+  echo "第六節：有 ${LEAK} 份內部文件仍掛在網站上，請自伺服器刪除（它們不是站點內容，刪掉不影響任何頁面，"
+  echo "        站內沒有任何連結指向它們，sitemap 也沒收錄）。"
 fi
 echo "若是 git checkout 型主機：cd 站點根目錄 && git pull"
 exit 1
