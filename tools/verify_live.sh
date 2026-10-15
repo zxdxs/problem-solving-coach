@@ -30,6 +30,7 @@ is_internal() {
   case "${1}" in
     .git|.git/*|.github|.github/*) return 0 ;;
     .gitignore|.gitattributes) return 0 ;;   # 版控雜項，非站點內容
+    tools|tools/*) return 0 ;;               # 開發工具（驗收腳本本身也在內），非站點內容
     SITES.md) return 0 ;;
     *) return 1 ;;
   esac
