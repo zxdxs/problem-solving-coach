@@ -39,7 +39,13 @@ is_internal() {
   esac
 }
 
-code()   { curl -s -o /dev/null -w '%{http_code}' -m 20 "${1}" 2>/dev/null || echo 000; }
+# 取狀態碼。★ 不要寫成 `curl … || echo 000`：curl 失敗時 -w 已經印了 000，
+#   `||` 再接一個 000 ⇒ 變成「000000」，訊息會出現「線上回 000000」這種鬼東西（實測踩到）。
+code() {
+  local c
+  c=$(curl -s -o /dev/null -w '%{http_code}' -m 20 "${1}" 2>/dev/null) || true
+  case "${c}" in ''|000) printf '000' ;; *) printf '%s' "${c}" ;; esac
+}
 body()   { curl -s -m 20 "${1}" 2>/dev/null || true; }
 md5f()   { local s; if command -v md5 >/dev/null 2>&1; then md5 -q "${1}"; else s=$(md5sum "${1}"); echo "${s%% *}"; fi; }
 md5url() { local t; t=$(mktemp); if curl -s -m 30 -o "${t}" "${1}" 2>/dev/null; then md5f "${t}"; fi; rm -f "${t}"; }
@@ -110,15 +116,17 @@ echo "── 三、本地與線上逐位元一致（同步判定的核心）"
 SAME=0; BAD=0; BADLIST=""
 while IFS= read -r f; do
   if is_internal "${f}"; then continue; fi
+  # 直接用 same_file（不同會重抓一次）判斷，避免一次網路抖動就誤報未同步
+  if same_file "${f}"; then
+    SAME=$((SAME + 1)); continue
+  fi
   c=$(code "${BASE}/${f}")
   if [ "${c}" != "200" ]; then
-    no "${f} —— 線上回 ${c}（本地有、線上取不到）"; BAD=$((BAD + 1)); BADLIST="${BADLIST} ${f}"; continue
-  fi
-  if same_file "${f}"; then
-    SAME=$((SAME + 1))
+    no "${f} —— 線上回 ${c}（本地有、線上取不到）"
   else
-    no "${f} —— 線上與本地不同（此檔未同步）"; BAD=$((BAD + 1)); BADLIST="${BADLIST} ${f}"
+    no "${f} —— 線上與本地不同（此檔未同步）"
   fi
+  BAD=$((BAD + 1)); BADLIST="${BADLIST} ${f}"
 done < <(cd "${ROOT}" && git ls-files)
 if [ "${BAD}" = 0 ]; then ok "全部 ${SAME} 個站點檔案與線上逐位元一致"; fi
 
